@@ -1,0 +1,70 @@
+/* =====================================
+>>> Animations
+======================================*/
+
+/* Hero
+--------------------------------*/
+@keyframes showcase {
+  0% {
+    background-size: 100%;
+    background-image: url("/images/backgrounds/crane.webp");
+  }
+  25% {
+    background-size: 105%;
+    background-image: url("/images/backgrounds/housing.webp");
+  }
+  50% {
+    background-size: 100%;
+    background-image: url("/images/backgrounds/containers.webp");
+  }
+  75% {
+    background-size: 105%;
+    background-image: url("/images/backgrounds/worker.webp");
+  }
+  100% {
+    background-size: 100%;
+    background-image: url("/images/backgrounds/crane.webp");
+  }
+}
+
+@media screen and (max-width: 768px){
+  @keyframes showcase {
+    0% {
+      background-size: cover;
+      background-image: url("/images/backgrounds/crane.webp");
+    }
+    25% {
+      background-size: cover;
+      background-image: url("/images/backgrounds/housing.webp");
+    }
+    50% {
+      background-size: cover;
+      background-image: url("/images/backgrounds/containers.webp");
+    }
+    75% {
+      background-size: cover;
+      background-image: url("/images/backgrounds/worker.webp");
+    }
+    100% {
+      background-size: cover;
+      background-image: url("/images/backgrounds/crane.webp");
+    }
+  }
+}
+
+/* Bobfade
+--------------------------------*/
+@keyframes bobfade {
+  0% {
+    top: 0px;
+    opacity: 0;
+  }
+  50% {
+    top: 15px;
+    opacity: 1;
+  }
+  100% {
+    top: 30px;
+    opacity: 0;
+  }
+}

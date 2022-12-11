@@ -1,0 +1,22 @@
+/* >>>> NICHE GLOBAL STYLESHEET <<<< */
+
+/* =====================================
+>>> Style  Imports
+======================================*/
+
+/* Partials 
+--------------------------------*/
+@import "/styles/scss/partials/colours";
+@import "/styles/scss/partials/effects";
+@import "/styles/scss/partials/mixins";
+@import "/styles/scss/partials/animations";
+@import "/styles/scss/partials/fonts";
+@import "/styles/scss/partials/buttons";
+@import "/styles/scss/partials/classes";
+@import "/styles/scss/partials/page";
+@import "/styles/scss/partials/components";
+
+/* Bootstrap
+--------------------------------*/
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
