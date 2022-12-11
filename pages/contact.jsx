@@ -10,7 +10,9 @@ export default function Contact() {
         <title>Portfolio | Contact</title>
       </Head>
       <Layout>
-        <h1>Contact</h1>
+      <div className="container py-5">
+        <h1 className="text-center">Contact</h1>
+        </div>
       </Layout>
     </>
   );

@@ -6,9 +6,30 @@
 --------------------------------*/
 .nav-bar {
   border-bottom: 1px solid $mylightgrey;
-  .navlink{
-    a{
-      color: $myblack !important;
+  .nav-link {
+    a {
+      color: $myblack;
+      border: 1px solid transparent;
+      position: relative;
+      &.active {
+        color: $myorange;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $myorange;
+        border-radius: 2px;
+        transition: 0.4s ease;
+      }
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 }

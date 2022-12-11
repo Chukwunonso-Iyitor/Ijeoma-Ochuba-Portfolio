@@ -10,7 +10,9 @@ export default function About() {
         <title>Portfolio | About</title>
       </Head>
       <Layout>
-        <h1>About</h1>
+        <div className="container py-5">
+        <h1 className="text-center">About</h1>
+        </div>
       </Layout>
     </>
   );
