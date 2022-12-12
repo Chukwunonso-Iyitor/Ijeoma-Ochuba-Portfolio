@@ -14,20 +14,24 @@
       &.active {
         color: $myorange;
       }
-      &::after {
-        position: absolute;
+      &::before {
         content: "";
-        width: 0%;
+        position: absolute;
+        display: block;
         height: 2px;
-        bottom: 0;
-        left: 0;
+        width: 100%;
         background-color: $myorange;
         border-radius: 2px;
-        transition: 0.4s ease;
+        bottom: 0px;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
       }
       &:hover {
-        &::after {
-          width: 100%;
+        &::before {
+          transform: scaleX(1);
+          transform-origin: bottom left;
         }
       }
     }
