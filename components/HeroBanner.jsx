@@ -3,21 +3,35 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Hero = styled.section`
-  height: 580px;
-  background-image: url("/images/dots.svg");
-  background-size: 20%;
-  background-repeat: repeat;
-  .introduction {
-    h1 {
-      font-weight: 700;
+  &.hero-banner {
+    height: 580px;
+    background-image: url("/images/dots.svg");
+    background-size: 20%;
+    background-repeat: repeat;
+    .introduction {
+      h1 {
+        font-weight: 700;
+      }
+      p {
+        font-size: 22px;
+      }
     }
-    p {
-      font-size: 22px;
+    .hero-image {
+      object-fit: cover;
+      mix-blend-mode: multiply;
     }
   }
-  .hero-image {
-    object-fit: cover;
-    mix-blend-mode: multiply;
+
+  @media (max-width: 1200px) {
+    .hero-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  @media (max-width: 768px) {
+    &.hero-banner {
+      height: auto;
+    }
   }
 `;
 const HeroBanner = () => {
@@ -27,10 +41,10 @@ const HeroBanner = () => {
       .scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <Hero className="py-5 d-flex align-items-center">
+    <Hero className="hero-banner py-5 d-flex align-items-center">
       <div className="container">
         <div className="row">
-          <div className="col introduction pe-5 mt-5">
+          <div className="col-12 col-lg introduction pe-xl-5 mt-5">
             <h1>
               <em className="me-3">Hello! 👋</em> I&apos;m Ijeoma{" "}
             </h1>
@@ -53,7 +67,7 @@ const HeroBanner = () => {
               </button>
             </div>
           </div>
-          <div className="col d-flex justify-content-center">
+          <div className="col d-flex justify-content-center my-5 my-lg-0">
             <Image
               src="/images/ux-hero.svg"
               alt="UX design models"

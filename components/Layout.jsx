@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
+import NavbarMobile from "./NavbarMobile";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
 
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
       </Head>
       <header>
         <Navbar></Navbar>
+        <NavbarMobile></NavbarMobile>
       </header>
       <Main>{children}</Main>
       <Footer></Footer>

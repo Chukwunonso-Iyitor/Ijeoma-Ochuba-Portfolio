@@ -37,3 +37,16 @@
     }
   }
 }
+#mobile-nav-menu {
+  .menu-items {
+    box-shadow: $myshadow;
+    .nav-link {
+      a {
+        color: $myblack;
+        &.active {
+          color: $myorange;
+        }
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@ export default function Home() {
         <HeroBanner></HeroBanner>
         <CaseStudiesWrapper id="case-studies" className="pb-5">
           <div className="container">
-            <SectionTitle title="Case Studies" className="col-6"></SectionTitle>
+            <SectionTitle title="Case Studies"></SectionTitle>
           </div>
         </CaseStudiesWrapper>
       </Layout>

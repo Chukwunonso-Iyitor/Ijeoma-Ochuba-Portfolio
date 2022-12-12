@@ -10,8 +10,8 @@ const Title = styled.div`
 
 const SectionTitle = (props) => {
   return (
-    <Title className={`row ${props.className}`}>
-      <div className="col">
+    <Title className={`row col-12 col-sm-10 col-lg-8 col-xl-6 ${props.className}`}>
+      <div className="col-2 col-sm">
         <hr className="text-black" />
       </div>
       <div className="col">

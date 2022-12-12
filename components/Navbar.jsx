@@ -38,7 +38,7 @@ const Nav = styled.nav`
 const Navbar = () => {
   const router = useRouter();
   return (
-    <Nav className="nav-bar">
+    <Nav className="nav-bar d-none d-lg-block">
       <div className="container py-3">
         {" "}
         <div className="row justify-content-between align-items-center">
