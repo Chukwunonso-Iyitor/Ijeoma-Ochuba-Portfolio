@@ -17,12 +17,12 @@ const Nav = styled.nav`
     h4 {
       font-family: "Montserrat", sans-serif;
       font-weight: 400;
-      font-size: 18px;
+      font-size: 16px;
     }
     h6 {
       font-family: "Oxygen", sans-serif;
       font-weight: lighter;
-      font-size: 14px;
+      font-size: 12px;
       letter-spacing: 0.6px;
     }
   }
