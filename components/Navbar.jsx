@@ -16,6 +16,10 @@ const Nav = styled.nav`
     transition: 0.2s ease;
     .nav-link {
       list-style-type: none;
+      a {
+        font-weight: 400;
+        letter-spacing: 0.8px;
+      }
     }
     .profile-logo {
       .profile-pic {
