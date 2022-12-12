@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = styled.section`
   height: 580px;
@@ -14,6 +15,10 @@ const Hero = styled.section`
       font-size: 22px;
     }
   }
+  .hero-image {
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
 `;
 const HeroBanner = () => {
   const caseStudies = () => {
@@ -25,7 +30,7 @@ const HeroBanner = () => {
     <Hero className="py-5 d-flex align-items-center">
       <div className="container">
         <div className="row">
-          <div className="col introduction pe-5">
+          <div className="col introduction pe-5 mt-5">
             <h1>
               <em className="me-3">Hello! 👋</em> I&apos;m Ijeoma{" "}
             </h1>
@@ -39,12 +44,24 @@ const HeroBanner = () => {
               <Link href="/contact" className="btn-grey me-2">
                 Hire me
               </Link>
-              <button type="button" className="btn-grey-alt" onClick={caseStudies}>
+              <button
+                type="button"
+                className="btn-grey-alt"
+                onClick={caseStudies}
+              >
                 See work
               </button>
             </div>
           </div>
-          <div className="col"></div>
+          <div className="col d-flex justify-content-center">
+            <Image
+              src="/images/ux-hero.svg"
+              alt="UX design models"
+              width={600}
+              height={400}
+              className="hero-image"
+            />
+          </div>
         </div>
       </div>
     </Hero>
