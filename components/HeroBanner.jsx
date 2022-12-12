@@ -17,7 +17,10 @@ const Hero = styled.section`
       }
       .waving-hand {
         cursor: none;
+        transition: scale 0.6s ease;
+        animation-fill-mode: backwards;
         &:hover {
+          scale: 1.2;
           animation: oscillate 1s linear infinite alternate;
         }
       }
