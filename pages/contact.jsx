@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from "@emotion/styled";
 import Layout from "../components/Layout";
-
+import SectionTitle from "../components/SectionTitle";
 
 export default function Contact() {
   return (
@@ -10,9 +10,9 @@ export default function Contact() {
         <title>Portfolio | Contact</title>
       </Head>
       <Layout>
-      <div className="container py-5">
-        <h1 className="text-center">Contact</h1>
-        </div>
+        <section className="container py-5">
+          <SectionTitle title="Contact"></SectionTitle>
+        </section>
       </Layout>
     </>
   );

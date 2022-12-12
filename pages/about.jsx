@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from "@emotion/styled";
 import Layout from "../components/Layout";
-
+import SectionTitle from "../components/SectionTitle";
 
 export default function About() {
   return (
@@ -10,9 +10,9 @@ export default function About() {
         <title>Portfolio | About</title>
       </Head>
       <Layout>
-        <div className="container py-5">
-        <h1 className="text-center">About</h1>
-        </div>
+        <section className="container py-5">
+          <SectionTitle title="About"></SectionTitle>
+        </section>
       </Layout>
     </>
   );
