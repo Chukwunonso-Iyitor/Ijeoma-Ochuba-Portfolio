@@ -3,6 +3,9 @@ import Navbar from "./Navbar";
 import NavbarMobile from "./NavbarMobile";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Main = styled.main`
   min-height: 200vh;
@@ -10,6 +13,9 @@ const Main = styled.main`
 `;
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <>
       <Head>
