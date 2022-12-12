@@ -15,6 +15,12 @@ const Hero = styled.section`
       p {
         font-size: 22px;
       }
+      .waving-hand {
+        cursor: none;
+        &:hover {
+          animation: oscillate 1s linear infinite alternate;
+        }
+      }
     }
     .hero-image {
       object-fit: cover;
@@ -51,7 +57,10 @@ const HeroBanner = () => {
               data-aos-duration="1000"
               data-aos-delay="100"
             >
-              <em className="me-3">Hello! 👋</em> I&apos;m Ijeoma{" "}
+              <em className="me-3">
+                Hello! <span className="waving-hand d-inline-block">👋</span>
+              </em>{" "}
+              I&apos;m Ijeoma{" "}
             </h1>
             <p
               className="text-grey mt-4"
