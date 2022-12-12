@@ -87,7 +87,7 @@ const Navbar = () => {
           {/* Resume  */}
           <div className="col">
             <a
-              href="https://taamannae.dev/projects/rom"
+              href="https://www.linkedin.com/in/ijoch/"
               target="_blank"
               rel="noreferrer"
               className="btn-grey"

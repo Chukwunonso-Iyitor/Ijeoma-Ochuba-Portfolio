@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
       <Layout>
        <HeroBanner></HeroBanner>
+       <section id="case-studies" className="py-5"></section>
       </Layout>
     </>
   );

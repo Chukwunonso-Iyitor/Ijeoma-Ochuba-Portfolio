@@ -30,7 +30,7 @@ const HeroBanner = () => {
             </p>
             <div className="mt-5">
                 <Link href='/contact' className="btn-grey me-2">Hire me</Link>
-                <Link href='/contact' className="btn-grey-alt">See work</Link>
+                <Link href='#case-studies' className="btn-grey-alt">See work</Link>
             </div>
           </div>
           <div className="col"></div>
