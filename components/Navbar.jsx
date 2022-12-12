@@ -16,10 +16,9 @@ const Nav = styled.nav`
     transition: 0.2s ease;
     .nav-link {
       list-style-type: none;
-      a {
-        font-weight: 400;
-        letter-spacing: 0.8px;
-      }
+      /* a{
+        font-family: "Montserrat", sans-serif;
+      } */
     }
     .profile-logo {
       .profile-pic {
