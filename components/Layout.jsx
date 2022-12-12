@@ -4,7 +4,8 @@ import Footer from "./Footer";
 import styled from "@emotion/styled";
 
 const Main = styled.main`
-  min-height: 100vh;
+  min-height: 200vh;
+  margin-top: 73px;
 `;
 
 const Layout = ({ children }) => {

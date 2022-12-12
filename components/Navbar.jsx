@@ -5,25 +5,33 @@ import { useRouter } from "next/router";
 import { navdata } from "../store/navdata";
 
 const Nav = styled.nav`
-  .nav-bar {
+  &.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #ffffffdd;
+    backdrop-filter: blur(6px);
+    transition: 0.2s ease;
     .nav-link {
       list-style-type: none;
     }
-  }
-  .profile-logo {
-    .profile-pic {
-      object-fit: cover;
-    }
-    h4 {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-    }
-    h6 {
-      font-family: "Oxygen", sans-serif;
-      font-weight: lighter;
-      font-size: 12px;
-      letter-spacing: 0.6px;
+    .profile-logo {
+      .profile-pic {
+        object-fit: cover;
+      }
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+      }
+      h6 {
+        font-family: "Oxygen", sans-serif;
+        font-weight: lighter;
+        font-size: 12px;
+        letter-spacing: 0.6px;
+      }
     }
   }
 `;
@@ -44,8 +52,8 @@ const Navbar = () => {
               <Image
                 src="/profile.jpg"
                 alt="Ijeoma Ochuba"
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 className="profile-pic rounded-circle d-block mx-2"
               />
               <div>
