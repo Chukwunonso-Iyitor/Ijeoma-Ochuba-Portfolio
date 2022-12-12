@@ -20,3 +20,8 @@
 
 /* Background Colour
 --------------------------------*/
+.bg{
+  &-grey{
+    background-color: $mygrey;
+  }
+}

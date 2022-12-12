@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import NavbarMobile from "./NavbarMobile";
+import BackToTop from "./BackToTop";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
 import AOS from "aos";
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>Portfolio | Ijeoma Ochuba</title>
         <meta name="description" content="Ijeoma Ochuba - Portfolio" />
+        <meta name="theme-color" content="#6b737a" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
@@ -28,6 +30,7 @@ const Layout = ({ children }) => {
         <NavbarMobile></NavbarMobile>
       </header>
       <Main>{children}</Main>
+      <BackToTop></BackToTop>
       <Footer></Footer>
     </>
   );
