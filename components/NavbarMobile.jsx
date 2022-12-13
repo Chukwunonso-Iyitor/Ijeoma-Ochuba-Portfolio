@@ -17,8 +17,11 @@ const NavMobile = styled.nav`
   .nav-bar {
     background-color: #ffffffdd;
     backdrop-filter: blur(6px);
-    .profile-pic{
+    .profile-logo {
+      height: 30px;
+      .profile-pic {
         object-fit: cover;
+      }
     }
   }
   #mobile-nav-menu {
@@ -60,7 +63,7 @@ const NavbarMobile = (props) => {
       <div className="container-fluid mobile-nav">
         {/* Nav bar  */}
         <div className="row justify-content-between align-items-center nav-bar py-2">
-          <div className="col">
+          <div className="col profile-logo">
             <Link href="/">
               <Image
                 src="/profile.jpg"

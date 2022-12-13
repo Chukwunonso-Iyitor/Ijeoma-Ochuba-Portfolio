@@ -18,6 +18,7 @@ const Nav = styled.nav`
       list-style-type: none;
     }
     .profile-logo {
+      height: 40px;
       .profile-pic {
         object-fit: cover;
       }
