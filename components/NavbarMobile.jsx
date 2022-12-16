@@ -39,9 +39,9 @@ const NavMobile = styled.nav`
       overflow-y: auto;
     }
   }
-  .nav-links {
+  .nav-link {
     a {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 `;
@@ -89,7 +89,7 @@ const NavbarMobile = (props) => {
               </div>
               <div className="my-2 nav-link py-5 px-4">
                 {navdata.map((link, index) => (
-                  <Link
+                  <Link onClick={closeNav}
                     href={link.path}
                     key={index}
                     className={`text-decoration-none d-block p-3 ${

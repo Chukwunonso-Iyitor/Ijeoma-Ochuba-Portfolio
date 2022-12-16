@@ -40,6 +40,7 @@ const Hero = styled.section`
   @media (max-width: 768px) {
     &.hero-banner {
       height: auto;
+      
     }
   }
 `;
@@ -50,7 +51,7 @@ const HeroBanner = () => {
       .scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <Hero className="hero-banner py-5 d-flex align-items-center">
+    <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg introduction pe-xl-5 mt-5">
@@ -102,11 +103,18 @@ const HeroBanner = () => {
               alt="UX design models"
               width={600}
               height={400}
-              className="hero-image"
+              className="hero-image d-none d-lg-block"
               data-aos="fade-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               data-aos-delay="400"
+            />
+            <Image
+              src="/images/ux-hero.svg"
+              alt="UX design models"
+              width={600}
+              height={400}
+              className="hero-image d-block d-lg-none"
             />
           </div>
         </div>
