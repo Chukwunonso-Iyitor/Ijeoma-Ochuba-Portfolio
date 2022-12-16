@@ -27,7 +27,7 @@ const Hero = styled.section`
     }
     .hero-image {
       object-fit: cover;
-      mix-blend-mode: multiply;
+      /* mix-blend-mode: multiply; */
     }
   }
 
