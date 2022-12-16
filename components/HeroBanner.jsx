@@ -17,17 +17,18 @@ const Hero = styled.section`
       }
       .waving-hand {
         cursor: none;
+        position: relative;
+        bottom: 8px;
         transition: scale 0.6s ease;
         animation-fill-mode: backwards;
         &:hover {
           scale: 1.2;
-          animation: oscillate 1s linear infinite alternate;
+          animation: oscillate 0.8s linear infinite alternate;
         }
       }
     }
     .hero-image {
       object-fit: cover;
-      /* mix-blend-mode: multiply; */
     }
   }
 
@@ -40,7 +41,6 @@ const Hero = styled.section`
   @media (max-width: 768px) {
     &.hero-banner {
       height: auto;
-      
     }
   }
 `;
@@ -62,12 +62,20 @@ const HeroBanner = () => {
               data-aos-delay="100"
             >
               <em className="me-3">
-                Hello! <span className="waving-hand d-inline-block">👋</span>
-              </em>{" "}
+                Hello!{" "}
+                <span className="waving-hand d-inline-block">
+                  <Image
+                    src="/images/wave-hand.svg"
+                    alt="wave"
+                    width={70}
+                    height={70}
+                  />
+                </span>
+              </em>
               I&apos;m Ijeoma{" "}
             </h1>
             <p
-              className="text-grey mt-4"
+              className="text-grey mt-2"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
