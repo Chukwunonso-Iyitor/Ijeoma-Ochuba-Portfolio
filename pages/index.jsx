@@ -37,7 +37,7 @@ export default function Home({ home, settings }) {
             </div>
 
             {/* Case study cards */}
-            <div className="cards-wrapper row row-cols-2 my-5">
+            <div className="cards-wrapper row row-cols-2 my-5 col-10 mx-auto">
               <div className="col px-4">
                 <CaseStudyCard />
               </div>
