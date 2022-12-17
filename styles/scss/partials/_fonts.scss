@@ -11,3 +11,15 @@ h1,
 h2 {
   font-family: "Montserrat", sans-serif;
 }
+
+.h1 {
+  font-size: 64px;
+  line-height: 72px;
+  font-weight: 700;
+}
+@media (max-width: 576px){
+  .h1{
+    font-size: 38px;
+    line-height: 48px;
+  }
+}
