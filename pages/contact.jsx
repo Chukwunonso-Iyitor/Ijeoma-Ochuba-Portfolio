@@ -24,9 +24,8 @@ export default function Contact() {
               Let&apos;s create <br /> something great <br /> together!
             </h1>
             <p
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="800"
+              data-aos="fade"
+              data-aos-duration="1000"
               data-aos-delay="200"
             >
               Thanks for taking the time to look over my portfolio.{" "}

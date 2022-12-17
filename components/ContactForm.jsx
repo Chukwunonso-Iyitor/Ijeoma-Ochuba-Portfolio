@@ -32,8 +32,30 @@ const Form = styled.form`
 `;
 
 const ContactForm = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
+  };
   return (
-    <Form action="post" className="contact-form">
+    <Form
+      onSubmit={handleSubmit}
+      name="Contact"
+      method="POST"
+      data-netlify="true"
+      className="contact-form"
+    >
+      <input type="hidden" name="Contact" value="contact" />
+
       <label htmlFor="message" className="text-grey">
         Dear Ijeoma,
       </label>
@@ -51,7 +73,13 @@ const ContactForm = () => {
         Best regards,
       </label>
       <br />
-      <input type="text" name="name" id="name" placeholder="Your name" required />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Your name"
+        required
+      />
       <br />
       <input
         type="email"
@@ -62,7 +90,9 @@ const ContactForm = () => {
         required
       />
       <br />
-      <button type="submit" className="btn-grey mt-4 d-inline-block">Send <i className="bi bi-send-fill ms-1"></i></button>
+      <button type="submit" className="btn-grey mt-4 d-inline-block">
+        Send <i className="bi bi-send-fill ms-1"></i>
+      </button>
     </Form>
   );
 };
