@@ -17,6 +17,11 @@ const CaseStudiesWrapper = styled.section`
           margin-top: 3rem;
         }
       }
+      @media (max-width: 768px) {
+        .col {
+          margin-top: 3rem;
+        }
+      }
     }
   }
 `;
@@ -37,17 +42,17 @@ export default function Home({ home, settings }) {
             </div>
 
             {/* Case study cards */}
-            <div className="cards-wrapper row row-cols-2 my-5 col-10 mx-auto">
-              <div className="col px-4">
+            <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto">
+              <div className="col px-sm-4">
                 <CaseStudyCard />
               </div>
-              <div className="col px-4">
+              <div className="col px-sm-4">
                 <CaseStudyCard />
               </div>
-              <div className="col px-4">
+              <div className="col px-sm-4">
                 <CaseStudyCard />
               </div>
-              <div className="col px-4">
+              <div className="col px-sm-4">
                 <CaseStudyCard />
               </div>
             </div>

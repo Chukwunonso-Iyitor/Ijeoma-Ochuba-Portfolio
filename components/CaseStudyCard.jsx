@@ -50,9 +50,9 @@ const CaseStudyCard = (props) => {
           "url(https://images.ctfassets.net/kqtp79bt539w/1Vh1YBpVWnCz5dhJjvpYci/e1649a60554f12974cd1451c4df9e2b2/ux-design.webp)",
       }}
     >
-      <div className="overlay p-5 d-flex flex-column justify-content-between">
+      <div className="overlay p-4 p-sm-5 d-flex flex-column justify-content-between">
         <div>
-          <h3 className="h3 ">Sample Case Study Title</h3>
+          <h3 className="h3 mb-4">Sample Case Study Title</h3>
           <span className="category-tags">
             <ul>
               <li>Product Design</li>
