@@ -16,7 +16,8 @@
           "blocks": 1
         }
       }
-    }
+    },
+    "article": {}
   },
   "slices": {
     "TextBlock": {}

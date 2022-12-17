@@ -41,6 +41,18 @@ interface AboutDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type AboutDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+/** Content for Article documents */
+type ArticleDocumentData = Record<string, never>;
+/**
+ * Article document from Prismic
+ *
+ * - **API ID**: `article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ArticleDocumentData>, "article", Lang>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
     /**
@@ -166,7 +178,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = AboutDocument | HomepageDocument | SettingsDocument;
+export type AllDocumentTypes = AboutDocument | ArticleDocument | HomepageDocument | SettingsDocument;
 /**
  * Primary content in TextBlock → Primary
  *
@@ -221,6 +233,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, TextBlockSliceDefaultPrimary, TextBlockSliceDefault, TextBlockSliceVariation, TextBlockSlice };
+        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, TextBlockSliceDefaultPrimary, TextBlockSliceDefault, TextBlockSliceVariation, TextBlockSlice };
     }
 }
