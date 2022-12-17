@@ -5,12 +5,15 @@ import HeroBanner from "../components/HeroBanner";
 import CaseStudyCard from "../components/CaseStudyCard";
 import SectionTitle from "../components/SectionTitle";
 
+import { createClient } from "../prismicio";
+import { PrismicRichText } from "@prismicio/react";
+
 const CaseStudiesWrapper = styled.section`
   &#case-studies {
     padding-top: 83px;
-    .cards-wrapper{
-      .col{
-        &:nth-child(even){
+    .cards-wrapper {
+      .col {
+        &:nth-child(even) {
           margin-top: 3rem;
         }
       }
@@ -18,13 +21,13 @@ const CaseStudiesWrapper = styled.section`
   }
 `;
 
-export default function Home() {
+export default function Home({settings}) {
   return (
     <>
       <Head>
         <title>Portfolio | Ijeoma Ochuba</title>
       </Head>
-      <Layout>
+      <Layout settings={settings}>
         <HeroBanner></HeroBanner>
         <CaseStudiesWrapper id="case-studies" className="pb-5">
           <div className="container">
@@ -55,3 +58,15 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData });
+
+  const settings = await client.getSingle("settings");
+
+  return {
+    props: {
+      settings,
+    },
+  };
+};

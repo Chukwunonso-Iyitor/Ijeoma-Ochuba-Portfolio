@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import { navdata } from "../store/navdata";
+import { navdata } from "../store";
+import { PrismicNextImage } from "@prismicio/next";
 
 const Nav = styled.nav`
   &.nav-bar {
@@ -21,6 +21,8 @@ const Nav = styled.nav`
       height: 40px;
       .profile-pic {
         object-fit: cover;
+        width: 40px;
+        height: 40px;
       }
       h4 {
         font-family: "Montserrat", sans-serif;
@@ -36,7 +38,7 @@ const Nav = styled.nav`
     }
   }
 `;
-const Navbar = () => {
+const Navbar = ({ settings }) => {
   const router = useRouter();
   return (
     <Nav className="nav-bar d-none d-lg-block">
@@ -50,16 +52,13 @@ const Navbar = () => {
               className="d-flex align-items-center text-decoration-none"
             >
               {" "}
-              <Image
-                src="/profile.jpg"
-                alt="Ijeoma Ochuba"
-                width={40}
-                height={40}
+              <PrismicNextImage
+                field={settings.data.picture}
                 className="profile-pic rounded-circle d-block mx-2"
               />
               <div>
-                <h4 className="mb-1 text-black">Ijeoma Ochuba</h4>
-                <h6 className="mb-0 text-grey">UX/Product Designer</h6>
+                <h4 className="mb-1 text-black">{settings.data.name}</h4>
+                <h6 className="mb-0 text-grey">{settings.data.role}</h6>
               </div>
             </Link>
           </div>
@@ -88,7 +87,7 @@ const Navbar = () => {
           {/* Resume  */}
           <div className="col">
             <a
-              href="https://www.linkedin.com/in/ijoch/"
+              href={settings.data.resume.url}
               target="_blank"
               rel="noreferrer"
               className="btn-grey"

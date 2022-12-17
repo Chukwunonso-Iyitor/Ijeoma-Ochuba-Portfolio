@@ -3,23 +3,22 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import SectionTitle from "../components/SectionTitle";
 
-import * as prismic from "@prismicio/client";
-import sm from "../sm.json";
+import { createClient } from "../prismicio";
 import { PrismicRichText } from "@prismicio/react";
 
-export default function About({ page }) {
+export default function About({ about, settings }) {
   return (
     <>
       <Head>
         <title>Portfolio | About</title>
       </Head>
-      <Layout>
+      <Layout settings={settings}>
         <section className="container py-5">
           <SectionTitle title="About Me"></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
-            <h1 className="h1 mb-5">{page.data.introduction}</h1>
+            <h1 className="h1 mb-5">{about.data.introduction}</h1>
 
-            <PrismicRichText field={page.data.biography} />
+            <PrismicRichText field={about.data.biography} />
 
             <div
               className="mt-5 d-flex justify-content-center"
@@ -34,20 +33,22 @@ export default function About({ page }) {
             </div>
           </div>
 
-          {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
+          {/* <pre>{JSON.stringify(about, null, 2)}</pre> */}
         </section>
       </Layout>
     </>
   );
 }
 
-export const getStaticProps = async () => {
-  const client = prismic.createClient(sm.apiEndpoint);
-  const page = await client.getSingle("about");
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData });
+  const about = await client.getSingle("about");
+  const settings = await client.getSingle("settings");
 
   return {
     props: {
-      page,
+      about,
+      settings,
     },
   };
 };

@@ -14,7 +14,7 @@ const Main = styled.main`
   margin-top: 73px;
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, settings }) => {
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
@@ -27,12 +27,12 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <Navbar></Navbar>
+        <Navbar settings={settings}></Navbar>
         <NavbarMobile></NavbarMobile>
       </header>
       <Main>{children}</Main>
       <BackToTop></BackToTop>
-      <Footer></Footer>
+      <Footer settings={settings}></Footer>
     </>
   );
 };

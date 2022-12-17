@@ -26,7 +26,7 @@ const FooterMain = styled.footer`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ settings }) => {
   const currentYear = new Date().getFullYear();
   return (
     <FooterMain className="bg-dark">
@@ -38,19 +38,26 @@ const Footer = () => {
               <h5 className="mb-3">Stay in Touch</h5>
               <p>Thank you for visiting my portfolio.</p>
               <p>
-                <a href="mailto:ijeochuba@gmail.com" className="link-orange">
+                <a
+                  href={`mailto: ${settings.data.email} `}
+                  className="link-orange"
+                >
                   <i className="bi bi-envelope-fill me-1"></i>{" "}
-                  ijeochuba@gmail.com
+                  {settings.data.email}
                 </a>
               </p>
               <p>
-                <a href="tel: +353 89 958 2717" className="link-orange">
-                  <i className="bi bi-telephone-fill me-1"></i> +353 89 958 2717
+                <a
+                  href={`tel: ${settings.data.phone} `}
+                  className="link-orange"
+                >
+                  <i className="bi bi-telephone-fill me-1"></i>{" "}
+                  {settings.data.phone}
                 </a>
               </p>
               <p className="mb-0">
                 <a
-                  href="https://www.linkedin.com/in/ijoch/"
+                  href={settings.data.linkedin.url}
                   className="link-orange social-link"
                   target="_blank"
                   rel="noreferrer"

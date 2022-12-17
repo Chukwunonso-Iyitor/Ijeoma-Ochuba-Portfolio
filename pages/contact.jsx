@@ -1,16 +1,17 @@
 import Head from "next/head";
-import styled from "@emotion/styled";
 import Layout from "../components/Layout";
 import SectionTitle from "../components/SectionTitle";
 import ContactForm from "../components/ContactForm";
 
-export default function Contact() {
+import { createClient } from "../prismicio";
+
+export default function Contact({ settings }) {
   return (
     <>
       <Head>
         <title>Portfolio | Contact</title>
       </Head>
-      <Layout>
+      <Layout settings={settings}>
         <section className="container py-5">
           <SectionTitle title="Contact"></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
@@ -20,7 +21,7 @@ export default function Contact() {
             <p>
               Thanks for taking the time to look over my portfolio.{" "}
               <a
-                href="mailto:ijeochuba@gmail.com"
+               href={`mailto: ${settings.data.email} `}
                 className="link-orange text-orange"
               >
                 Drop me a message
@@ -36,3 +37,15 @@ export default function Contact() {
     </>
   );
 }
+
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData });
+
+  const settings = await client.getSingle("settings");
+
+  return {
+    props: {
+      settings,
+    },
+  };
+};

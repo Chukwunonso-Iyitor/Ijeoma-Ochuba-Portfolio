@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-import { navdata } from "../store/navdata";
+import { navdata } from "../store";
 
 const NavMobile = styled.nav`
   position: fixed;
