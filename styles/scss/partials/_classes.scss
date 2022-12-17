@@ -18,10 +18,23 @@
   }
 }
 
+/* Link
+--------------------------------*/
+.link {
+  text-decoration: none;
+  transition: .2s ease;
+  &-orange {
+    @extend .link;
+    color: inherit;
+    &:hover {
+      color: $myorange;
+    }
+  }
+}
 /* Background Colour
 --------------------------------*/
-.bg{
-  &-grey{
+.bg {
+  &-grey {
     background-color: $mygrey;
   }
 }
