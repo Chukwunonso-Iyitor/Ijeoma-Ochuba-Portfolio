@@ -74,7 +74,7 @@ const ContactForm = () => {
         id="message"
         cols="30"
         rows="10"
-        value={inputs.message}
+        value={inputs.message || ""}
         onChange={handleChange}
         placeholder="Write your message here..."
         required
@@ -88,7 +88,7 @@ const ContactForm = () => {
         type="text"
         name="name"
         id="name"
-        value={inputs.name}
+        value={inputs.name || ""}
         onChange={handleChange}
         placeholder="Your name"
         required
@@ -98,7 +98,7 @@ const ContactForm = () => {
         type="email"
         name="email"
         id="email"
-        value={inputs.email}
+        value={inputs.email || ""}
         onChange={handleChange}
         placeholder="Your email"
         className="mt-3"
