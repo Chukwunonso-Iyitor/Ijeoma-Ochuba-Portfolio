@@ -1,0 +1,28 @@
+{
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "hero_intro": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Intro",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
+      "case_study_intro": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Case Study Intro",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import Image from "next/image";
+import { PrismicRichText } from "@prismicio/react";
 
 const Hero = styled.section`
   &.hero-banner {
@@ -44,7 +45,7 @@ const Hero = styled.section`
     }
   }
 `;
-const HeroBanner = () => {
+const HeroBanner = ({ home }) => {
   const caseStudies = () => {
     document
       .getElementById("case-studies")
@@ -74,18 +75,16 @@ const HeroBanner = () => {
               </em>
               I&apos;m Ijeoma{" "}
             </h1>
-            <p
+            <div
               className="text-grey mt-2"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               data-aos-delay="200"
             >
-              I am a driven and thorough UX designer who thoroughly enjoys
-              engaging in all steps of the product life cycle. My main goal is
-              to create products that look beautiful and function intuitively
-              for the user.
-            </p>
+              <PrismicRichText field={home.data.hero_intro} />
+            </div>
+
             <div
               className="mt-5"
               data-aos="fade-up"

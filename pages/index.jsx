@@ -21,21 +21,20 @@ const CaseStudiesWrapper = styled.section`
   }
 `;
 
-export default function Home({settings}) {
+export default function Home({ home, settings }) {
   return (
     <>
       <Head>
         <title>Portfolio | Ijeoma Ochuba</title>
       </Head>
       <Layout settings={settings}>
-        <HeroBanner></HeroBanner>
+        <HeroBanner home={home} />
         <CaseStudiesWrapper id="case-studies" className="pb-5">
           <div className="container">
             <SectionTitle title="Case Studies"></SectionTitle>
-            <p className="mt-5 text-center">
-              I have curated several in-depth case studies, from product
-              strategy and ideation, to prototyping and user testing.
-            </p>
+            <div className="mt-5 text-center">
+              <PrismicRichText field={home.data.case_study_intro} />
+            </div>
 
             {/* Case study cards */}
             <div className="cards-wrapper row row-cols-2 my-5">
@@ -61,11 +60,12 @@ export default function Home({settings}) {
 
 export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
-
+  const home = await client.getSingle("homepage");
   const settings = await client.getSingle("settings");
 
   return {
     props: {
+      home,
       settings,
     },
   };

@@ -8,7 +8,15 @@
         }
       }
     },
-    "settings": {}
+    "settings": {},
+    "homepage": {
+      "case_study_intro": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
   },
   "slices": {
     "TextBlock": {}
