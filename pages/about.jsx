@@ -31,7 +31,7 @@ export default function About({page}) {
               I love creating digital solutions to simplify people&apos;s
               everyday lives and help them achieve their goals.
             </h1>
-            <p
+            {/* <p
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="800"
@@ -97,9 +97,9 @@ export default function About({page}) {
               tellus, vel consectetur dui. Nulla convallis maximus sapien, sed
               auctor magna venenatis vel. Aliquam mollis urna sit amet nunc
               suscipit, id imperdiet nibh facilisis.
-            </p>
+            </p> */}
             {/* <SliceZone slices={page.data.slices} components={components} /> */}
-            {/* <pre>{[page]}</pre> */}
+            <pre>{JSON.stringify(page, null, 2)}</pre>
             <div
               className="mt-5 d-flex justify-content-center"
               data-aos="zoom-out"
