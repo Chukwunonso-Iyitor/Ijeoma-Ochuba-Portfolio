@@ -34,6 +34,14 @@ const Form = styled.form`
 
 const ContactForm = () => {
   const [inputs, setInputs] = useState({});
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -49,7 +57,7 @@ const ContactForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      body: encode({ "Contact": "contact", ...inputs }),
     })
       .then(() => (formMessage.innerHTML = "Form successfully submitted"))
       .catch((error) => alert(error));
