@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const Form = styled.form`
   label {
@@ -32,19 +33,25 @@ const Form = styled.form`
 `;
 
 const ContactForm = () => {
+  const [inputs, setInputs] = useState({});
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const myForm = event.target;
     const formData = new FormData(myForm);
-    let formMessage = document.querySelector('#form-message')
+    let formMessage = document.querySelector("#form-message");
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => formMessage.innerHTML = 'Form successfully submitted')
+      .then(() => (formMessage.innerHTML = "Form successfully submitted"))
       .catch((error) => alert(error));
   };
   return (
@@ -53,6 +60,7 @@ const ContactForm = () => {
       name="Contact"
       method="POST"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
       className="contact-form"
     >
       <input type="hidden" name="Contact" value="contact" />
@@ -62,10 +70,12 @@ const ContactForm = () => {
       </label>
       <br />
       <textarea
-        name=""
-        id=""
+        name="message"
+        id="message"
         cols="30"
         rows="10"
+        value={inputs.message}
+        onChange={handleChange}
         placeholder="Write your message here..."
         required
       ></textarea>
@@ -78,6 +88,8 @@ const ContactForm = () => {
         type="text"
         name="name"
         id="name"
+        value={inputs.name}
+        onChange={handleChange}
         placeholder="Your name"
         required
       />
@@ -86,6 +98,8 @@ const ContactForm = () => {
         type="email"
         name="email"
         id="email"
+        value={inputs.email}
+        onChange={handleChange}
         placeholder="Your email"
         className="mt-3"
         required
