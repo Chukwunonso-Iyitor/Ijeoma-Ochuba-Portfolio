@@ -17,23 +17,9 @@ export default function About({ page }) {
         <section className="container py-5">
           <SectionTitle title="About Me"></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
-            <h1
-              className="h1 mb-5"
-              data-aos="zoom-out"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="800"
-              data-aos-delay="100"
-            >
-              {page.data.introduction}
-            </h1>
-            <div
-              data-aos="zoom-out"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="800"
-              data-aos-delay="200"
-            >
-              <PrismicRichText field={page.data.biography} />
-            </div>
+            <h1 className="h1 mb-5">{page.data.introduction}</h1>
+
+            <PrismicRichText field={page.data.biography} />
 
             <div
               className="mt-5 d-flex justify-content-center"
