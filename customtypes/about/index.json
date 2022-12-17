@@ -5,6 +5,13 @@
   "status": true,
   "json": {
     "Main": {
+      "introduction": {
+        "type": "Text",
+        "config": {
+          "label": "Introduction",
+          "placeholder": ""
+        }
+      },
       "biography": {
         "type": "StructuredText",
         "config": {

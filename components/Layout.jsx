@@ -8,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
+
 const Main = styled.main`
   min-height: 100vh;
   margin-top: 73px;

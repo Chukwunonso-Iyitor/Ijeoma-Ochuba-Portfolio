@@ -9,6 +9,17 @@ type Simplify<T> = {
 /** Content for About documents */
 interface AboutDocumentData {
     /**
+     * Introduction field in *About*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.introduction
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    introduction: prismicT.KeyTextField;
+    /**
      * Biography field in *About*
      *
      * - **Field Type**: Rich Text
