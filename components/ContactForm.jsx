@@ -37,13 +37,14 @@ const ContactForm = () => {
 
     const myForm = event.target;
     const formData = new FormData(myForm);
+    let formMessage = document.querySelector('#form-message')
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => console.log("Form successfully submitted"))
+      .then(() => formMessage.innerHTML = 'Form successfully submitted')
       .catch((error) => alert(error));
   };
   return (
@@ -90,9 +91,16 @@ const ContactForm = () => {
         required
       />
       <br />
-      <button type="submit" className="btn-grey mt-4 d-inline-block">
-        Send <i className="bi bi-send-fill ms-1"></i>
-      </button>
+      <div className="row justify-content-between">
+        <div className="col">
+          <button type="submit" className="btn-grey mt-4 d-inline-block">
+            Send <i className="bi bi-send-fill ms-1"></i>
+          </button>
+        </div>
+        <div className="col">
+          <p id="form-message"></p>
+        </div>
+      </div>
     </Form>
   );
 };
