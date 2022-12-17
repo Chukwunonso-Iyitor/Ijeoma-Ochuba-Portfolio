@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styled from "@emotion/styled";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import SectionTitle from "../components/SectionTitle";
@@ -7,8 +6,6 @@ import SectionTitle from "../components/SectionTitle";
 import * as prismic from "@prismicio/client";
 import sm from "../sm.json";
 import { PrismicRichText } from "@prismicio/react";
-
-
 
 export default function About({ page }) {
   return (
@@ -22,14 +19,21 @@ export default function About({ page }) {
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
             <h1
               className="h1 mb-5"
-              data-aos="fade-up"
+              data-aos="zoom-out"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="800"
               data-aos-delay="100"
             >
               {page.data.introduction}
             </h1>
-            <PrismicRichText field={page.data.biography} />
+            <div
+              data-aos="zoom-out"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <PrismicRichText field={page.data.biography} />
+            </div>
 
             <div
               className="mt-5 d-flex justify-content-center"
