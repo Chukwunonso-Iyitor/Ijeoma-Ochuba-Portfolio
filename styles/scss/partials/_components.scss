@@ -50,3 +50,20 @@
     }
   }
 }
+
+/* Contact Form
+--------------------------------*/
+.contact-form {
+  input,
+  textarea {
+    border-color: $mylightgrey;
+    transition: 0.8s ease;
+    &::placeholder {
+      color: $mymidgrey;
+    }
+    &:focus,
+    &:hover {
+      border-color: $mygrey;
+    }
+  }
+}

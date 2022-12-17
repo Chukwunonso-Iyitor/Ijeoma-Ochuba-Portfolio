@@ -23,10 +23,12 @@ export default function Contact() {
             >
               Let&apos;s create <br /> something great <br /> together!
             </h1>
-            <p data-aos="fade-up"
+            <p
+              data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="800"
-              data-aos-delay="200">
+              data-aos-delay="200"
+            >
               Thanks for taking the time to look over my portfolio.{" "}
               <a
                 href="mailto:ijeochuba@gmail.com"
@@ -36,7 +38,9 @@ export default function Contact() {
               </a>{" "}
               or fill out the form below and I’ll get back to you shortly.
             </p>
-            <ContactForm />
+            <div className="mt-5">
+              <ContactForm />
+            </div>
           </div>
         </section>
       </Layout>
