@@ -33,7 +33,7 @@ const Footer = () => {
     <FooterMain className="bg-dark">
       {/* Footer top  */}
       <div className="footer-top pt-4">
-        <div className="container p-5 text-white text-center">
+        <div className="container p-4 text-white text-center">
           <div className="row">
             <div className="col">
               <h5 className="mb-3">Stay in Touch</h5>
@@ -48,7 +48,7 @@ const Footer = () => {
                   <i className="bi bi-telephone-fill me-1"></i> +353 89 958 2717
                 </a>
               </p>
-              <p>
+              <p className="mb-0">
                 <a
                   href="https://www.linkedin.com/in/ijoch/"
                   className="link-orange social-link"
