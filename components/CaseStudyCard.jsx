@@ -31,7 +31,7 @@ const Card = styled.div`
           display: inline-block;
           list-style-type: none;
           margin-left: 0.5rem;
-          &:first-child {
+          &:first-of-type {
             margin-left: 0rem;
             &::before {
               content: "";
@@ -70,9 +70,6 @@ const CaseStudyCard = ({ title, image, slug, tags }) => {
                 {tags.map((tag, index)=>(
                   <li key={index}>{tag.text}</li>
                 ))}
-                {/* <li>Product Design</li>
-                <li>B2B</li>
-                <li>Transportation</li> */}
               </ul>
             </span>
           </div>

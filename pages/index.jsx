@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import HeroBanner from "../components/HeroBanner";
 import CaseStudyCard from "../components/CaseStudyCard";
 import SectionTitle from "../components/SectionTitle";
-import Link from "next/link";
 
 import { createClient } from "../prismicio";
 import { PrismicRichText } from "@prismicio/react";
@@ -14,7 +13,7 @@ const CaseStudiesWrapper = styled.section`
     padding-top: 83px;
     .cards-wrapper {
       .col {
-        &:nth-child(even) {
+        &:nth-of-type(even) {
           margin-top: 3rem;
         }
       }
@@ -57,8 +56,6 @@ export default function Home({ home, settings, articles }) {
             </div>
           </div>
         </CaseStudiesWrapper>
-
-        {/* <pre>{JSON.stringify(articles, null, 2)}</pre> */}
       </Layout>
     </>
   );

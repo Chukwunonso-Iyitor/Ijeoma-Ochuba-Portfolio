@@ -92,7 +92,7 @@ const HeroBanner = ({ home }) => {
               data-aos-duration="1000"
               data-aos-delay="300"
             >
-              <Link href="/contact" className="btn-grey me-2">
+              <Link href="/contact" className="btn-grey me-2 px-4 d-inline-block">
                 Hire me
               </Link>
               <button
