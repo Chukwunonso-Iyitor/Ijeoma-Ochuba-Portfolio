@@ -55,7 +55,13 @@ const Card = styled.div`
 
 const CaseStudyCard = ({ title, image, slug, tags }) => {
   return (
-    <Link href={`/case-studies/${slug}`} className="text-decoration-none">
+    <Link
+      href={`/case-studies/${slug}`}
+      className="text-decoration-none"
+      onMouseEnter={() =>
+        (document.documentElement.style.scrollBehavior = "auto")
+      }
+    >
       <Card
         className=" text-white"
         style={{
@@ -67,7 +73,7 @@ const CaseStudyCard = ({ title, image, slug, tags }) => {
             <h3 className="h3 mb-4">{title}</h3>
             <span className="category-tags">
               <ul>
-                {tags.map((tag, index)=>(
+                {tags.map((tag, index) => (
                   <li key={index}>{tag.text}</li>
                 ))}
               </ul>
