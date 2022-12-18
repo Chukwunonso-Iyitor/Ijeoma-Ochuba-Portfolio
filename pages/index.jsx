@@ -27,7 +27,7 @@ const CaseStudiesWrapper = styled.section`
   }
 `;
 
-export default function Home({ home, settings }) {
+export default function Home({ home, settings, articles }) {
   return (
     <>
       <Head>
@@ -44,22 +44,21 @@ export default function Home({ home, settings }) {
 
             {/* Case study cards */}
             <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto">
-              <div className="col px-sm-4">
-                <CaseStudyCard />
-              </div>
-              <div className="col px-sm-4">
-                <CaseStudyCard />
-              </div>
-              <div className="col px-sm-4">
-                <CaseStudyCard />
-              </div>
-              <div className="col px-sm-4">
-                <CaseStudyCard />
-              </div>
+              {articles.map((article) => (
+                <div className="col px-sm-4" key={article.data.title}>
+                  <CaseStudyCard
+                    title={article.data.title}
+                    slug={article.uid}
+                    image={article.data.featured_image.url}
+                    tags={article.data.category}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </CaseStudiesWrapper>
-        <Link href='/case-studies/sample-case-study' className="btn-grey">Case Study Test</Link>
+
+        {/* <pre>{JSON.stringify(articles, null, 2)}</pre> */}
       </Layout>
     </>
   );
@@ -69,11 +68,13 @@ export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const home = await client.getSingle("homepage");
   const settings = await client.getSingle("settings");
+  const articles = await client.getAllByType("article");
 
   return {
     props: {
       home,
       settings,
+      articles,
     },
   };
 };

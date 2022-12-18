@@ -65,6 +65,17 @@ interface ArticleDocumentData {
      *
      */
     category: prismicT.RichTextField;
+    /**
+     * Featured Image field in *Article*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.featured_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    featured_image: prismicT.ImageField<never>;
 }
 /**
  * Article document from Prismic

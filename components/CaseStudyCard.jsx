@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const Card = styled.div`
   height: 520px;
@@ -52,33 +53,37 @@ const Card = styled.div`
   }
 `;
 
-const CaseStudyCard = (props) => {
+const CaseStudyCard = ({ title, image, slug, tags }) => {
   return (
-    <Card
-      className=" text-white"
-      style={{
-        backgroundImage:
-          "url(https://images.ctfassets.net/kqtp79bt539w/1Vh1YBpVWnCz5dhJjvpYci/e1649a60554f12974cd1451c4df9e2b2/ux-design.webp)",
-      }}
-    >
-      <div className="overlay p-4 p-sm-5 d-flex flex-column justify-content-between">
-        <div>
-          <h3 className="h3 mb-4">Sample Case Study Title</h3>
-          <span className="category-tags">
-            <ul>
-              <li>Product Design</li>
-              <li>B2B</li>
-              <li>Transportation</li>
-            </ul>
-          </span>
+    <Link href={`/case-studies/${slug}`} className="text-decoration-none">
+      <Card
+        className=" text-white"
+        style={{
+          backgroundImage: `url('${image}')`,
+        }}
+      >
+        <div className="overlay p-4 p-sm-5 d-flex flex-column justify-content-between">
+          <div>
+            <h3 className="h3 mb-4">{title}</h3>
+            <span className="category-tags">
+              <ul>
+                {tags.map((tag, index)=>(
+                  <li key={index}>{tag.text}</li>
+                ))}
+                {/* <li>Product Design</li>
+                <li>B2B</li>
+                <li>Transportation</li> */}
+              </ul>
+            </span>
+          </div>
+          <div>
+            <h5>
+              Read Case Study <i className="bi bi-box-arrow-up-right ms-2"></i>
+            </h5>
+          </div>
         </div>
-        <div>
-          <h5>
-            Read Case Study <i className="bi bi-box-arrow-up-right ms-2"></i>
-          </h5>
-        </div>
-      </div>
-    </Card>
+      </Card>
+    </Link>
   );
 };
 
