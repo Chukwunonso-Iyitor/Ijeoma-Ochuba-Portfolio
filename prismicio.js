@@ -1,6 +1,7 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
 import sm from "./sm.json";
+import fetch from 'node-fetch'
 
 /**
  * The project's Prismic repository name.
@@ -24,7 +25,7 @@ const routes = [
  */
 export const createClient = (config = {}) => {
   const client = prismic.createClient(sm.apiEndpoint, {
-    routes,
+    routes, fetch,
     ...config,
   });
 

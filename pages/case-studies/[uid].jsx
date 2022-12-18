@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
+import * as prismic from '@prismicio/client'
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { PrismicRichText } from "@prismicio/react";
@@ -57,10 +58,7 @@ export default function Article({ article, settings }) {
   return (
     <>
       <Head>
-        {/* <title>Portfolio | Case Studies | {article.data.title}</title> */}
-        {/* <title>
-          {prismicH.asText(article.data.title)}
-        </title> */}
+        <title>{`Portfolio | Case Studies | ${article.data.title}`}</title>
       </Head>
       <Layout settings={settings}>
         <Banner
