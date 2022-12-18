@@ -8,7 +8,7 @@ export default function Article({ article, settings }) {
   return (
     <>
       <Head>
-        <title>Portfolio | Case Studies | {article.data.title}</title>
+        {/* <title>Portfolio | Case Studies | {article.data.title}</title> */}
         {/* <title>
           {prismicH.asText(article.data.title)}
         </title> */}
