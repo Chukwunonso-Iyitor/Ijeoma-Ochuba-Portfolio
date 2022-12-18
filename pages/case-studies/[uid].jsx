@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
-import * as prismic from '@prismicio/client'
+import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { PrismicRichText } from "@prismicio/react";
@@ -12,14 +12,16 @@ const Content = styled.article`
   img {
     max-width: 100%;
   }
-  iframe{
+  iframe {
     min-height: 1200px;
   }
 `;
 const SideBar = styled.aside`
-  position: sticky;
-  top: 100px;
-  z-index: 60;
+  .side-bar {
+    position: sticky;
+    top: 100px;
+    z-index: 60;
+  }
 `;
 const Banner = styled.section`
   height: 380px;
@@ -81,11 +83,16 @@ export default function Article({ article, settings }) {
           </div>
         </Banner>
         <section className="container py-5 row mx-auto">
+          {/* Side Panel  */}
           <SideBar className="col-3">
-            <Link href="/#case-studies" className="text-grey link-orange">
-              <i className="bi bi-arrow-left me-2"></i>Back
-            </Link>
+            <div className="side-bar">
+              <Link href="/#case-studies" className="text-grey link-orange">
+                <i className="bi bi-arrow-left me-2"></i>Back
+              </Link>
+            </div>
           </SideBar>
+
+          {/* Article content  */}
           <Content className="col">
             <PrismicRichText field={article.data.content} />
             <div
