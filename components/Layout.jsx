@@ -12,6 +12,12 @@ const Main = styled.main`
   min-height: 100vh;
   margin-top: 73px;
   scroll-behavior: auto;
+  @media (max-width: 768px){
+    margin-top: 47px;
+  }
+  @media (max-height: 576px){
+    margin-top: 47px;
+  }
 `;
 
 const Layout = ({ children, settings }) => {

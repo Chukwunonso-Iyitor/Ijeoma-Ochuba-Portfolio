@@ -44,6 +44,11 @@ const Hero = styled.section`
       height: auto;
     }
   }
+  @media (max-height: 576px){
+    &.hero-banner{
+      height: auto;
+    }
+  }
 `;
 const HeroBanner = ({ home }) => {
   const caseStudies = () => {

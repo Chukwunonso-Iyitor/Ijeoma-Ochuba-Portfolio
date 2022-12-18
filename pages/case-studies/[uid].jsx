@@ -13,6 +13,7 @@ const Content = styled.article`
     max-width: 100%;
   }
   iframe {
+    width: 100%;
     min-height: 1200px;
   }
 `;
@@ -84,7 +85,7 @@ export default function Article({ article, settings }) {
         </Banner>
         <section className="container py-5 row mx-auto">
           {/* Side Panel  */}
-          <SideBar className="col-3">
+          <SideBar className="col-12 col-sm-3 mb-5 px-0 px-sm-3">
             <div className="side-bar">
               <Link href="/#case-studies" className="text-grey link-orange">
                 <i className="bi bi-arrow-left me-2"></i>Back
@@ -93,7 +94,7 @@ export default function Article({ article, settings }) {
           </SideBar>
 
           {/* Article content  */}
-          <Content className="col">
+          <Content className="col px-0 px-sm-3">
             <PrismicRichText field={article.data.content} />
             <div
               className="mt-5"

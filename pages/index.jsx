@@ -22,6 +22,11 @@ const CaseStudiesWrapper = styled.section`
           margin-top: 3rem;
         }
       }
+      @media (max-height: 576px) {
+        .col {
+          margin-top: 3rem;
+        }
+      }
     }
   }
 `;
