@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-
 const Main = styled.main`
   min-height: 100vh;
   margin-top: 73px;
@@ -21,14 +20,13 @@ const Layout = ({ children, settings }) => {
   return (
     <>
       <Head>
-        <title>Portfolio | Ijeoma Ochuba</title>
         <meta name="description" content="Ijeoma Ochuba - Portfolio" />
         <meta name="theme-color" content="#6b737a" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
         <Navbar settings={settings}></Navbar>
-        <NavbarMobile></NavbarMobile>
+        <NavbarMobile settings={settings}></NavbarMobile>
       </header>
       <Main>{children}</Main>
       <BackToTop></BackToTop>

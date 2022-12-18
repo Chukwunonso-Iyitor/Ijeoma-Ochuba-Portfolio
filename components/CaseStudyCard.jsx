@@ -11,6 +11,11 @@ const Card = styled.div`
     scale: 1.01;
     .overlay {
       backdrop-filter: brightness(0.6) saturate(1);
+      h5 {
+        i {
+          opacity: 1;
+        }
+      }
     }
   }
   .overlay {
@@ -38,6 +43,12 @@ const Card = styled.div`
         }
       }
     }
+    h5 {
+      i {
+        opacity: 0;
+        transition: 0.4s ease;
+      }
+    }
   }
 `;
 
@@ -62,7 +73,9 @@ const CaseStudyCard = (props) => {
           </span>
         </div>
         <div>
-          <h5>Read Case Study</h5>
+          <h5>
+            Read Case Study <i className="bi bi-box-arrow-up-right ms-2"></i>
+          </h5>
         </div>
       </div>
     </Card>

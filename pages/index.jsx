@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import HeroBanner from "../components/HeroBanner";
 import CaseStudyCard from "../components/CaseStudyCard";
 import SectionTitle from "../components/SectionTitle";
+import Link from "next/link";
 
 import { createClient } from "../prismicio";
 import { PrismicRichText } from "@prismicio/react";
@@ -58,6 +59,7 @@ export default function Home({ home, settings }) {
             </div>
           </div>
         </CaseStudiesWrapper>
+        <Link href='/case-studies/sample-case-study' className="btn-grey">Case Study Test</Link>
       </Layout>
     </>
   );

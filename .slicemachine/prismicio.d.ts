@@ -42,7 +42,30 @@ interface AboutDocumentData {
  */
 export type AboutDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 /** Content for Article documents */
-type ArticleDocumentData = Record<string, never>;
+interface ArticleDocumentData {
+    /**
+     * Title field in *Article*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Category field in *Article*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    category: prismicT.RichTextField;
+}
 /**
  * Article document from Prismic
  *
@@ -52,7 +75,7 @@ type ArticleDocumentData = Record<string, never>;
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ArticleDocumentData>, "article", Lang>;
+export type ArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ArticleDocumentData>, "article", Lang>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
     /**
@@ -194,16 +217,6 @@ interface TextBlockSliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
-    /**
-     * Description field in *TextBlock → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
-     * - **API ID Path**: text_block.primary.description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
 }
 /**
  * Default variation for TextBlock Slice

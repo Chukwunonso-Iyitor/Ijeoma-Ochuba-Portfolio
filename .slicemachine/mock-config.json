@@ -17,9 +17,26 @@
         }
       }
     },
-    "article": {}
+    "article": {
+      "category": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "navigation": {}
   },
   "slices": {
-    "TextBlock": {}
+    "TextBlock": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Routes": {
+      "default": {
+        "primary": {}
+      }
+    }
   }
 }

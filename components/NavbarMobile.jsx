@@ -87,9 +87,10 @@ const NavbarMobile = (props) => {
               <div className="d-flex justify-content-end px-4 pt-3">
                 <i className="bi bi-x-lg" onClick={closeNav}></i>
               </div>
-              <div className="my-2 nav-link py-5 px-4">
+              <div className="my-2 nav-link pt-5 pb-3 px-4">
                 {navdata.map((link, index) => (
-                  <Link onClick={closeNav}
+                  <Link
+                    onClick={closeNav}
                     href={link.path}
                     key={index}
                     className={`text-decoration-none d-block p-3 ${
@@ -100,6 +101,18 @@ const NavbarMobile = (props) => {
                   </Link>
                 ))}
               </div>
+
+              {/* Resume  */}
+              <div className="px-4">
+                  <a
+                    href={props.settings.data.resume.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-grey d-inline-block mx-2"
+                  >
+                    Resumé
+                  </a>
+                </div>
             </div>
           </div>
         </div>
