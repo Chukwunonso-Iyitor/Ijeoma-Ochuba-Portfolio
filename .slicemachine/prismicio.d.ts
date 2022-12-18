@@ -76,6 +76,28 @@ interface ArticleDocumentData {
      *
      */
     featured_image: prismicT.ImageField<never>;
+    /**
+     * Content field in *Article*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Article content goes here...
+     * - **API ID Path**: article.content
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+    /**
+     * Embed field in *Article*
+     *
+     * - **Field Type**: Embed
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.embed
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
+     *
+     */
+    embed: prismicT.EmbedField;
 }
 /**
  * Article document from Prismic

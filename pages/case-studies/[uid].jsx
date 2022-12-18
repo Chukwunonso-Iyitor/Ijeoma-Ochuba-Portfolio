@@ -5,9 +5,15 @@ import Link from "next/link";
 
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
+import { PrismicRichText } from "@prismicio/react";
 
 const Content = styled.article`
-  height: 2160px;
+  img {
+    max-width: 100%;
+  }
+  iframe{
+    min-height: 1200px;
+  }
 `;
 const SideBar = styled.aside`
   position: sticky;
@@ -82,9 +88,18 @@ export default function Article({ article, settings }) {
               <i className="bi bi-arrow-left me-2"></i>Back
             </Link>
           </SideBar>
-          <Content className="col p-5 bg-light"></Content>
+          <Content className="col">
+            <PrismicRichText field={article.data.content} />
+            <div
+              className="mt-5"
+              dangerouslySetInnerHTML={{
+                __html: article.data.embed.html,
+              }}
+            />
+          </Content>
         </section>
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+
+        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
       </Layout>
     </>
   );

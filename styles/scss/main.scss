@@ -4,6 +4,11 @@
 >>> Style  Imports
 ======================================*/
 
+/* Bootstrap
+--------------------------------*/
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
 /* Partials 
 --------------------------------*/
 @import "/styles/scss/partials/colours";
@@ -16,7 +21,4 @@
 @import "/styles/scss/partials/page";
 @import "/styles/scss/partials/components";
 
-/* Bootstrap
---------------------------------*/
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "bootstrap-icons/font/bootstrap-icons.css";
+
