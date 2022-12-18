@@ -11,6 +11,7 @@ import { useEffect } from "react";
 const Main = styled.main`
   min-height: 100vh;
   margin-top: 73px;
+  scroll-behavior: auto;
 `;
 
 const Layout = ({ children, settings }) => {
