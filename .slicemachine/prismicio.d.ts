@@ -77,6 +77,39 @@ interface ArticleDocumentData {
      */
     featured_image: prismicT.ImageField<never>;
     /**
+     * Role field in *Article*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.role
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    role: prismicT.RichTextField;
+    /**
+     * Project Duration field in *Article*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.project_duration
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    project_duration: prismicT.KeyTextField;
+    /**
+     * Design Tools field in *Article*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.design_tools
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    design_tools: prismicT.KeyTextField;
+    /**
      * Content field in *Article*
      *
      * - **Field Type**: Rich Text

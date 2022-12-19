@@ -26,6 +26,14 @@ const SideBar = styled.aside`
     .back-btn {
       cursor: pointer;
     }
+    .project-info {
+      h6 {
+        font-weight: 600;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
   }
 `;
 const Banner = styled.section`
@@ -90,14 +98,41 @@ export default function Article({ article, settings, related }) {
         </Banner>
         <section className="container py-5 row mx-auto">
           {/* Side Panel  */}
-          <SideBar className="col-12 col-sm-3 mb-5 px-0 px-sm-3">
+          <SideBar className="col-12 col-lg-3 mb-5 px-0 p-sm-3">
             <div className="side-bar">
+              {/* Back button  */}
               <span
                 className="text-grey link-orange back-btn"
                 onClick={() => router.back()}
               >
                 <i className="bi bi-arrow-left me-2"></i>Back
               </span>
+
+              {/* Aside content  */}
+              <div className="mt-5 pe-lg-3 project-info">
+                {article.data.role.length > 0 && (
+                  <>
+                    <h6>ROLE</h6>
+                    <div className="text-grey">
+                      <PrismicRichText field={article.data.role} />
+                    </div>
+                  </>
+                )}
+
+                {article.data.project_duration != null && (
+                  <>
+                    <h6>PROJECT DURATION</h6>
+                    <p className="text-grey">{article.data.project_duration}</p>
+                  </>
+                )}
+
+                {article.data.design_tools != null && (
+                  <>
+                    <h6>DESIGN TOOLS</h6>
+                    <p className="text-grey">{article.data.design_tools}</p>
+                  </>
+                )}
+              </div>
             </div>
           </SideBar>
 
@@ -115,18 +150,18 @@ export default function Article({ article, settings, related }) {
 
         <section className="py-5 bg-lightgrey">
           <div className="container">
-            <div className="row justify-content-end">
-              <div className="col-9">
+            <div className="row justify-content-lg-end">
+              <div className="col-12 col-sm-9">
                 <h5 className="text-grey text-uppercase ">
                   See more of my work:
                 </h5>
 
                 {/* Related Content  */}
 
-                <div className="row row-cols-2 mt-4 mb-3">
+                <div className="row row-cols-1 row-cols-lg-2 mt-4 mb-3">
                   {related.map((article) => (
                     <div
-                      className="col pb-4 ps-4 pe-5"
+                      className="col pb-4 ps-4 pe-4 pe-lg-5"
                       key={article.data.title}
                     >
                       <RelatedCaseStudyCard
@@ -147,7 +182,7 @@ export default function Article({ article, settings, related }) {
           </div>
         </section>
 
-        {/* <pre>{JSON.stringify(related, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
       </Layout>
     </>
   );

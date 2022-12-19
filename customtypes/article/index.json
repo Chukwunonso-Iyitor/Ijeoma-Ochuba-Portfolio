@@ -36,6 +36,29 @@
           "thumbnails": []
         }
       },
+      "role": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Role",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "project_duration": {
+        "type": "Text",
+        "config": {
+          "label": "Project Duration",
+          "placeholder": ""
+        }
+      },
+      "design_tools": {
+        "type": "Text",
+        "config": {
+          "label": "Design Tools",
+          "placeholder": ""
+        }
+      },
       "content": {
         "type": "StructuredText",
         "config": {

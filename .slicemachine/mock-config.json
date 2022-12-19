@@ -29,6 +29,12 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
+      },
+      "role": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "navigation": {}
