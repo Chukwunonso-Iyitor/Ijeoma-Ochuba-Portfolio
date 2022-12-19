@@ -15,7 +15,7 @@ const Content = styled.article`
   }
   iframe {
     width: 100%;
-    min-height: 1200px;
+    min-height: 80vh;
   }
 `;
 const SideBar = styled.aside`
