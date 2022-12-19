@@ -81,7 +81,7 @@ const CaseStudyCard = ({ title, image, slug, tags }) => {
           </div>
           <div>
             <h5>
-              Read Case Study <i className="bi bi-box-arrow-up-right ms-2"></i>
+              Read Case Study <i className="bi bi-arrow-right ms-2"></i>
             </h5>
           </div>
         </div>

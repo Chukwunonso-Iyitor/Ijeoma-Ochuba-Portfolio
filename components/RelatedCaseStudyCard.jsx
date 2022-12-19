@@ -46,7 +46,7 @@ const RelatedCaseStudyCard = ({ title, image, slug }) => {
         ></div>
         <div className="col bg-white d-flex align-items-center px-4">
           <h6 className="text-black mb-0">
-            {title} <i className="bi bi-box-arrow-up-right ms-2"></i>
+            {title} <i className="bi bi-arrow-right ms-2"></i>
           </h6>
         </div>
       </RelatedCard>
