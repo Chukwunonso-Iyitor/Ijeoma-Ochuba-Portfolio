@@ -46,7 +46,7 @@ const Footer = ({ settings }) => {
                   {settings.data.email}
                 </a>
               </p>
-              <p>
+              {/* <p>
                 <a
                   href={`tel: ${settings.data.phone} `}
                   className="link-orange"
@@ -54,7 +54,7 @@ const Footer = ({ settings }) => {
                   <i className="bi bi-telephone-fill me-1"></i>{" "}
                   {settings.data.phone}
                 </a>
-              </p>
+              </p> */}
               <p className="mb-0">
                 <a
                   href={settings.data.linkedin.url}
