@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const Main = styled.main`
-  min-height: 100vh;
+  min-height: 90vh;
   margin-top: 73px;
   scroll-behavior: auto;
   @media (max-width: 768px){
