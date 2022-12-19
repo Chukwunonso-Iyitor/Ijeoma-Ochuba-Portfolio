@@ -2,8 +2,8 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import RelatedCaseStudyCard from "../../components/RelatedCaseStudyCard";
 
-import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { PrismicRichText } from "@prismicio/react";
@@ -57,7 +57,7 @@ const Banner = styled.section`
   }
 `;
 
-export default function Article({ article, settings }) {
+export default function Article({ article, settings, related }) {
   return (
     <>
       <Head>
@@ -105,7 +105,38 @@ export default function Article({ article, settings }) {
           </Content>
         </section>
 
-        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
+        <section className="py-5 bg-lightgrey">
+          <div className="container">
+            <div className="row justify-content-end">
+              <div className="col-9">
+                <h5 className="text-grey text-uppercase ">
+                  See more of my work:
+                </h5>
+
+                {/* Related Content  */}
+
+                <div className="row row-cols-2 mt-4 mb-3">
+                  {related.map((article) => (
+                    <div className="col pb-4 ps-4 pe-5" key={article.data.title}>
+                      <RelatedCaseStudyCard
+                        title={article.data.title}
+                        slug={article.uid}
+                        image={article.data.featured_image.url}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA  */}
+                <Link href={`/contact`} className="btn-grey-alt">
+                  Hire me
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* <pre>{JSON.stringify(related, null, 2)}</pre> */}
       </Layout>
     </>
   );
@@ -118,8 +149,12 @@ export async function getStaticProps({ params, previewData }) {
   const article = await client.getByUID("article", params.uid);
   const settings = await client.getSingle("settings");
 
+  const articles = await client.getAllByType("article");
+  const filtered = articles.filter((e) => e.uid !== article.uid);
+  const shuffled = filtered.sort((a, b) => 0.5 - Math.random());
+  const related = shuffled.slice(0, 3);
   return {
-    props: { article, settings },
+    props: { article, settings, related },
   };
 }
 
