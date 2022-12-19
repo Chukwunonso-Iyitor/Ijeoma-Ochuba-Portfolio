@@ -32,21 +32,25 @@ const Footer = ({ settings }) => {
   return (
     <FooterMain className="bg-dark">
       {/* Footer top  */}
-      <div className="footer-top pt-5 pb-3">
+      <div className="footer-top pt-4 pb-2">
         <div className="container p-4 text-white text-center">
           <div className="row">
             <div className="col">
               <h5 className="mb-3">Stay in Touch</h5>
               <p>Thank you for visiting my portfolio.</p>
-              <p>
-                <a
-                  href={`mailto: ${settings.data.email} `}
-                  className="link-orange"
-                >
-                  <i className="bi bi-envelope-fill me-1"></i>{" "}
-                  {settings.data.email}
-                </a>
-              </p>
+              {settings.data.email != null && (
+                <>
+                  <p>
+                    <a
+                      href={`mailto: ${settings.data.email} `}
+                      className="link-orange"
+                    >
+                      <i className="bi bi-envelope-fill me-1"></i>{" "}
+                      {settings.data.email}
+                    </a>
+                  </p>
+                </>
+              )}
               {settings.data.phone != null && (
                 <>
                   <p>
@@ -60,15 +64,79 @@ const Footer = ({ settings }) => {
                   </p>
                 </>
               )}
-              <p className="mb-0">
-                <a
-                  href={settings.data.linkedin.url}
-                  className="link-orange social-link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <i className="bi bi-linkedin"></i>
-                </a>
+
+              {/* Social Media  */}
+              <p className="mb-0 mt-4">
+                {/* Facebook  */}
+                {settings.data.facebook.url != null && (
+                  <>
+                    <a
+                      href={settings.data.facebook.url}
+                      className="link-orange social-link mx-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-facebook"></i>
+                    </a>
+                  </>
+                )}
+
+                {/* LinkedIn  */}
+                {settings.data.linkedin.url != null && (
+                  <>
+                    <a
+                      href={settings.data.linkedin.url}
+                      className="link-orange social-link mx-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-linkedin"></i>
+                    </a>
+                  </>
+                )}
+
+                {/* Instagram  */}
+                {settings.data.instagram.url != null && (
+                  <>
+                    <a
+                      href={settings.data.instagram.url}
+                      className="link-orange social-link mx-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-instagram"></i>
+                    </a>
+                  </>
+                )}
+
+
+                {/* Twitter  */}
+                {settings.data.twitter.url != null && (
+                  <>
+                    <a
+                      href={settings.data.twitter.url}
+                      className="link-orange social-link mx-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-twitter"></i>
+                    </a>
+                  </>
+                )}
+
+                 {/* Behance */}
+                 {settings.data.behance.url != null && (
+                  <>
+                    <a
+                      href={settings.data.behance.url}
+                      className="link-orange social-link mx-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="bi bi-behance"></i>
+                    </a>
+                  </>
+                )}
               </p>
             </div>
           </div>

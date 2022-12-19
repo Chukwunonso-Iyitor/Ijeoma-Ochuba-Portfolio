@@ -41,6 +41,22 @@
           "placeholder": ""
         }
       },
+      "picture": {
+        "type": "Image",
+        "config": {
+          "label": "Picture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "facebook": {
+        "type": "Link",
+        "config": {
+          "label": "Facebook",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "linkedin": {
         "type": "Link",
         "config": {
@@ -49,12 +65,28 @@
           "select": null
         }
       },
-      "picture": {
-        "type": "Image",
+      "instagram": {
+        "type": "Link",
         "config": {
-          "label": "Picture",
-          "constraint": {},
-          "thumbnails": []
+          "label": "Instagram",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "twitter": {
+        "type": "Link",
+        "config": {
+          "label": "Twitter",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "behance": {
+        "type": "Link",
+        "config": {
+          "label": "Behance",
+          "placeholder": "",
+          "select": null
         }
       }
     }

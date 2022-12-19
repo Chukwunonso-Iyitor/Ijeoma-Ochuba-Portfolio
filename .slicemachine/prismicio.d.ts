@@ -235,6 +235,28 @@ interface SettingsDocumentData {
      */
     phone: prismicT.KeyTextField;
     /**
+     * Picture field in *Settings*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.picture
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    picture: prismicT.ImageField<never>;
+    /**
+     * Facebook field in *Settings*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.facebook
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    facebook: prismicT.LinkField;
+    /**
      * LinkedIn field in *Settings*
      *
      * - **Field Type**: Link
@@ -246,16 +268,38 @@ interface SettingsDocumentData {
      */
     linkedin: prismicT.LinkField;
     /**
-     * Picture field in *Settings*
+     * Instagram field in *Settings*
      *
-     * - **Field Type**: Image
+     * - **Field Type**: Link
      * - **Placeholder**: *None*
-     * - **API ID Path**: settings.picture
+     * - **API ID Path**: settings.instagram
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    picture: prismicT.ImageField<never>;
+    instagram: prismicT.LinkField;
+    /**
+     * Twitter field in *Settings*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.twitter
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    twitter: prismicT.LinkField;
+    /**
+     * Behance field in *Settings*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.behance
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    behance: prismicT.LinkField;
 }
 /**
  * Settings document from Prismic
