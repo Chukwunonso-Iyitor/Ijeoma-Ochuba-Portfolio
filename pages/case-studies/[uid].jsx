@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import RelatedCaseStudyCard from "../../components/RelatedCaseStudyCard";
+import { useRouter } from "next/router";
 
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
@@ -22,6 +23,9 @@ const SideBar = styled.aside`
     position: sticky;
     top: 100px;
     z-index: 60;
+    .back-btn {
+      cursor: pointer;
+    }
   }
 `;
 const Banner = styled.section`
@@ -58,6 +62,7 @@ const Banner = styled.section`
 `;
 
 export default function Article({ article, settings, related }) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -87,9 +92,12 @@ export default function Article({ article, settings, related }) {
           {/* Side Panel  */}
           <SideBar className="col-12 col-sm-3 mb-5 px-0 px-sm-3">
             <div className="side-bar">
-              <Link href="/#case-studies" className="text-grey link-orange">
+              <span
+                className="text-grey link-orange back-btn"
+                onClick={() => router.back()}
+              >
                 <i className="bi bi-arrow-left me-2"></i>Back
-              </Link>
+              </span>
             </div>
           </SideBar>
 
@@ -117,7 +125,10 @@ export default function Article({ article, settings, related }) {
 
                 <div className="row row-cols-2 mt-4 mb-3">
                   {related.map((article) => (
-                    <div className="col pb-4 ps-4 pe-5" key={article.data.title}>
+                    <div
+                      className="col pb-4 ps-4 pe-5"
+                      key={article.data.title}
+                    >
                       <RelatedCaseStudyCard
                         title={article.data.title}
                         slug={article.uid}
