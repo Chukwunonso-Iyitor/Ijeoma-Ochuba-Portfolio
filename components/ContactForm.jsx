@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const Form = styled.form`
   label {
@@ -31,57 +32,83 @@ const Form = styled.form`
   }
 `;
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 const ContactForm = () => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [state, setState] = useState({});
 
-    const formData = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      message: event.target.message.value,
-    };
-
-    const JSONdata = JSON.stringify(formData);
-    
-    // const endpoint = "/api/form";
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSONdata,
-    // };
-
-    // const response = await fetch(endpoint, options);
-
-   
-    // const result = await response.json();
-    // alert(`Is this your full name: ${result.data}`);
-
-    // const myForm = document.getElementById("contact-form");
-    // const formData = new FormData(myForm);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSONdata,
-    })
-      .then(() => {
-        document.getElementById("form-message").innerHTML =
-          '<i class="bi bi-check-circle-fill text-success me-2"></i>' +
-          " " +
-          "Thank you. Your message has been submitted.";
-        console.log("Thank You!");
-      })
-      .catch((error) => alert(error));
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then(() => console.log('Thank You!'))
+      .catch((error) => alert(error))
+  }
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   // const formData = {
+  //   //   name: event.target.name.value,
+  //   //   email: event.target.email.value,
+  //   //   message: event.target.message.value,
+  //   // };
+
+  //   // const JSONdata = JSON.stringify(formData);
+
+  //   // const endpoint = "/api/form";
+  //   // const options = {
+  //   //   method: "POST",
+  //   //   headers: {
+  //   //     "Content-Type": "application/json",
+  //   //   },
+  //   //   body: JSONdata,
+  //   // };
+
+  //   // const response = await fetch(endpoint, options);
+
+  //   // const result = await response.json();
+  //   // alert(`Is this your full name: ${result.data}`);
+
+  //   // const myForm = document.getElementById("contact-form");
+  //   // const formData = new FormData(myForm);
+  //   // fetch("/", {
+  //   //   method: "POST",
+  //   //   headers: { "Content-Type": "application/json" },
+  //   //   body: JSONdata,
+  //   // })
+  //   //   .then(() => {
+  //   //     document.getElementById("form-message").innerHTML =
+  //   //       '<i class="bi bi-check-circle-fill text-success me-2"></i>' +
+  //   //       " " +
+  //   //       "Thank you. Your message has been submitted.";
+  //   //     console.log("Thank You!");
+  //   //   })
+  //   //   .catch((error) => alert(error));
+  // };
   return (
     <Form
-      onSubmit={handleSubmit}
+      id="contact-form"
       name="Contact"
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      id="contact-form"
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="Contact" value="contact" />
 
@@ -96,6 +123,7 @@ const ContactForm = () => {
         rows="10"
         placeholder="Write your message here..."
         required
+        onChange={handleChange}
       ></textarea>
       <br />
       <label htmlFor="name" className="mt-4 text-grey">
@@ -108,6 +136,7 @@ const ContactForm = () => {
         id="name"
         placeholder="Your name"
         required
+        onChange={handleChange}
       />
       <br />
       <input
@@ -117,6 +146,7 @@ const ContactForm = () => {
         placeholder="Your email"
         className="mt-3"
         required
+        onChange={handleChange}
       />
       <br />
       <div className="row justify-content-between align-items-center mt-4">
