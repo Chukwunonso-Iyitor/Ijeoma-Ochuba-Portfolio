@@ -11,6 +11,8 @@ function MyApp({ Component, pageProps }) {
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
       <PrismicPreview repositoryName={repositoryName}>
         <Script src="/scripts/hotjar.js" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Y7EXVZ879"/>
+        <Script src="/scripts/gtm.js" />
         <Component {...pageProps} />
       </PrismicPreview>
     </PrismicProvider>
