@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 
 const Form = styled.form`
@@ -31,95 +31,83 @@ const Form = styled.form`
   }
 `;
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+const ContactForm = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "", email: "", message: "" };
-  }
-  handleSubmit = (e) => {
+    const myForm = document.getElementById("contact-form");
+    const formData = new FormData(myForm);
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state }),
+      body: new URLSearchParams(formData).toString(),
     })
-      .then(() => console.log("Success!"))
+      .then(() => {
+        document.getElementById('form-message').innerHTML =
+        '<i className="bi bi-check-circle-fill text-success me-2"></i>' +
+        ' ' +
+        'Thank you. Your message has been submitted.'
+        console.log("Thank You!")})
       .catch((error) => alert(error));
-
-    e.preventDefault();
   };
+  return (
+    <Form
+      onSubmit={handleSubmit}
+      name="Contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      id="contact-form"
+    >
+      <input type="hidden" name="Contact" value="contact" />
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
-  render() {
-    return (
-      <Form
-        onSubmit={this.handleSubmit}
-        name="Contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        className="contact-form"
-      >
-        <input type="hidden" name="Contact" value="contact" />
-
-        <label htmlFor="message" className="text-grey">
-          Dear Ijeoma,
-        </label>
-        <br />
-        <textarea
-          name="message"
-          id="message"
-          cols="30"
-          rows="10"
-          //   value={message}
-          onChange={this.handleChange}
-          placeholder="Write your message here..."
-          required
-        ></textarea>
-        <br />
-        <label htmlFor="name" className="mt-4 text-grey">
-          Best regards,
-        </label>
-        <br />
-        <input
-          type="text"
-          name="name"
-          id="name"
-          //   value={name}
-          onChange={this.handleChange}
-          placeholder="Your name"
-          required
-        />
-        <br />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          //   value={email}
-          onChange={this.handleChange}
-          placeholder="Your email"
-          className="mt-3"
-          required
-        />
-        <br />
-        <div className="row justify-content-between">
-          <div className="col">
-            <button type="submit" className="btn-grey mt-4 d-inline-block">
-              Send <i className="bi bi-send-fill ms-1"></i>
-            </button>
-          </div>
-          <div className="col">
-            <p id="form-message"></p>
-          </div>
+      <label htmlFor="message" className="text-grey">
+        Dear Ijeoma,
+      </label>
+      <br />
+      <textarea
+        name="message"
+        id="message"
+        cols="30"
+        rows="10"
+        placeholder="Write your message here..."
+        required
+      ></textarea>
+      <br />
+      <label htmlFor="name" className="mt-4 text-grey">
+        Best regards,
+      </label>
+      <br />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Your name"
+        required
+      />
+      <br />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Your email"
+        className="mt-3"
+        required
+      />
+      <br />
+      <div className="row justify-content-between">
+        <div className="col">
+          <button type="submit" className="btn-grey mt-4 d-inline-block">
+            Send <i className="bi bi-send-fill ms-1"></i>
+          </button>
         </div>
-      </Form>
-    );
-  }
-}
+        <div className="col">
+          <p id="form-message"></p>
+        </div>
+      </div>
+    </Form>
+  );
+};
 
 export default ContactForm;
