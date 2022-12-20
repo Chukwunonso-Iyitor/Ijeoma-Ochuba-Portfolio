@@ -4,6 +4,10 @@ export const navdata = [
     path: "/",
   },
   {
+    page: "Blog",
+    path: "/blog",
+  },
+  {
     page: "About",
     path: "/about",
   },
