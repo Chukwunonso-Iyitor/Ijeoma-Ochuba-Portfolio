@@ -48,7 +48,7 @@ class ContactForm extends Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state }),
     })
-      .then(() => alert("Success!"))
+      .then(() => console.log("Success!"))
       .catch((error) => alert(error));
 
     e.preventDefault();
@@ -76,7 +76,7 @@ class ContactForm extends Component {
           id="message"
           cols="30"
           rows="10"
-        //   value={message}
+          //   value={message}
           onChange={this.handleChange}
           placeholder="Write your message here..."
           required
@@ -90,7 +90,7 @@ class ContactForm extends Component {
           type="text"
           name="name"
           id="name"
-        //   value={name}
+          //   value={name}
           onChange={this.handleChange}
           placeholder="Your name"
           required
@@ -100,7 +100,7 @@ class ContactForm extends Component {
           type="email"
           name="email"
           id="email"
-        //   value={email}
+          //   value={email}
           onChange={this.handleChange}
           placeholder="Your email"
           className="mt-3"
