@@ -43,64 +43,39 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+    document.getElementById("form-message").innerHTML = "";
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': form.getAttribute('name'),
+        "form-name": form.getAttribute("name"),
         ...state,
       }),
     })
-      .then(() => console.log('Thank You!'))
-      .catch((error) => alert(error))
-  }
+      .then(() => {
+        document.getElementById("form-message").innerHTML =
+          '<i class="bi bi-check-circle-fill text-success me-2"></i>' +
+          " " +
+          "Thank you. Your message has been submitted.";
+        // console.log("Thank You!");
+        document
+          .querySelectorAll("#contact-form input, #contact-form textarea")
+          .forEach((e) => {
+            e.value = "";
+          });
+      })
+      .catch((error) => {
+        document.getElementById("form-message").innerHTML =
+          '<i class="bi bi-x-circle-fill text-danger me-2"></i> There was a problem sending your message!! 🙁';
+        // alert(error)
+      });
+  };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   // const formData = {
-  //   //   name: event.target.name.value,
-  //   //   email: event.target.email.value,
-  //   //   message: event.target.message.value,
-  //   // };
-
-  //   // const JSONdata = JSON.stringify(formData);
-
-  //   // const endpoint = "/api/form";
-  //   // const options = {
-  //   //   method: "POST",
-  //   //   headers: {
-  //   //     "Content-Type": "application/json",
-  //   //   },
-  //   //   body: JSONdata,
-  //   // };
-
-  //   // const response = await fetch(endpoint, options);
-
-  //   // const result = await response.json();
-  //   // alert(`Is this your full name: ${result.data}`);
-
-  //   // const myForm = document.getElementById("contact-form");
-  //   // const formData = new FormData(myForm);
-  //   // fetch("/", {
-  //   //   method: "POST",
-  //   //   headers: { "Content-Type": "application/json" },
-  //   //   body: JSONdata,
-  //   // })
-  //   //   .then(() => {
-  //   //     document.getElementById("form-message").innerHTML =
-  //   //       '<i class="bi bi-check-circle-fill text-success me-2"></i>' +
-  //   //       " " +
-  //   //       "Thank you. Your message has been submitted.";
-  //   //     console.log("Thank You!");
-  //   //   })
-  //   //   .catch((error) => alert(error));
-  // };
   return (
     <Form
       id="contact-form"
@@ -150,13 +125,13 @@ const ContactForm = () => {
       />
       <br />
       <div className="row justify-content-between align-items-center mt-4">
-        <div className="col">
+        <div className="col-12 col-sm-3 col-lg mb-5 mb-sm-0">
           <button type="submit" className="btn-grey  d-inline-block">
             Send <i className="bi bi-send-fill ms-1"></i>
           </button>
         </div>
         <div className="col">
-          <p id="form-message" className="mb-0 text-end"></p>
+          <p id="form-message" className="mb-0 text-center text-sm-end"></p>
         </div>
       </div>
     </Form>
