@@ -32,16 +32,38 @@ const Form = styled.form`
 `;
 
 const ContactForm = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const myForm = document.getElementById("contact-form");
-    const formData = new FormData(myForm);
+    const formData = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      message: event.target.message.value,
+    };
 
+    const JSONdata = JSON.stringify(formData);
+    
+    // const endpoint = "/api/form";
+    // const options = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSONdata,
+    // };
+
+    // const response = await fetch(endpoint, options);
+
+   
+    // const result = await response.json();
+    // alert(`Is this your full name: ${result.data}`);
+
+    // const myForm = document.getElementById("contact-form");
+    // const formData = new FormData(myForm);
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      headers: { "Content-Type": "application/json" },
+      body: JSONdata,
     })
       .then(() => {
         document.getElementById("form-message").innerHTML =
