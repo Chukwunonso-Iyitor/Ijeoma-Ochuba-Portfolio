@@ -44,11 +44,12 @@ const ContactForm = () => {
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
-        document.getElementById('form-message').innerHTML =
-        '<i className="bi bi-check-circle-fill text-success me-2"></i>' +
-        ' ' +
-        'Thank you. Your message has been submitted.'
-        console.log("Thank You!")})
+        document.getElementById("form-message").innerHTML =
+          '<i class="bi bi-check-circle-fill text-success me-2"></i>' +
+          " " +
+          "Thank you. Your message has been submitted.";
+        console.log("Thank You!");
+      })
       .catch((error) => alert(error));
   };
   return (
@@ -96,14 +97,14 @@ const ContactForm = () => {
         required
       />
       <br />
-      <div className="row justify-content-between">
+      <div className="row justify-content-between align-items-center mt-4">
         <div className="col">
-          <button type="submit" className="btn-grey mt-4 d-inline-block">
+          <button type="submit" className="btn-grey  d-inline-block">
             Send <i className="bi bi-send-fill ms-1"></i>
           </button>
         </div>
         <div className="col">
-          <p id="form-message"></p>
+          <p id="form-message" className="mb-0 text-end"></p>
         </div>
       </div>
     </Form>
