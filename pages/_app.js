@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         <Script src="/scripts/hotjar.js" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Y7EXVZ879"/>
         <Script src="/scripts/gtm.js" />
+        <Script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=ijeoma-ochuba"/>
         <Component {...pageProps} />
       </PrismicPreview>
     </PrismicProvider>
