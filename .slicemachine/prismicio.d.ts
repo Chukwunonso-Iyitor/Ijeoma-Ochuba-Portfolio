@@ -110,6 +110,17 @@ interface ArticleDocumentData {
      */
     role: prismicT.RichTextField;
     /**
+     * Deliverables field in *Article*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.deliverables
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    deliverables: prismicT.KeyTextField;
+    /**
      * Project Duration field in *Article*
      *
      * - **Field Type**: Text
@@ -132,28 +143,22 @@ interface ArticleDocumentData {
      */
     design_tools: prismicT.KeyTextField;
     /**
-     * Content field in *Article*
+     * Slice Zone field in *Article*
      *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: Article content goes here...
-     * - **API ID Path**: article.content
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    content: prismicT.RichTextField;
-    /**
-     * Embed field in *Article*
-     *
-     * - **Field Type**: Embed
+     * - **Field Type**: Slice Zone
      * - **Placeholder**: *None*
-     * - **API ID Path**: article.embed
+     * - **API ID Path**: article.slices[]
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
      *
      */
-    embed: prismicT.EmbedField;
+    slices: prismicT.SliceZone<ArticleDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Article → Slice Zone*
+ *
+ */
+type ArticleDocumentDataSlicesSlice = TextImageSplitBlockSlice | TextOnlyBlockSlice;
 /**
  * Article document from Prismic
  *
@@ -335,49 +340,108 @@ interface SettingsDocumentData {
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = AboutDocument | ArticleDocument | HomepageDocument | SettingsDocument;
 /**
- * Primary content in TextBlock → Primary
+ * Primary content in TextImageSplitBlock → Primary
  *
  */
-interface TextBlockSliceDefaultPrimary {
+interface TextImageSplitBlockSliceDefaultPrimary {
     /**
-     * Title field in *TextBlock → Primary*
+     * Text field in *TextImageSplitBlock → Primary*
      *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: text_block.primary.title
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_image_split_block.primary.text
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    text: prismicT.RichTextField;
+    /**
+     * Image field in *TextImageSplitBlock → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_image_split_block.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Image Label field in *TextImageSplitBlock → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_image_split_block.primary.image_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    image_label: prismicT.KeyTextField;
 }
 /**
- * Default variation for TextBlock Slice
+ * Default variation for TextImageSplitBlock Slice
  *
  * - **API ID**: `default`
- * - **Description**: `TextBlock`
+ * - **Description**: `TextImageSplitBlock`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextBlockSliceDefaultPrimary>, never>;
+export type TextImageSplitBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextImageSplitBlockSliceDefaultPrimary>, never>;
 /**
- * Slice variation for *TextBlock*
+ * Slice variation for *TextImageSplitBlock*
  *
  */
-type TextBlockSliceVariation = TextBlockSliceDefault;
+type TextImageSplitBlockSliceVariation = TextImageSplitBlockSliceDefault;
 /**
- * TextBlock Shared Slice
+ * TextImageSplitBlock Shared Slice
  *
- * - **API ID**: `text_block`
- * - **Description**: `TextBlock`
+ * - **API ID**: `text_image_split_block`
+ * - **Description**: `TextImageSplitBlock`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextBlockSlice = prismicT.SharedSlice<"text_block", TextBlockSliceVariation>;
+export type TextImageSplitBlockSlice = prismicT.SharedSlice<"text_image_split_block", TextImageSplitBlockSliceVariation>;
+/**
+ * Primary content in TextOnlyBlock → Primary
+ *
+ */
+interface TextOnlyBlockSliceDefaultPrimary {
+    /**
+     * Text field in *TextOnlyBlock → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_only_block.primary.text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
+}
+/**
+ * Default variation for TextOnlyBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `TextOnlyBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextOnlyBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextOnlyBlockSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *TextOnlyBlock*
+ *
+ */
+type TextOnlyBlockSliceVariation = TextOnlyBlockSliceDefault;
+/**
+ * TextOnlyBlock Shared Slice
+ *
+ * - **API ID**: `text_only_block`
+ * - **Description**: `TextOnlyBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextOnlyBlockSlice = prismicT.SharedSlice<"text_only_block", TextOnlyBlockSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, TextBlockSliceDefaultPrimary, TextBlockSliceDefault, TextBlockSliceVariation, TextBlockSlice };
+        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
     }
 }

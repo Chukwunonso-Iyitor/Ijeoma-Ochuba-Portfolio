@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { PrismicRichText } from "@prismicio/react";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../../slices";
 
 const Content = styled.article`
   img {
@@ -25,6 +27,16 @@ const SideBar = styled.aside`
     z-index: 60;
     .back-btn {
       cursor: pointer;
+      i {
+        position: relative;
+        left: 0px;
+        transition: left 0.4s ease;
+      }
+      &:hover {
+        i {
+          left: -4px;
+        }
+      }
     }
     .project-info {
       h6 {
@@ -105,7 +117,7 @@ export default function Article({ article, settings, related }) {
                 className="text-grey link-orange back-btn"
                 onClick={() => router.back()}
               >
-                <i className="bi bi-arrow-left me-2"></i>Back
+                <i className="bi bi-arrow-left me-1"></i>Back
               </span>
 
               {/* Aside content  */}
@@ -116,6 +128,13 @@ export default function Article({ article, settings, related }) {
                     <div className="text-grey">
                       <PrismicRichText field={article.data.role} />
                     </div>
+                  </>
+                )}
+
+                {article.data.deliverables != null && (
+                  <>
+                    <h6>DELIVERABLES</h6>
+                    <p className="text-grey">{article.data.deliverables}</p>
                   </>
                 )}
 
@@ -138,13 +157,14 @@ export default function Article({ article, settings, related }) {
 
           {/* Article content  */}
           <Content className="col px-0 px-sm-3">
+            <SliceZone slices={article.data.slices} components={components} />
             <PrismicRichText field={article.data.content} />
-            <div
+            {/* <div
               className="mt-5"
               dangerouslySetInnerHTML={{
                 __html: article.data.embed.html,
               }}
-            />
+            /> */}
           </Content>
         </section>
 

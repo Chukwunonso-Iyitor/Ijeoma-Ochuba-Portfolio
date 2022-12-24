@@ -1,30 +1,46 @@
 {
   "slices": {
     "components": {
-      "text_block": {
+      "text_image_split_block": {
         "library": "slices",
-        "id": "text_block",
-        "name": "TextBlock",
-        "description": "TextBlock",
+        "id": "text_image_split_block",
+        "name": "TextImageSplitBlock",
+        "description": "TextImageSplitBlock",
         "model": {
-          "id": "text_block",
+          "id": "text_image_split_block",
           "type": "SharedSlice",
-          "name": "TextBlock",
-          "description": "TextBlock",
+          "name": "TextImageSplitBlock",
+          "description": "TextImageSplitBlock",
           "variations": [
             {
               "id": "default",
               "name": "Default",
               "docURL": "...",
               "version": "sktwi1xtmkfgx8626",
-              "description": "TextBlock",
+              "description": "TextImageSplitBlock",
               "primary": {
-                "title": {
+                "text": {
                   "type": "StructuredText",
                   "config": {
-                    "single": "heading1",
-                    "label": "Title",
-                    "placeholder": "This is where it all begins..."
+                    "label": "Text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "image_label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Image Label",
+                    "placeholder": ""
                   }
                 }
               },
@@ -41,15 +57,83 @@
               {}
             ],
             "primary": {
-              "title": [
+              "text": [
                 {
-                  "type": "heading1",
-                  "text": "Anyway",
+                  "type": "paragraph",
+                  "text": "Laboris proident et fugiat laboris excepteur excepteur irure id velit quis pariatur esse nostrud consectetur. Consequat officia eiusmod labore aliquip cillum enim aute fugiat laboris irure ullamco adipisicing Lorem aute exercitation.",
+                  "spans": []
+                }
+              ],
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+              },
+              "image_label": "apartment"
+            },
+            "slice_type": "text_image_split_block"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "text_only_block": {
+        "library": "slices",
+        "id": "text_only_block",
+        "name": "TextOnlyBlock",
+        "description": "TextOnlyBlock",
+        "model": {
+          "id": "text_only_block",
+          "type": "SharedSlice",
+          "name": "TextOnlyBlock",
+          "description": "TextOnlyBlock",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "TextOnlyBlock",
+              "primary": {
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Et dolore culpa adipisicing ipsum nulla ipsum laborum aliquip. Ut pariatur irure aliqua Lorem ex fugiat minim consequat tempor dolor dolore incididunt occaecat elit elit.",
                   "spans": []
                 }
               ]
             },
-            "slice_type": "text_block"
+            "slice_type": "text_only_block"
           }
         },
         "meta": {

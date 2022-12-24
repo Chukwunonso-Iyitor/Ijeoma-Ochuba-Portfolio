@@ -1,22 +1,23 @@
 {
-  "id": "text_block",
+  "id": "text_only_block",
   "type": "SharedSlice",
-  "name": "TextBlock",
-  "description": "TextBlock",
+  "name": "TextOnlyBlock",
+  "description": "TextOnlyBlock",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "TextBlock",
+      "description": "TextOnlyBlock",
       "primary": {
-        "title": {
+        "text": {
           "type": "StructuredText",
           "config": {
-            "single": "heading1",
-            "label": "Title",
-            "placeholder": "This is where it all begins..."
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },

@@ -45,6 +45,13 @@
           "single": "paragraph"
         }
       },
+      "deliverables": {
+        "type": "Text",
+        "config": {
+          "label": "Deliverables",
+          "placeholder": ""
+        }
+      },
       "project_duration": {
         "type": "Text",
         "config": {
@@ -59,20 +66,18 @@
           "placeholder": ""
         }
       },
-      "content": {
-        "type": "StructuredText",
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
-          "label": "Content",
-          "placeholder": "Article content goes here...",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "embed": {
-        "type": "Embed",
-        "config": {
-          "label": "Embed",
-          "placeholder": ""
+          "choices": {
+            "text_image_split_block": {
+              "type": "SharedSlice"
+            },
+            "text_only_block": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     }

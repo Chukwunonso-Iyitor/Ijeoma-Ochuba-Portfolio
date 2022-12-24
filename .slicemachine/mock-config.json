@@ -30,12 +30,6 @@
           "blocks": 1
         }
       },
-      "content": {
-        "config": {
-          "patternType": "PARAGRAPH",
-          "blocks": 1
-        }
-      },
       "role": {
         "config": {
           "patternType": "PARAGRAPH",
@@ -48,12 +42,56 @@
   "slices": {
     "TextBlock": {
       "default": {
-        "primary": {}
+        "primary": {
+          "content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
       }
     },
     "Routes": {
       "default": {
         "primary": {}
+      }
+    },
+    "ImageTextBlock": {},
+    "SplitTextBlock": {
+      "default": {
+        "primary": {
+          "content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "TextOnlyBlock": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "TextImageSplitBlock": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
       }
     }
   }
