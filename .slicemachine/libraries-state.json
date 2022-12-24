@@ -1,6 +1,89 @@
 {
   "slices": {
     "components": {
+      "image_text_split_block": {
+        "library": "slices",
+        "id": "image_text_split_block",
+        "name": "ImageTextSplitBlock",
+        "description": "ImageTextSplitBlock",
+        "model": {
+          "id": "image_text_split_block",
+          "type": "SharedSlice",
+          "name": "ImageTextSplitBlock",
+          "description": "ImageTextSplitBlock",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ImageTextSplitBlock",
+              "primary": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "image_label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Image Label",
+                    "placeholder": ""
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db"
+              },
+              "image_label": "pan",
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Laboris et et proident tempor dolore id non dolor excepteur pariatur voluptate ipsum ut.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "image_text_split_block"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "text_image_split_block": {
         "library": "slices",
         "id": "text_image_split_block",

@@ -3,19 +3,12 @@ import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
- * @typedef {import("@prismicio/client").Content.TextImageSplitBlockSlice} TextImageSplitBlockSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<TextImageSplitBlockSlice>} TextImageSplitBlockProps
- * @param { TextImageSplitBlockProps }
+ * @typedef {import("@prismicio/client").Content.ImageTextSplitBlockSlice} ImageTextSplitBlockSlice
+ * @typedef {import("@prismicio/react").SliceComponentProps<ImageTextSplitBlockSlice>} ImageTextSplitBlockProps
+ * @param { ImageTextSplitBlockProps }
  */
-const TextImageSplitBlock = ({ slice }) => (
+const ImageTextSplitBlock = ({ slice }) => (
   <section className="row pb-4 align-items-center">
-    <span className="col-12 col-sm title">
-      {slice.primary.text ? (
-        <PrismicRichText field={slice.primary.text} />
-      ) : (
-        <h2>{""}</h2>
-      )}
-    </span>
     {slice.primary.image && (
       <div className="col">
         <PrismicNextImage
@@ -28,6 +21,14 @@ const TextImageSplitBlock = ({ slice }) => (
         )}
       </div>
     )}
+    <span className="col-12 col-sm title">
+      {slice.primary.text ? (
+        <PrismicRichText field={slice.primary.text} />
+      ) : (
+        <h2>{""}</h2>
+      )}
+    </span>
+
     <style jsx>{`
       /* section {
           max-width: 600px;
@@ -41,4 +42,4 @@ const TextImageSplitBlock = ({ slice }) => (
   </section>
 );
 
-export default TextImageSplitBlock;
+export default ImageTextSplitBlock;

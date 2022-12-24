@@ -21,6 +21,10 @@ const Content = styled.article`
   }
 `;
 const SideBar = styled.aside`
+  border-right: 1px solid #d6d6db;
+  @media (max-width: 991px){
+    border: none;
+  }
   .side-bar {
     position: sticky;
     top: 100px;
@@ -41,9 +45,10 @@ const SideBar = styled.aside`
     .project-info {
       h6 {
         font-weight: 600;
+        font-size: 15px;
       }
       p {
-        font-size: 15px;
+        font-size: 14px;
       }
     }
   }
@@ -108,9 +113,10 @@ export default function Article({ article, settings, related }) {
             </div>
           </div>
         </Banner>
-        <section className="container py-5 row mx-auto">
+        <section className="container row mx-auto">
+          
           {/* Side Panel  */}
-          <SideBar className="col-12 col-lg-3 mb-5 px-0 p-sm-3">
+          <SideBar className="col-12 col-lg-2 mb-5 mb-sm-0 px-0 pe-sm-1 pe-xl-3 py-5">
             <div className="side-bar">
               {/* Back button  */}
               <span
@@ -156,7 +162,7 @@ export default function Article({ article, settings, related }) {
           </SideBar>
 
           {/* Article content  */}
-          <Content className="col px-0 px-sm-3">
+          <Content className="col px-0 ps-lg-4 ps-xl-5 py-5">
             <SliceZone slices={article.data.slices} components={components} />
             <PrismicRichText field={article.data.content} />
             {/* <div
