@@ -17,7 +17,7 @@ export default function Blog({ settings }) {
             <h1 className="h1 mb-5">
               Fresh Articles on UX Design, User Research and Design Thinking.
             </h1>
-            <p>Coming soon</p>
+            <p>Coming soon.</p>
           </div>
         </section>
       </Layout>

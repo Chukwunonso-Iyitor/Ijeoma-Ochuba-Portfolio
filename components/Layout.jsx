@@ -30,7 +30,6 @@ const Layout = ({ children, settings }) => {
         <meta name="description" content="Ijeoma Ochuba - Portfolio" />
         <meta name="theme-color" content="#6b737a" />
         <link rel="icon" href="/favicon.ico" />
-        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=ijeoma-ochuba"></script>
       </Head>
       <header>
         <Navbar settings={settings}></Navbar>
