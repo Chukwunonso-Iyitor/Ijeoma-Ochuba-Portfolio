@@ -11,11 +11,27 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "introduction": "differ",
+    "introduction": "manufacturing",
     "biography": [
       {
         "type": "paragraph",
-        "text": "Anim adipisicing velit irure aute proident.",
+        "text": "Lorem fugiat quis sit minim dolor qui fugiat sit occaecat pariatur dolor culpa nulla sit. Duis aute ad sit duis sint adipisicing amet deserunt non qui aliquip. Esse mollit tempor et incididunt enim occaecat.",
+        "spans": []
+      }
+    ],
+    "picture": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+    },
+    "additional_information": [
+      {
+        "type": "paragraph",
+        "text": "Consequat qui ut exercitation voluptate amet veniam mollit eiusmod occaecat mollit ullamco ullamco. Fugiat consequat in non dolor non aliquip.",
         "spans": []
       }
     ]

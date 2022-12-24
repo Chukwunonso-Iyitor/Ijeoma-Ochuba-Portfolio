@@ -30,6 +30,28 @@ interface AboutDocumentData {
      *
      */
     biography: prismicT.RichTextField;
+    /**
+     * Picture field in *About*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.picture
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    picture: prismicT.ImageField<never>;
+    /**
+     * Additional Information field in *About*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.additional_information
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    additional_information: prismicT.RichTextField;
 }
 /**
  * About document from Prismic

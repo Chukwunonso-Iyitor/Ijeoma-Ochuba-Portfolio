@@ -6,6 +6,12 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
+      },
+      "additional_information": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "settings": {},
