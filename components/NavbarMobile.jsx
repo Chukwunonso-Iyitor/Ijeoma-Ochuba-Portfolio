@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 import { navdata } from "../store";
 
@@ -46,7 +46,7 @@ const NavMobile = styled.nav`
   }
 `;
 
-const NavbarMobile = (props) => {
+const NavbarMobile = ({ settings, className }) => {
   const openNav = () => {
     const menu = document.getElementById("mobile-nav-menu");
     menu.style.cssText =
@@ -59,18 +59,17 @@ const NavbarMobile = (props) => {
   };
   const router = useRouter();
   return (
-    <NavMobile className={`${props.className} d-block d-lg-none`}>
+    <NavMobile className={`${className} d-block d-lg-none`}>
       <div className="container-fluid mobile-nav">
         {/* Nav bar  */}
         <div className="row justify-content-between align-items-center nav-bar py-2">
           <div className="col profile-logo">
             <Link href="/">
-              <Image
-                src="/profile.jpg"
-                alt="Ijeoma Ochuba"
+              <PrismicNextImage
+                field={settings.data.picture}
+                className="profile-pic rounded-circle"
                 width={30}
                 height={30}
-                className="rounded-circle profile-pic"
               />
             </Link>
           </div>
@@ -104,15 +103,15 @@ const NavbarMobile = (props) => {
 
               {/* Resume  */}
               <div className="px-4">
-                  <a
-                    href={props.settings.data.resume.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-grey d-inline-block mx-2"
-                  >
-                    Resumé
-                  </a>
-                </div>
+                <a
+                  href={settings.data.resume.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-grey d-inline-block mx-2"
+                >
+                  Resumé
+                </a>
+              </div>
             </div>
           </div>
         </div>
