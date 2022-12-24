@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
       <Script src="/scripts/hotjar.js" />
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-1Y7EXVZ879" />
       <Script src="/scripts/gtm.js" />
-      <PrismicPreview repositoryName={repositoryName}>
+      <PrismicPreview repositoryName='ijeoma-ochuba'>
         <Component {...pageProps} />
       </PrismicPreview>
     </PrismicProvider>

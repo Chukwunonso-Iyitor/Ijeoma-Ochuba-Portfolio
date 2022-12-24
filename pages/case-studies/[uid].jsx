@@ -198,7 +198,7 @@ export async function getStaticProps({ params, previewData }) {
   const articles = await client.getAllByType("article");
   const filtered = articles.filter((e) => e.uid !== article.uid);
   const shuffled = filtered.sort((a, b) => 0.5 - Math.random());
-  const related = shuffled.slice(0, 3);
+  const related = shuffled.slice(0, 4);
   return {
     props: { article, settings, related },
   };
