@@ -22,7 +22,7 @@ const Content = styled.article`
 `;
 const SideBar = styled.aside`
   border-right: 1px solid #d6d6db;
-  @media (max-width: 991px){
+  @media (max-width: 991px) {
     border: none;
   }
   .side-bar {
@@ -88,6 +88,7 @@ const Banner = styled.section`
 
 export default function Article({ article, settings, related }) {
   const router = useRouter();
+
   return (
     <>
       <Head>
@@ -113,8 +114,9 @@ export default function Article({ article, settings, related }) {
             </div>
           </div>
         </Banner>
+
+        {/* <div className="demo bg-success p-5"></div> */}
         <section className="container row mx-auto">
-          
           {/* Side Panel  */}
           <SideBar className="col-12 col-lg-2 mb-5 mb-sm-0 px-0 pe-sm-1 pe-xl-3 py-5">
             <div className="side-bar">
