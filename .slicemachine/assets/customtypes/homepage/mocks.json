@@ -1,28 +1,23 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "homepage",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "hero_intro": [
+  "hero_intro": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Officia consectetur dolore minim dolor tempor. Nostrud non dolore ipsum do esse dolore proident culpa duis sit sit excepteur. Incididunt adipisicing ipsum nisi sint nulla id ipsum.",
-        "spans": []
+        "content": {
+          "text": "Nisi quis irure est consequat culpa laboris. Mollit ad voluptate do ex magna deserunt occaecat proident. Adipisicing anim enim sint eu nostrud aliqua laborum sit adipisicing voluptate."
+        }
       }
-    ],
-    "case_study_intro": [
+    ]
+  },
+  "case_study_intro": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Irure amet laborum aliquip cupidatat officia sunt.",
-        "spans": []
+        "content": {
+          "text": "Occaecat cillum veniam non. Ad elit dolore cillum ea sit consectetur adipisicing eiusmod aliquip commodo nulla exercitation veniam."
+        }
       }
     ]
   }

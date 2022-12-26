@@ -46,13 +46,7 @@ export default function About({ about, settings }) {
               <PrismicRichText field={about.data.additional_information} />
             </div>
 
-            <div
-              className="mt-5 d-flex justify-content-center"
-              data-aos="zoom-out"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="800"
-              data-aos-delay="100"
-            >
+            <div className="mt-5 d-flex justify-content-center">
               <Link href="/contact" className="btn-grey">
                 Get in touch
               </Link>

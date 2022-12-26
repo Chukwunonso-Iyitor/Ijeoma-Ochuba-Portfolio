@@ -1,38 +1,49 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "about",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "introduction": "manufacturing",
-    "biography": [
+  "introduction": {
+    "__TYPE__": "FieldContent",
+    "value": "not",
+    "type": "Text"
+  },
+  "biography": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Lorem fugiat quis sit minim dolor qui fugiat sit occaecat pariatur dolor culpa nulla sit. Duis aute ad sit duis sint adipisicing amet deserunt non qui aliquip. Esse mollit tempor et incididunt enim occaecat.",
-        "spans": []
+        "content": {
+          "text": "Eu Lorem cillum in cupidatat aliqua aliqua proident consectetur. Sint et quis pariatur consectetur eiusmod consequat adipisicing aliquip eu dolore deserunt magna et. Et Lorem labore culpa duis labore fugiat dolore in excepteur aute proident eiusmod proident commodo sint."
+        }
       }
-    ],
-    "picture": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+    ]
+  },
+  "picture": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+      "width": 3648,
+      "height": 4560
     },
-    "additional_information": [
+    "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+    "width": 3648,
+    "height": 4560,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "additional_information": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
       {
         "type": "paragraph",
-        "text": "Consequat qui ut exercitation voluptate amet veniam mollit eiusmod occaecat mollit ullamco ullamco. Fugiat consequat in non dolor non aliquip.",
-        "spans": []
+        "content": {
+          "text": "Esse mollit duis aute proident laboris ad enim veniam eu. Eu ex ex tempor elit sint excepteur excepteur cillum ex anim."
+        }
       }
     ]
   }
