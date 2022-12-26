@@ -80,3 +80,28 @@ article {
     }
   }
 }
+
+/* Article Lightbox
+--------------------------------*/
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px) saturate(0) brightness(0.9);
+  visibility: hidden;
+  opacity: 0;
+  cursor: zoom-out;
+  overflow-y: auto;
+  .img-wrapper {
+    scale: 0.2;
+    transition: 0.4s ease;
+    max-width: 80%;
+    .lightbox-img {
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
