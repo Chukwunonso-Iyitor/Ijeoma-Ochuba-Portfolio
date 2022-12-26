@@ -70,7 +70,7 @@ const TextImageSplitBlock = ({ slice }) => (
           className="d-flex justify-content-center align-items-center"
           onClick={closeLightbox}
         >
-          <Image src="" alt="" id="lightbox-img" />
+          <img src="" alt="" id="lightbox-img" />
         </Lightbox>
       </div>
     )}
