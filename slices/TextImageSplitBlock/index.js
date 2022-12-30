@@ -27,8 +27,9 @@ const closeLightbox = () => {
   lbox.style.cssText = "visibility: hidden; opacity: 0; cursor: auto;";
   wrapper.style.cssText = "scale: .2;";
 };
+
 const TextImageSplitBlock = ({ slice }) => (
-  <section className="row pb-4 align-items-center">
+  <section className="row pb-5 align-items-center">
     <span className="col-12 col-sm title">
       {slice.primary.text ? (
         <PrismicRichText field={slice.primary.text} />

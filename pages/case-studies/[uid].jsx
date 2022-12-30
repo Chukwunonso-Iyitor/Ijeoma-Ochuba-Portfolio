@@ -19,6 +19,12 @@ const Content = styled.article`
     width: 100%;
     min-height: 80vh;
   }
+  h2{
+    font-weight: 700;
+  }
+  h3{
+    font-weight: 600;
+  }
 `;
 const SideBar = styled.aside`
   border-right: 1px solid #d6d6db;

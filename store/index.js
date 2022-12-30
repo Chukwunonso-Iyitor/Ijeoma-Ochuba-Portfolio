@@ -1,6 +1,6 @@
 export const navdata = [
   {
-    page: "Work",
+    page: "Projects",
     path: "/",
   },
   {
