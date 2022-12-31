@@ -9,11 +9,7 @@ import { PrismicRichText } from "@prismicio/react";
 const TextOnlyBlock = ({ slice }) => (
   <section className="pb-5">
     <span className="title">
-      {slice.primary.text ? (
-        <PrismicRichText field={slice.primary.text} />
-      ) : (
-        <h2>{""}</h2>
-      )}
+      {slice.primary.text && <PrismicRichText field={slice.primary.text} />}
     </span>
     <style jsx>{`
       /* section {

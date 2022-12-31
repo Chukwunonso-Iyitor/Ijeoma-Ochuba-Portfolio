@@ -19,43 +19,28 @@ const Content = styled.article`
     width: 100%;
     min-height: 80vh;
   }
-  h2{
-    font-weight: 700;
-  }
-  h3{
-    font-weight: 600;
-  }
 `;
-const SideBar = styled.aside`
-  border-right: 1px solid #d6d6db;
-  @media (max-width: 991px) {
-    border: none;
-  }
-  .side-bar {
-    position: sticky;
-    top: 100px;
-    z-index: 60;
-    .back-btn {
-      cursor: pointer;
+const TopBar = styled.section`
+  .back-btn {
+    cursor: pointer;
+    i {
+      position: relative;
+      left: 0px;
+      transition: left 0.4s ease;
+    }
+    &:hover {
       i {
-        position: relative;
-        left: 0px;
-        transition: left 0.4s ease;
-      }
-      &:hover {
-        i {
-          left: -4px;
-        }
+        left: -4px;
       }
     }
-    .project-info {
-      h6 {
-        font-weight: 600;
-        font-size: 15px;
-      }
-      p {
-        font-size: 14px;
-      }
+  }
+  .project-info {
+    h6 {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    p {
+      font-size: 14px;
     }
   }
 `;
@@ -121,11 +106,10 @@ export default function Article({ article, settings, related }) {
           </div>
         </Banner>
 
-        {/* <div className="demo bg-success p-5"></div> */}
-        <section className="container row mx-auto">
-          {/* Side Panel  */}
-          <SideBar className="col-12 col-lg-2 mb-5 mb-sm-0 px-0 pe-sm-1 pe-xl-3 py-5">
-            <div className="side-bar">
+        {/* Side Panel  */}
+        <TopBar className="container pt-5 pb-3">
+          <div className="row">
+            <div className="col-12 col-sm-2 mb-5">
               {/* Back button  */}
               <span
                 className="text-grey link-orange back-btn"
@@ -133,44 +117,51 @@ export default function Article({ article, settings, related }) {
               >
                 <i className="bi bi-arrow-left me-1"></i>Back
               </span>
-
-              {/* Aside content  */}
-              <div className="mt-5 pe-lg-3 project-info">
-                {article.data.role.length > 0 && (
-                  <>
-                    <h6>ROLE</h6>
-                    <div className="text-grey">
-                      <PrismicRichText field={article.data.role} />
-                    </div>
-                  </>
-                )}
-
-                {article.data.deliverables != null && (
-                  <>
-                    <h6>DELIVERABLES</h6>
-                    <p className="text-grey">{article.data.deliverables}</p>
-                  </>
-                )}
-
-                {article.data.project_duration != null && (
-                  <>
-                    <h6>PROJECT DURATION</h6>
-                    <p className="text-grey">{article.data.project_duration}</p>
-                  </>
-                )}
-
-                {article.data.design_tools != null && (
-                  <>
-                    <h6>DESIGN TOOLS</h6>
-                    <p className="text-grey">{article.data.design_tools}</p>
-                  </>
-                )}
-              </div>
             </div>
-          </SideBar>
 
+            <div className="col-12 col-sm project-info">
+              {article.data.role.length > 0 && (
+                <>
+                  <h6>ROLE</h6>
+                  <div className="text-grey">
+                    <PrismicRichText field={article.data.role} />
+                  </div>
+                </>
+              )}
+
+              {article.data.deliverables != null && (
+                <>
+                  <h6>DELIVERABLES</h6>
+                  <p className="text-grey">{article.data.deliverables}</p>
+                </>
+              )}
+            </div>
+
+            <div className="col-12 col-sm project-info">
+              {article.data.project_duration != null && (
+                <>
+                  <h6>PROJECT DURATION</h6>
+                  <p className="text-grey">{article.data.project_duration}</p>
+                </>
+              )}
+
+              {article.data.design_tools != null && (
+                <>
+                  <h6>DESIGN TOOLS</h6>
+                  <p className="text-grey">{article.data.design_tools}</p>
+                </>
+              )}
+            </div>
+          </div>
+        </TopBar>
+
+        <div className="container px-3">
+          <hr />
+        </div>
+
+        <section className="container row mx-auto">
           {/* Article content  */}
-          <Content className="col px-0 ps-lg-4 ps-xl-5 py-5">
+          <Content className="col py-5">
             <SliceZone slices={article.data.slices} components={components} />
             <PrismicRichText field={article.data.content} />
             {/* <div

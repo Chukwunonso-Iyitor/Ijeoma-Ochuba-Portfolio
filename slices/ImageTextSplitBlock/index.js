@@ -30,7 +30,7 @@ const closeLightbox = () => {
 const ImageTextSplitBlock = ({ slice }) => (
   <section className="row pb-5 align-items-center">
     {slice.primary.image && (
-      <div className="col">
+      <div className="col pe-lg-5 me-lg-5">
         <PrismicNextImage
           field={slice.primary.image}
           className="img-fluid d-block mx-auto"

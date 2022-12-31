@@ -38,7 +38,7 @@ const TextImageSplitBlock = ({ slice }) => (
       )}
     </span>
     {slice.primary.image && (
-      <div className="col">
+      <div className="col ps-lg-5 ms-lg-5">
         <PrismicNextImage
           field={slice.primary.image}
           className="img-fluid d-block mx-auto"
