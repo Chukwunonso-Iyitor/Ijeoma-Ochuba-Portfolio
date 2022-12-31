@@ -158,7 +158,7 @@ interface ArticleDocumentData {
  * Slice for *Article → Slice Zone*
  *
  */
-type ArticleDocumentDataSlicesSlice = TextImageSplitBlockSlice | TextOnlyBlockSlice | ImageTextSplitBlockSlice;
+type ArticleDocumentDataSlicesSlice = TextImageSplitBlockSlice | TextOnlyBlockSlice | ImageTextSplitBlockSlice | ImageOnlyBlockSlice;
 /**
  * Article document from Prismic
  *
@@ -340,6 +340,81 @@ interface SettingsDocumentData {
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = AboutDocument | ArticleDocument | HomepageDocument | SettingsDocument;
 /**
+ * Primary content in ImageOnlyBlock → Primary
+ *
+ */
+interface ImageOnlyBlockSliceDefaultPrimary {
+    /**
+     * Title field in *ImageOnlyBlock → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: image_only_block.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Description field in *ImageOnlyBlock → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: image_only_block.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ImageOnlyBlock → Items
+ *
+ */
+export interface ImageOnlyBlockSliceDefaultItem {
+    /**
+     * Image field in *ImageOnlyBlock → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: image_only_block.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Label field in *ImageOnlyBlock → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: image_only_block.items[].label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
+}
+/**
+ * Default variation for ImageOnlyBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ImageOnlyBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageOnlyBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ImageOnlyBlockSliceDefaultPrimary>, Simplify<ImageOnlyBlockSliceDefaultItem>>;
+/**
+ * Slice variation for *ImageOnlyBlock*
+ *
+ */
+type ImageOnlyBlockSliceVariation = ImageOnlyBlockSliceDefault;
+/**
+ * ImageOnlyBlock Shared Slice
+ *
+ * - **API ID**: `image_only_block`
+ * - **Description**: `ImageOnlyBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageOnlyBlockSlice = prismicT.SharedSlice<"image_only_block", ImageOnlyBlockSliceVariation>;
+/**
  * Primary content in ImageTextSplitBlock → Primary
  *
  */
@@ -501,6 +576,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
+        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageOnlyBlockSliceDefaultPrimary, ImageOnlyBlockSliceDefaultItem, ImageOnlyBlockSliceDefault, ImageOnlyBlockSliceVariation, ImageOnlyBlockSlice, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
     }
 }

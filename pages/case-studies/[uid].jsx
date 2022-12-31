@@ -37,10 +37,7 @@ const TopBar = styled.section`
   .project-info {
     h6 {
       font-weight: 600;
-      font-size: 15px;
-    }
-    p {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 `;
@@ -176,7 +173,7 @@ export default function Article({ article, settings, related }) {
         <section className="py-5 bg-lightgrey">
           <div className="container">
             <div className="row justify-content-lg-end">
-              <div className="col-12 col-sm-9">
+              <div className="col-12 col-sm-10">
                 <h5 className="text-grey text-uppercase ">
                   See more of my work:
                 </h5>
@@ -207,7 +204,7 @@ export default function Article({ article, settings, related }) {
           </div>
         </section>
 
-        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
+        <pre>{JSON.stringify(article, null, 2)}</pre>
       </Layout>
     </>
   );
