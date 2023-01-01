@@ -80,7 +80,7 @@ export default function Article({ article, settings, related }) {
   return (
     <>
       <Head>
-        <title>{`Portfolio | Case Studies | ${article.data.title}`}</title>
+        <title>{`Portfolio | Projects | ${article.data.title}`}</title>
       </Head>
       <Layout settings={settings}>
         <Banner
@@ -162,12 +162,6 @@ export default function Article({ article, settings, related }) {
           {/* Article content  */}
           <Content className="col pt-5">
             <SliceZone slices={article.data.slices} components={components} />
-            {/* <div
-              className="mt-5"
-              dangerouslySetInnerHTML={{
-                __html: article.data.embed.html,
-              }}
-            /> */}
           </Content>
         </section>
 

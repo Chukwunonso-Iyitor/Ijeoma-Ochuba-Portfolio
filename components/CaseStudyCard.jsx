@@ -56,7 +56,7 @@ const Card = styled.div`
 const CaseStudyCard = ({ title, image, slug, tags }) => {
   return (
     <Link
-      href={`/case-studies/${slug}`}
+      href={`/projects/${slug}`}
       className="text-decoration-none"
       onMouseEnter={() =>
         (document.documentElement.style.scrollBehavior = "auto")
