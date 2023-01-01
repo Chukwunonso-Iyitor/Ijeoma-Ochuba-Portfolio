@@ -85,8 +85,25 @@ article {
       color: $myorange;
     }
   }
-  [data-oembed]{
+  [data-oembed] {
     padding: 2rem 0rem;
+  }
+  [data-oembed-provider="Figma"] {
+    iframe {
+      height: 1080px;
+    }
+  }
+  @media (max-width: 576px) {
+    [data-oembed] {
+      iframe{
+        height: 360px;
+      }
+    }
+    [data-oembed-provider="Figma"] {
+      iframe {
+        height: 720px;
+      }
+    }
   }
 }
 
