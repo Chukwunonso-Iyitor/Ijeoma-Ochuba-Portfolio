@@ -9,7 +9,7 @@ import { createClient } from "../prismicio";
 import { PrismicRichText } from "@prismicio/react";
 
 const CaseStudiesWrapper = styled.section`
-  &#case-studies {
+  &#projects {
     padding-top: 83px;
     .cards-wrapper {
       .col {

@@ -104,50 +104,52 @@ export default function Article({ article, settings, related }) {
         </Banner>
 
         {/* Side Panel  */}
-        <TopBar className="container pt-5 pb-3">
-          <div className="row">
-            <div className="col-12 col-sm-2 mb-5">
-              {/* Back button  */}
-              <span
-                className="text-grey link-orange back-btn"
-                onClick={() => router.back()}
-              >
-                <i className="bi bi-arrow-left me-1"></i>Back
-              </span>
-            </div>
+        <TopBar className="pt-5 pb-3">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 col-sm-2 mb-5">
+                {/* Back button  */}
+                <span
+                  className="text-grey link-orange back-btn"
+                  onClick={() => router.back()}
+                >
+                  <i className="bi bi-arrow-left me-1"></i>Back
+                </span>
+              </div>
 
-            <div className="col-12 col-sm project-info">
-              {article.data.role.length > 0 && (
-                <>
-                  <h6>ROLE</h6>
-                  <div className="text-grey">
-                    <PrismicRichText field={article.data.role} />
-                  </div>
-                </>
-              )}
+              <div className="col-12 col-sm project-info">
+                {article.data.role.length > 0 && (
+                  <>
+                    <h6>ROLE</h6>
+                    <div className="text-grey">
+                      <PrismicRichText field={article.data.role} />
+                    </div>
+                  </>
+                )}
 
-              {article.data.deliverables != null && (
-                <>
-                  <h6>DELIVERABLES</h6>
-                  <p className="text-grey">{article.data.deliverables}</p>
-                </>
-              )}
-            </div>
+                {article.data.deliverables != null && (
+                  <>
+                    <h6>DELIVERABLES</h6>
+                    <p className="text-grey">{article.data.deliverables}</p>
+                  </>
+                )}
+              </div>
 
-            <div className="col-12 col-sm ps-lg-5 project-info">
-              {article.data.project_duration != null && (
-                <>
-                  <h6>PROJECT DURATION</h6>
-                  <p className="text-grey">{article.data.project_duration}</p>
-                </>
-              )}
+              <div className="col-12 col-sm ps-lg-5 project-info">
+                {article.data.project_duration != null && (
+                  <>
+                    <h6>PROJECT DURATION</h6>
+                    <p className="text-grey">{article.data.project_duration}</p>
+                  </>
+                )}
 
-              {article.data.design_tools != null && (
-                <>
-                  <h6>DESIGN TOOLS</h6>
-                  <p className="text-grey">{article.data.design_tools}</p>
-                </>
-              )}
+                {article.data.design_tools != null && (
+                  <>
+                    <h6>DESIGN TOOLS</h6>
+                    <p className="text-grey">{article.data.design_tools}</p>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </TopBar>
@@ -158,9 +160,8 @@ export default function Article({ article, settings, related }) {
 
         <section className="container row mx-auto">
           {/* Article content  */}
-          <Content className="col py-5">
+          <Content className="col pt-5">
             <SliceZone slices={article.data.slices} components={components} />
-            {/* <PrismicRichText field={article.data.content} /> */}
             {/* <div
               className="mt-5"
               dangerouslySetInnerHTML={{
