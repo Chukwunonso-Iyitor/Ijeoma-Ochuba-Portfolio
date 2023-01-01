@@ -160,7 +160,7 @@ export default function Article({ article, settings, related }) {
           {/* Article content  */}
           <Content className="col py-5">
             <SliceZone slices={article.data.slices} components={components} />
-            <PrismicRichText field={article.data.content} />
+            {/* <PrismicRichText field={article.data.content} /> */}
             {/* <div
               className="mt-5"
               dangerouslySetInnerHTML={{
@@ -204,7 +204,7 @@ export default function Article({ article, settings, related }) {
           </div>
         </section>
 
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
       </Layout>
     </>
   );
