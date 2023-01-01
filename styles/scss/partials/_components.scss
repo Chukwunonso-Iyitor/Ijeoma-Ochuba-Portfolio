@@ -85,6 +85,9 @@ article {
       color: $myorange;
     }
   }
+  [data-oembed]{
+    padding: 2rem 0rem;
+  }
 }
 
 /* Article Lightbox
