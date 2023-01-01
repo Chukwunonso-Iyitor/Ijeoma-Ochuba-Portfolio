@@ -27,8 +27,7 @@ const closeLightbox = () => {
 };
 
 const ImageOnlyBlock = ({ slice }) => (
-  <section>
-
+  <section className="pb-5">
     <div className="row row-cols-1 row-cols-sm-3 row-cols-lg-4">
       {slice.items.map((item, index) => (
         <div className="col mb-5" key={index}>
