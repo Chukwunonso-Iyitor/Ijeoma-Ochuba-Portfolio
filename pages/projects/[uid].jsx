@@ -145,7 +145,7 @@ export default function Article({ article, settings, related }) {
 
                 {article.data.design_tools != null && (
                   <>
-                    <h6>DESIGN TOOLS</h6>
+                    <h6>TOOLS</h6>
                     <p className="text-grey">{article.data.design_tools}</p>
                   </>
                 )}
