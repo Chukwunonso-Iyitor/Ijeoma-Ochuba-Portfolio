@@ -12,7 +12,8 @@ const FooterMain = styled.footer`
     h4 {
       font-weight: 300;
     }
-    p {
+    p,
+    a {
       font-size: 14px;
       font-weight: 300;
     }
@@ -21,7 +22,8 @@ const FooterMain = styled.footer`
     }
   }
   .footer-base {
-    p {
+    p,
+    a {
       font-size: 14px;
     }
   }
@@ -109,7 +111,6 @@ const Footer = ({ settings }) => {
                   </>
                 )}
 
-
                 {/* Twitter  */}
                 {settings.data.twitter.url != null && (
                   <>
@@ -124,8 +125,8 @@ const Footer = ({ settings }) => {
                   </>
                 )}
 
-                 {/* Behance */}
-                 {settings.data.behance.url != null && (
+                {/* Behance */}
+                {settings.data.behance.url != null && (
                   <>
                     <a
                       href={settings.data.behance.url}

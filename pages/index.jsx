@@ -39,9 +39,9 @@ export default function Home({ home, settings, articles }) {
       </Head>
       <Layout settings={settings}>
         <HeroBanner home={home} />
-        <CaseStudiesWrapper id="case-studies" className="pb-5">
+        <CaseStudiesWrapper id="projects" className="pb-5">
           <div className="container">
-            <SectionTitle title="Case Studies"></SectionTitle>
+            <SectionTitle title="Projects"></SectionTitle>
             <div className="mt-5 text-center">
               <PrismicRichText field={home.data.case_study_intro} />
             </div>

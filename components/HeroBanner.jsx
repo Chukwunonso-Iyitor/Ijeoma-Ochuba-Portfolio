@@ -51,9 +51,9 @@ const Hero = styled.section`
   }
 `;
 const HeroBanner = ({ home }) => {
-  const caseStudies = () => {
+  const projects = () => {
     document
-      .getElementById("case-studies")
+      .getElementById("projects")
       .scrollIntoView({ behavior: "smooth" });
   };
   return (
@@ -103,9 +103,9 @@ const HeroBanner = ({ home }) => {
               <button
                 type="button"
                 className="btn-grey-alt"
-                onClick={caseStudies}
+                onClick={projects}
               >
-                See work
+                See Projects
               </button>
             </div>
           </div>

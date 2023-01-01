@@ -134,7 +134,7 @@ export default function Article({ article, settings, related }) {
               )}
             </div>
 
-            <div className="col-12 col-sm project-info">
+            <div className="col-12 col-sm ps-lg-5 project-info">
               {article.data.project_duration != null && (
                 <>
                   <h6>PROJECT DURATION</h6>
