@@ -129,7 +129,7 @@ export default function Article({ article, settings, related }) {
 
                 {article.data.deliverables != null && (
                   <>
-                    <h6>DELIVERABLES</h6>
+                    <h6>TEAM</h6>
                     <p className="text-grey">{article.data.deliverables}</p>
                   </>
                 )}
