@@ -37,6 +37,9 @@ const ImageOnlyBlock = ({ slice }) => (
             onClick={openLightbox}
             style={{ cursor: "zoom-in" }}
           />
+          {item.label != null && (
+            <p className="text-center mt-3">{item.label}</p>
+          )}
         </div>
       ))}
     </div>
