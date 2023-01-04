@@ -22,8 +22,10 @@ const openLightbox = (e) => {
 const closeLightbox = () => {
   const lbox = document.getElementById("lightbox");
   const wrapper = document.querySelector(".img-wrapper");
+  const limg = document.getElementById("lightbox-img");
   lbox.style.cssText = "visibility: hidden; opacity: 0; cursor: auto;";
   wrapper.style.cssText = "scale: .2;";
+  limg.setAttribute("src", '');
 };
 
 const ImageOnlyBlock = ({ slice }) => (
