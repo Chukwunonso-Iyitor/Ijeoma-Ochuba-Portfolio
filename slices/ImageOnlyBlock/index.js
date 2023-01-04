@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { PrismicNextImage } from "@prismicio/next";
+import { openLightbox, closeLightbox } from "../../mixins/lightbox";
 
 /**
  * @typedef {import("@prismicio/client").Content.ImageOnlyBlockSlice} ImageOnlyBlockSlice
@@ -8,25 +9,6 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param { ImageOnlyBlockProps }
  */
 
-const openLightbox = (e) => {
-  let src = e.target.getAttribute("src");
-  // console.log(src);
-  const lbox = document.getElementById("lightbox");
-  const wrapper = document.querySelector(".img-wrapper");
-  const limg = document.getElementById("lightbox-img");
-
-  lbox.style.cssText = "visibility: visible; opacity: 1";
-  wrapper.style.cssText = "scale: 1;";
-  limg.setAttribute("src", src);
-};
-const closeLightbox = () => {
-  const lbox = document.getElementById("lightbox");
-  const wrapper = document.querySelector(".img-wrapper");
-  const limg = document.getElementById("lightbox-img");
-  lbox.style.cssText = "visibility: hidden; opacity: 0; cursor: auto;";
-  wrapper.style.cssText = "scale: .2;";
-  limg.setAttribute("src", '');
-};
 
 const ImageOnlyBlock = ({ slice }) => (
   <section className="pb-5">
