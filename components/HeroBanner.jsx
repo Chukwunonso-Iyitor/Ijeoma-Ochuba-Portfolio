@@ -44,41 +44,38 @@ const Hero = styled.section`
       height: auto;
     }
   }
-  @media (max-height: 576px){
-    &.hero-banner{
+  @media (max-height: 576px) {
+    &.hero-banner {
       height: auto;
     }
   }
 `;
 const HeroBanner = ({ home }) => {
   const projects = () => {
-    document
-      .getElementById("projects")
-      .scrollIntoView({ behavior: "smooth" });
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
   };
   return (
     <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg introduction pe-xl-5 mt-5">
-            <h1
+            <h2
+              className="text-orange text-script"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               data-aos-delay="100"
             >
-              <em className="me-3">
-                Hello!{" "}
-                <span className="waving-hand d-inline-block">
-                  <Image
-                    src="/images/wave-hand.svg"
-                    alt="wave"
-                    width={70}
-                    height={70}
-                  />
-                </span>
-              </em>
-              I&apos;m Ijeoma{" "}
+              Ijeoma Ochuba
+            </h2>
+            <h1
+              className="h1 mb-4"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="1000"
+              data-aos-delay="100"
+            >
+              UX Researcher &amp; <span className="text-span">Designer</span>
             </h1>
             <div
               className="text-grey mt-2"
@@ -97,14 +94,13 @@ const HeroBanner = ({ home }) => {
               data-aos-duration="1000"
               data-aos-delay="300"
             >
-              <Link href="/contact" className="btn-grey me-2 px-4 d-inline-block">
-                Hire me
-              </Link>
-              <button
-                type="button"
-                className="btn-grey-alt"
-                onClick={projects}
+              <Link
+                href="/contact"
+                className="btn-rainbow me-2 px-4 d-inline-block me-5"
               >
+                Hire me 👋
+              </Link>
+              <button type="button" className="btn-arrow" onClick={projects}>
                 See Projects
               </button>
             </div>

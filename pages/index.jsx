@@ -41,7 +41,11 @@ export default function Home({ home, settings, articles }) {
         <HeroBanner home={home} />
         <CaseStudiesWrapper id="projects" className="pb-5">
           <div className="container">
-            <SectionTitle title="Projects"></SectionTitle>
+            <SectionTitle
+              title="My"
+              span="Projects"
+              className="text-center"
+            ></SectionTitle>
             <div className="mt-5 text-center">
               <PrismicRichText field={home.data.case_study_intro} />
             </div>

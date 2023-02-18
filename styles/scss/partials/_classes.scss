@@ -16,13 +16,22 @@
   &-orange {
     color: $myorange !important;
   }
+  &-script {
+    font-family: "Dancing Script", cursive;
+  }
+  &-span {
+    background-image: url("/images/underline.svg");
+    background-position: 50% 100%;
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Link
 --------------------------------*/
 .link {
   text-decoration: none;
-  transition: .2s ease;
+  transition: 0.2s ease;
   &-orange {
     @extend .link;
     color: inherit;

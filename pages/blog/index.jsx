@@ -12,11 +12,15 @@ export default function Blog({ settings }) {
       </Head>
       <Layout settings={settings}>
         <section className="container py-5">
-          <SectionTitle title="Blog"></SectionTitle>
+          <SectionTitle
+            title="Explore My"
+            span="Blog"
+            className="text-center"
+          ></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
-            <h1 className="h1 mb-5">
+            <h3 className="h3 mb-5 text-center">
               Fresh Articles on UX Design, User Research and Design Thinking.
-            </h1>
+            </h3>
             <p>Coming soon.</p>
           </div>
         </section>

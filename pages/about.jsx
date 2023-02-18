@@ -24,9 +24,13 @@ export default function About({ about, settings }) {
       </Head>
       <Layout settings={settings}>
         <section className="container py-5">
-          <SectionTitle title="About Me"></SectionTitle>
+          <SectionTitle
+            title="About"
+            span="Me"
+            className="text-center"
+          ></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto">
-            <h1 className="h1 mb-5">{about.data.introduction}</h1>
+            <h3 className="h3 mb-5">{about.data.introduction}</h3>
 
             <div className="row align-items-center">
               {Object.keys(about.data.picture).length != 0 && (
@@ -47,8 +51,8 @@ export default function About({ about, settings }) {
             </div>
 
             <div className="mt-5 d-flex justify-content-center">
-              <Link href="/contact" className="btn-grey">
-                Get in touch
+              <Link href="/contact" className="btn-rainbow">
+                Get in touch <i className="bi bi-chat-square-text-fill ms-1"></i>
               </Link>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Image from "next/image";
+import Link from "next/link";
 
 const FooterMain = styled.footer`
   background-size: cover;
@@ -38,6 +40,16 @@ const Footer = ({ settings }) => {
         <div className="container p-4 text-white text-center">
           <div className="row">
             <div className="col">
+              <Link href="/">
+                <Image
+                  src="/images/ux.png"
+                  width={60}
+                  height={60}
+                  alt="UX"
+                  className="d-block mx-auto mb-4"
+                />
+              </Link>
+
               <h5 className="mb-3">Stay in Touch</h5>
               <p>Thank you for visiting my portfolio.</p>
               {settings.data.email != null && (

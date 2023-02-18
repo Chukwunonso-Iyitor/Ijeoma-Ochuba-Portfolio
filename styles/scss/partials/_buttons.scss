@@ -1,35 +1,115 @@
 /* =====================================
 >>> Buttons and Links
 ======================================*/
-.btn {
-  display: inline-block;
+
+.btn-rainbow {
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  color: $mywhite;
   text-decoration: none;
-  padding: 8px 18px;
-  border-radius: 18px;
-  font-size: 12px;
-  font-weight: bold;
-  transition: all 0.4s ease;
-  letter-spacing: 0.5px;
+  background: #111;
+  cursor: pointer;
+  position: relative;
   text-transform: uppercase;
-  &-grey {
-    @extend .btn;
-    background-color: $mygrey;
+  font-weight: 700;
+  letter-spacing: 2px;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: scale 0.4s ease;
+  &:hover {
     color: $mywhite;
-    border: 1px solid transparent;
-    &:hover {
-      background-color: transparent;
-      color: $mygrey;
-      border: 1px solid $mygrey;
+    scale: 1.05;
+  }
+  &:active {
+    scale: 0.95;
+  }
+  &::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  &::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  &-sm {
+    @extend .btn-rainbow;
+    padding: 10px 20px;
+  }
+  &-round {
+    @extend .btn-rainbow;
+    padding: 0px 0px;
+    &::after,
+    &::before {
+      border-radius: 40px;
     }
   }
-  &-grey-alt {
-    @extend .btn;
-    background-color: transparent;
-    color: $mygrey;
-    border: 1px solid $mygrey;
-    &:hover {
-      background-color: $mygrey;
-      color: $mywhite;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.btn-arrow {
+  position: relative;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.4s ease;
+  &::after {
+    content: url("/images/arrow_forward.svg");
+    position: absolute;
+    vertical-align: middle;
+    top: 5px;
+    right: -20px;
+    transition: inherit;
+  }
+  &:hover {
+    &::after {
+      right: -30px;
     }
   }
 }
