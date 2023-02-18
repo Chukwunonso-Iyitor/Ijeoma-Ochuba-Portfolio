@@ -19,10 +19,21 @@ export default function Contact({ settings }) {
             className="text-center"
           ></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
-            <h3 className="h3 mb-5">
+            <h3
+              className="h3 mb-5"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               Let&apos;s create something great together!
             </h3>
-            <p>
+            <p
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               Thanks for taking the time to look over my portfolio.{" "}
               <a
                 href={`mailto: ${settings.data.email} `}
@@ -32,7 +43,10 @@ export default function Contact({ settings }) {
               </a>{" "}
               or fill out the form below and I’ll get back to you shortly.
             </p>
-            <div className="mt-5">
+            <div className="mt-5"  data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="200">
               <ContactForm />
             </div>
           </div>

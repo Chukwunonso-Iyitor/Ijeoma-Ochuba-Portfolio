@@ -46,7 +46,13 @@ export default function Home({ home, settings, articles }) {
               span="Projects"
               className="text-center"
             ></SectionTitle>
-            <div className="mt-5 text-center">
+            <div
+              className="mt-5 text-center"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               <PrismicRichText field={home.data.case_study_intro} />
             </div>
 

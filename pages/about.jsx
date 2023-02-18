@@ -30,11 +30,25 @@ export default function About({ about, settings }) {
             className="text-center"
           ></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto">
-            <h3 className="h3 mb-5">{about.data.introduction}</h3>
+            <h3
+              className="h3 mb-5"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              {about.data.introduction}
+            </h3>
 
             <div className="row align-items-center">
               {Object.keys(about.data.picture).length != 0 && (
-                <PictureWrapper className="col-12 col-sm-5 mb-5 mb-sm-0">
+                <PictureWrapper
+                  className="col-12 col-sm-5 mb-5 mb-sm-0"
+                  data-aos="fade-up"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="800"
+                  data-aos-delay="100"
+                >
                   <PrismicNextImage
                     field={about.data.picture}
                     className="rounded-circle d-block d-sm-inline mx-auto"
@@ -42,17 +56,36 @@ export default function About({ about, settings }) {
                 </PictureWrapper>
               )}
 
-              <div className="col">
+              <div
+                className="col"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
                 <PrismicRichText field={about.data.biography} />
               </div>
             </div>
-            <div className="mt-5">
+            <div
+              className="mt-5"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               <PrismicRichText field={about.data.additional_information} />
             </div>
 
-            <div className="mt-5 d-flex justify-content-center">
+            <div
+              className="mt-5 d-flex justify-content-center"
+              data-aos="zoom-out"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               <Link href="/contact" className="btn-rainbow">
-                Get in touch <i className="bi bi-chat-square-text-fill ms-1"></i>
+                Get in touch{" "}
+                <i className="bi bi-chat-square-text-fill ms-1"></i>
               </Link>
             </div>
           </div>

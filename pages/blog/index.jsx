@@ -18,10 +18,16 @@ export default function Blog({ settings }) {
             className="text-center"
           ></SectionTitle>
           <div className="col-11 col-lg-10 col-xl-9 my-5 mx-auto ">
-            <h3 className="h3 mb-5 text-center">
+            <h3
+              className="h3 mb-5 text-center"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               Fresh Articles on UX Design, User Research and Design Thinking.
             </h3>
-            <p>Coming soon.</p>
+            <p className="text-center">Coming soon.</p>
           </div>
         </section>
       </Layout>

@@ -103,8 +103,8 @@ export default function Article({ article, settings, related }) {
           </div>
         </Banner>
 
-        {/* Side Panel  */}
-        <TopBar className="pt-5 pb-3">
+        {/* Top Panel  */}
+        <TopBar className="py-5 bg-lightbeige">
           <div className="container">
             <div className="row">
               <div className="col-12 col-sm-2 mb-5">
@@ -154,9 +154,9 @@ export default function Article({ article, settings, related }) {
           </div>
         </TopBar>
 
-        <div className="container px-3">
+        {/* <div className="container px-3">
           <hr />
-        </div>
+        </div> */}
 
         <section className="container row mx-auto">
           {/* Article content  */}
@@ -165,10 +165,10 @@ export default function Article({ article, settings, related }) {
           </Content>
         </section>
 
-        <section className="py-5 bg-lightgrey">
+        <section className="py-5 bg-lightbeige">
           <div className="container">
             <div className="row justify-content-lg-end">
-              <div className="col-12 col-sm-10">
+              <div className="col-12">
                 <h5 className="text-grey text-uppercase ">
                   See more of my work:
                 </h5>
@@ -191,9 +191,11 @@ export default function Article({ article, settings, related }) {
                 </div>
 
                 {/* CTA  */}
-                <Link href={`/contact`} className="btn-grey-alt">
-                  Hire me
-                </Link>
+                <div className="mt-5 d-flex justify-content-center">
+                  <Link href={`/contact`} className="btn-rainbow">
+                    Hire me 👋
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { PrismicRichText } from "@prismicio/react";
 
 const Hero = styled.section`
   &.hero-banner {
-    height: 580px;
+    height: 680px;
     background-image: url("/images/dots.svg");
     background-size: 20%;
     background-repeat: repeat;
@@ -16,20 +16,10 @@ const Hero = styled.section`
       p {
         font-size: 22px;
       }
-      .waving-hand {
-        cursor: none;
-        position: relative;
-        bottom: 8px;
-        transition: scale 0.6s ease;
-        animation-fill-mode: backwards;
-        &:hover {
-          scale: 1.2;
-          animation: oscillate 0.8s linear infinite alternate;
-        }
-      }
     }
     .hero-image {
       object-fit: cover;
+      mix-blend-mode: multiply;
     }
   }
 
@@ -55,7 +45,7 @@ const HeroBanner = ({ home }) => {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center">
+    <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center bg-lightbeige">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg introduction pe-xl-5 mt-5">
