@@ -77,6 +77,18 @@ interface ArticleDocumentData {
      */
     title: prismicT.KeyTextField;
     /**
+     * Display on Homepage field in *Article*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: article.display_on_homepage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    display_on_homepage: prismicT.BooleanField;
+    /**
      * Category field in *Article*
      *
      * - **Field Type**: Rich Text
@@ -193,7 +205,23 @@ interface HomepageDocumentData {
      *
      */
     case_study_intro: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Homepage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<HomepageDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Homepage → Slice Zone*
+ *
+ */
+type HomepageDocumentDataSlicesSlice = MyServicesSlice;
 /**
  * Homepage document from Prismic
  *
@@ -448,6 +476,65 @@ type ImageTextSplitBlockSliceVariation = ImageTextSplitBlockSliceDefault;
  */
 export type ImageTextSplitBlockSlice = prismicT.SharedSlice<"image_text_split_block", ImageTextSplitBlockSliceVariation>;
 /**
+ * Item in MyServices → Items
+ *
+ */
+export interface MyServicesSliceDefaultItem {
+    /**
+     * Image field in *MyServices → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: my_services.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Title field in *MyServices → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: my_services.items[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Description field in *MyServices → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: my_services.items[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+}
+/**
+ * Default variation for MyServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `MyServices`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MyServicesSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<MyServicesSliceDefaultItem>>;
+/**
+ * Slice variation for *MyServices*
+ *
+ */
+type MyServicesSliceVariation = MyServicesSliceDefault;
+/**
+ * MyServices Shared Slice
+ *
+ * - **API ID**: `my_services`
+ * - **Description**: `MyServices`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MyServicesSlice = prismicT.SharedSlice<"my_services", MyServicesSliceVariation>;
+/**
  * Primary content in TextImageSplitBlock → Primary
  *
  */
@@ -550,6 +637,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageOnlyBlockSliceDefaultItem, ImageOnlyBlockSliceDefault, ImageOnlyBlockSliceVariation, ImageOnlyBlockSlice, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
+        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageOnlyBlockSliceDefaultItem, ImageOnlyBlockSliceDefault, ImageOnlyBlockSliceVariation, ImageOnlyBlockSlice, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, MyServicesSliceDefaultItem, MyServicesSliceDefault, MyServicesSliceVariation, MyServicesSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
     }
 }

@@ -2,12 +2,14 @@
 
 import ImageOnlyBlock from './ImageOnlyBlock';
 import ImageTextSplitBlock from './ImageTextSplitBlock';
+import MyServices from './MyServices';
 import TextImageSplitBlock from './TextImageSplitBlock';
 import TextOnlyBlock from './TextOnlyBlock';
 
 export {
 	ImageOnlyBlock,
 	ImageTextSplitBlock,
+	MyServices,
 	TextImageSplitBlock,
 	TextOnlyBlock,
 };
@@ -15,6 +17,7 @@ export {
 export const components = {
 	image_only_block: ImageOnlyBlock,
 	image_text_split_block: ImageTextSplitBlock,
+	my_services: MyServices,
 	text_image_split_block: TextImageSplitBlock,
 	text_only_block: TextOnlyBlock,
 };

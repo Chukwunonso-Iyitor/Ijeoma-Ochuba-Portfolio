@@ -22,6 +22,17 @@
           "allowTargetBlank": true,
           "single": "paragraph"
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "my_services": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

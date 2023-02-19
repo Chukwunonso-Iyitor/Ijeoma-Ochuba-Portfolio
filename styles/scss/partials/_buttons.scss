@@ -9,6 +9,7 @@
   color: $mywhite;
   text-decoration: none;
   background: #111;
+  display: inline-block;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
@@ -76,6 +77,10 @@
     &::before {
       border-radius: 40px;
     }
+    &::before {
+      width: calc(100% + 0px);
+      height: calc(100% + 0px);
+    }
   }
 }
 
@@ -98,6 +103,7 @@
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
+  color: $myblack;
   transition: 0.4s ease;
   &::after {
     content: url("/images/arrow_forward.svg");
@@ -108,8 +114,22 @@
     transition: inherit;
   }
   &:hover {
+    color: $myblack;
     &::after {
       right: -30px;
+    }
+  }
+  &-external {
+    @extend .btn-arrow;
+    &::after {
+      content: url("/images/arrow_north_east.svg");
+      top: 3px;
+    }
+    &:hover{
+      &::after{
+        top: 0px;
+        right: -25px;
+      }
     }
   }
 }

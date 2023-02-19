@@ -45,7 +45,7 @@ const HeroBanner = ({ home }) => {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center bg-lightbeige">
+    <Hero className="hero-banner py-0 py-lg-5 d-flex align-items-center">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg introduction pe-xl-5 mt-5">

@@ -40,15 +40,11 @@ const Footer = ({ settings }) => {
         <div className="container p-4 text-white text-center">
           <div className="row">
             <div className="col">
-              <Link href="/">
-                <Image
-                  src="/images/ux.png"
-                  width={60}
-                  height={60}
-                  alt="UX"
-                  className="d-block mx-auto mb-4"
-                />
-              </Link>
+              <div className="mb-4">
+                <Link href="/">
+                  <Image src="/images/ux.png" width={60} height={60} alt="UX" />
+                </Link>
+              </div>
 
               <h5 className="mb-3">Stay in Touch</h5>
               <p>Thank you for visiting my portfolio.</p>

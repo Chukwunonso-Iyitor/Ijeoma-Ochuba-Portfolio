@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 const Card = styled.div`
-  height: 520px;
+  height: 480px;
   background-size: cover;
   background-repeat: no-repeat;
   transition: 0.4s ease;

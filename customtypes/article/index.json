@@ -19,6 +19,15 @@
           "placeholder": ""
         }
       },
+      "display_on_homepage": {
+        "type": "Boolean",
+        "config": {
+          "label": "Display on Homepage",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
       "category": {
         "type": "StructuredText",
         "config": {
