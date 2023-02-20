@@ -104,6 +104,7 @@
   font-size: 20px;
   font-weight: 500;
   color: $myblack;
+  display: inline-block;
   transition: 0.4s ease;
   &::after {
     content: url("/images/arrow_forward.svg");

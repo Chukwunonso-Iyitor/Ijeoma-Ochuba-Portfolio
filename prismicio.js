@@ -15,6 +15,10 @@ const routes = [
     type: "article",
     path: "/projects/:uid",
   },
+  {
+    type: "blog",
+    path: "/blog/:uid",
+  },
 ];
 
 /**

@@ -181,6 +181,102 @@ type ArticleDocumentDataSlicesSlice = TextImageSplitBlockSlice | TextOnlyBlockSl
  * @typeParam Lang - Language API ID of the document.
  */
 export type ArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ArticleDocumentData>, "article", Lang>;
+/** Content for Blog documents */
+interface BlogDocumentData {
+    /**
+     * Title field in *Blog*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Display on Homepage field in *Blog*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: blog.display_on_homepage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    display_on_homepage: prismicT.BooleanField;
+    /**
+     * Cover Image field in *Blog*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.cover_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    cover_image: prismicT.ImageField<never>;
+    /**
+     * Read Duration field in *Blog*
+     *
+     * - **Field Type**: Number
+     * - **Placeholder**: Ex. 6 mins
+     * - **API ID Path**: blog.read_duration
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/number
+     *
+     */
+    read_duration: prismicT.NumberField;
+    /**
+     * Category field in *Blog*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    category: prismicT.KeyTextField;
+    /**
+     * Excerpt field in *Blog*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.excerpt
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    excerpt: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Blog*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<BlogDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Blog → Slice Zone*
+ *
+ */
+type BlogDocumentDataSlicesSlice = ImageOnlyBlockSlice | ImageTextSplitBlockSlice | TextImageSplitBlockSlice | TextOnlyBlockSlice;
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
     /**
@@ -366,7 +462,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = AboutDocument | ArticleDocument | HomepageDocument | SettingsDocument;
+export type AllDocumentTypes = AboutDocument | ArticleDocument | BlogDocument | HomepageDocument | SettingsDocument;
 /**
  * Item in ImageOnlyBlock → Items
  *
@@ -540,6 +636,16 @@ export type MyServicesSlice = prismicT.SharedSlice<"my_services", MyServicesSlic
  */
 interface TextImageSplitBlockSliceDefaultPrimary {
     /**
+     * Heading Colour field in *TextImageSplitBlock → Primary*
+     *
+     * - **Field Type**: Color
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_image_split_block.primary.heading_colour
+     * - **Documentation**: https://prismic.io/docs/core-concepts/color
+     *
+     */
+    heading_colour: prismicT.ColorField;
+    /**
      * Text field in *TextImageSplitBlock → Primary*
      *
      * - **Field Type**: Rich Text
@@ -637,6 +743,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageOnlyBlockSliceDefaultItem, ImageOnlyBlockSliceDefault, ImageOnlyBlockSliceVariation, ImageOnlyBlockSlice, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, MyServicesSliceDefaultItem, MyServicesSliceDefault, MyServicesSliceVariation, MyServicesSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
+        export type { AboutDocumentData, AboutDocument, ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, BlogDocumentData, BlogDocumentDataSlicesSlice, BlogDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ImageOnlyBlockSliceDefaultItem, ImageOnlyBlockSliceDefault, ImageOnlyBlockSliceVariation, ImageOnlyBlockSlice, ImageTextSplitBlockSliceDefaultPrimary, ImageTextSplitBlockSliceDefault, ImageTextSplitBlockSliceVariation, ImageTextSplitBlockSlice, MyServicesSliceDefaultItem, MyServicesSliceDefault, MyServicesSliceVariation, MyServicesSlice, TextImageSplitBlockSliceDefaultPrimary, TextImageSplitBlockSliceDefault, TextImageSplitBlockSliceVariation, TextImageSplitBlockSlice, TextOnlyBlockSliceDefaultPrimary, TextOnlyBlockSliceDefault, TextOnlyBlockSliceVariation, TextOnlyBlockSlice };
     }
 }

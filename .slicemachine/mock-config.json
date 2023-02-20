@@ -37,7 +37,8 @@
         }
       }
     },
-    "navigation": {}
+    "navigation": {},
+    "blog": {}
   },
   "slices": {
     "TextBlock": {

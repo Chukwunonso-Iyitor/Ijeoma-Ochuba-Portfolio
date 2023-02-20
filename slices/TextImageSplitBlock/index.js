@@ -43,6 +43,24 @@ const TextImageSplitBlock = ({ slice }) => (
         </div>
       </div>
     )}
+    {/* <pre>{JSON.stringify(slice, null, 2)}</pre>
+    <style jsx>{`
+      .title h2 {
+        color: ${slice.primary.heading_colour};
+      }
+      .title h3 {
+        color: ${slice.primary.heading_colour};
+      }
+      .title h4 {
+        color: ${slice.primary.heading_colour};
+      }
+      .title h5 {
+        color: ${slice.primary.heading_colour};
+      }
+      .title h6 {
+        color: ${slice.primary.heading_colour};
+      }
+    `}</style> */}
   </section>
 );
 

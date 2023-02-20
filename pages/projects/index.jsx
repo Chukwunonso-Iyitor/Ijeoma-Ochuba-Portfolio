@@ -45,7 +45,14 @@ export default function Blog({ settings, articles }) {
           <CaseStudiesWrapper>
             <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto py-5">
               {articles.map((article) => (
-                <div className="col px-sm-4" key={article.data.title}>
+                <div
+                  className="col px-sm-4"
+                  key={article.data.title}
+                  data-aos="fade-up"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="800"
+                  data-aos-delay="100"
+                >
                   <CaseStudyCard
                     title={article.data.title}
                     slug={article.uid}
