@@ -3,11 +3,6 @@
     "__TYPE__": "SharedSliceContent",
     "variation": "default",
     "primary": {
-      "heading_colour": {
-        "__TYPE__": "FieldContent",
-        "value": "#ed7d6a",
-        "type": "Color"
-      },
       "text": {
         "__TYPE__": "StructuredTextContent",
         "value": [
@@ -20,7 +15,6 @@
         ]
       },
       "image": {
-        "__TYPE__": "ImageContent",
         "origin": {
           "id": "main",
           "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
@@ -38,6 +32,9 @@
           },
           "background": "transparent"
         },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
         "thumbnails": {}
       },
       "image_label": {

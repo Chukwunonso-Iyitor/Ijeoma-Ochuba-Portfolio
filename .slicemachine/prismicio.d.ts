@@ -636,16 +636,6 @@ export type MyServicesSlice = prismicT.SharedSlice<"my_services", MyServicesSlic
  */
 interface TextImageSplitBlockSliceDefaultPrimary {
     /**
-     * Heading Colour field in *TextImageSplitBlock → Primary*
-     *
-     * - **Field Type**: Color
-     * - **Placeholder**: *None*
-     * - **API ID Path**: text_image_split_block.primary.heading_colour
-     * - **Documentation**: https://prismic.io/docs/core-concepts/color
-     *
-     */
-    heading_colour: prismicT.ColorField;
-    /**
      * Text field in *TextImageSplitBlock → Primary*
      *
      * - **Field Type**: Rich Text

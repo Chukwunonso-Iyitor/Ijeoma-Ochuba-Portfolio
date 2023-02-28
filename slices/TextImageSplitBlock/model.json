@@ -11,13 +11,6 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "TextImageSplitBlock",
       "primary": {
-        "heading_colour": {
-          "type": "Color",
-          "config": {
-            "label": "Heading Colour",
-            "placeholder": ""
-          }
-        },
         "text": {
           "type": "StructuredText",
           "config": {

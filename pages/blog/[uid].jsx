@@ -20,38 +20,74 @@ const Content = styled.article`
     min-height: 80vh;
   }
 `;
-const TopBar = styled.section`
-  .back-btn {
-    cursor: pointer;
-    i {
-      position: relative;
-      left: 0px;
-      transition: left 0.4s ease;
-    }
-    &:hover {
-      i {
-        left: -4px;
-      }
-    }
-  }
-  .project-info {
-    h6 {
-      font-weight: 600;
-      font-size: 16px;
-    }
-  }
-`;
+
 const Banner = styled.section`
-  .cover-img {
-    height: 380px;
-    background-size: cover;
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  height: 420px;
+  overflow-x: hidden;
+  background-color: #814c2728;
+  .bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .cover-img {
+      height: 100%;
+      background-size: cover;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+  .info-layer {
+    min-height: 380px;
   }
 `;
 
 export default function Article({ blog, settings, related }) {
+  let month = "";
+  switch (prismicH.asDate(blog.first_publication_date).getMonth()) {
+    case 0:
+      month = "January";
+      break;
+    case 1:
+      month = "February";
+      break;
+    case 2:
+      month = "March";
+      break;
+    case 3:
+      month = "April";
+      break;
+    case 4:
+      month = "May";
+      break;
+    case 5:
+      month = "June";
+      break;
+    case 6:
+      month = "July";
+      break;
+    case 7:
+      month = "August";
+      break;
+    case 8:
+      month = "September";
+      break;
+    case 9:
+      month = "October";
+      break;
+    case 10:
+      month = "November";
+      break;
+    case 11:
+      month = "December";
+  }
   const router = useRouter();
-
+  const toArticle = () => {
+    document
+      .getElementById("blog-article")
+      .scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <Head>
@@ -59,10 +95,8 @@ export default function Article({ blog, settings, related }) {
       </Head>
       <Layout settings={settings}>
         <Banner className="container-fluid">
-          <Row className="align-items-center">
-            <Col>
-            <h1 className="text-center h1">{blog.data.title}</h1>
-            </Col>
+          <Row className="align-items-center bg-layer">
+            <Col></Col>
             <Col
               className="cover-img"
               style={{
@@ -70,15 +104,33 @@ export default function Article({ blog, settings, related }) {
               }}
             ></Col>
           </Row>
-          <div className="overlay d-flex justify-content-center align-items-center text-white">
-            <div className="text-center">
-              <h1 className="h1 mb-5">{blog.data.title}</h1>
-              <span className="category-tags"></span>
-            </div>
-          </div>
+          <Container>
+            <Row className="align-items-center info-layer">
+              <Col>
+                <span>
+                  {month}{" "}
+                  {prismicH.asDate(blog.first_publication_date).getDate()},{" "}
+                  {prismicH.asDate(blog.first_publication_date).getFullYear()}
+                </span>
+                <span className="mx-3">
+                  <i className="bi bi-dash-lg"></i>
+                </span>
+                <span className="d-inline-block">
+                  <i className="bi bi-clock-fill me-1"></i>{" "}
+                  {blog.data.read_duration}{" "}
+                  {blog.data.read_duration > 1 ? "mins" : "min"}
+                </span>
+                <h1 className="h1 mt-2 mb-4">{blog.data.title}</h1>
+                <span className="h4" onClick={toArticle}>
+                  <i className="bi bi-arrow-down"></i>
+                </span>
+              </Col>
+              <Col></Col>
+            </Row>
+          </Container>
         </Banner>
 
-        <section className="container row mx-auto">
+        <section id="blog-article" className="container row mx-auto">
           {/* Article content  */}
           <Content className="col pt-5">
             <SliceZone slices={blog.data.slices} components={components} />
