@@ -126,7 +126,7 @@ const ContactForm = () => {
       <br />
       <div className="row justify-content-between align-items-center mt-4">
         <div className="col-12 col-sm-3 col-lg mb-5 mb-sm-0">
-          <button type="submit" className="btn-rainbow  d-inline-block">
+          <button type="submit" className="btn-orange  d-inline-block">
             Send <i className="bi bi-send-fill ms-1"></i>
           </button>
         </div>

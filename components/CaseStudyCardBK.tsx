@@ -3,9 +3,56 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 const Card = styled.div`
-  height: 420px;
+  height: 480px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.4s ease;
+  cursor: pointer;
+  &:hover {
+    scale: 1.01;
+    .overlay {
+      backdrop-filter: brightness(0.6) saturate(1);
+      h5 {
+        i {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(0.4) saturate(0.6);
+    transition: inherit;
+    .category-tags {
+      ul {
+        padding-left: 0px;
+        li {
+          display: inline-block;
+          list-style-type: none;
+          margin-left: 0.5rem;
+          &:first-of-type {
+            margin-left: 0rem;
+            &::before {
+              content: "";
+            }
+          }
+          &::before {
+            content: "- ";
+            margin-right: 0.25rem;
+          }
+        }
+      }
+    }
+    h5 {
+      i {
+        opacity: 0;
+        transition: 0.4s ease;
+      }
+    }
+  }
+`;
 
-`
 const CaseStudyCard = ({ title, image, slug, tags }) => {
   return (
     <Link

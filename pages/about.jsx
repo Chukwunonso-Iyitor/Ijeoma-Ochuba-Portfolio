@@ -83,7 +83,7 @@ export default function About({ about, settings }) {
               data-aos-duration="800"
               data-aos-delay="100"
             >
-              <Link href="/contact" className="btn-rainbow">
+              <Link href="/contact" className="btn-orange">
                 Get in touch{" "}
                 <i className="bi bi-chat-square-text-fill ms-1"></i>
               </Link>

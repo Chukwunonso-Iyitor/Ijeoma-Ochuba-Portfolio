@@ -90,7 +90,7 @@ const Navbar = ({ settings }) => {
               href={settings.data.resume.url}
               target="_blank"
               rel="noreferrer"
-              className="btn-rainbow-sm"
+              className="btn-orange-sm"
             >
               Resumé
             </a>

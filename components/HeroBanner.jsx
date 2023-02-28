@@ -86,9 +86,9 @@ const HeroBanner = ({ home }) => {
             >
               <Link
                 href="/contact"
-                className="btn-rainbow me-2 px-4 d-inline-block me-5"
+                className="btn-orange me-2 px-4 d-inline-block me-5"
               >
-                Hire me 👋
+                Hire me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
               </Link>
               <button type="button" className="btn-arrow" onClick={projects}>
                 See Projects

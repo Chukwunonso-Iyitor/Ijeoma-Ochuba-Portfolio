@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import RelatedCaseStudyCard from "../../components/RelatedCaseStudyCard";
+import { Row, Col, Container } from "react-bootstrap";
 import { useRouter } from "next/router";
 
 import * as prismicH from "@prismicio/helpers";
@@ -42,35 +42,10 @@ const TopBar = styled.section`
   }
 `;
 const Banner = styled.section`
-  height: 380px;
-  background-size: cover;
-  .overlay {
-    width: 100%;
-    height: 100%;
-    backdrop-filter: brightness(0.3) saturate(0.6);
-    background-image: url("/images/mesh.svg");
-    background-size: contain;
-    background-repeat: repeat;
-    .category-tags {
-      ul {
-        padding-left: 0px;
-        li {
-          display: inline-block;
-          list-style-type: none;
-          margin-left: 0.5rem;
-          &:first-of-type {
-            margin-left: 0rem;
-            &::before {
-              content: "";
-            }
-          }
-          &::before {
-            content: "- ";
-            margin-right: 0.25rem;
-          }
-        }
-      }
-    }
+  .cover-img {
+    height: 380px;
+    background-size: cover;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 `;
 
@@ -80,32 +55,29 @@ export default function Article({ blog, settings, related }) {
   return (
     <>
       <Head>
-        <title>{`Portfolio | Projects | ${blog.data.title}`}</title>
+        <title>{`Portfolio | Blog | ${blog.data.title}`}</title>
       </Head>
       <Layout settings={settings}>
-        <Banner
-          className="bg-grey"
-          style={{
-            backgroundImage: `url('${blog.data.cover_image.url}')`,
-          }}
-        >
+        <Banner className="container-fluid">
+          <Row className="align-items-center">
+            <Col>
+            <h1 className="text-center h1">{blog.data.title}</h1>
+            </Col>
+            <Col
+              className="cover-img"
+              style={{
+                backgroundImage: `url('${blog.data.cover_image.url}')`,
+              }}
+            ></Col>
+          </Row>
           <div className="overlay d-flex justify-content-center align-items-center text-white">
             <div className="text-center">
               <h1 className="h1 mb-5">{blog.data.title}</h1>
-              <span className="category-tags">
-                {/* <ul>
-                  {article.data.category.map((tag, index) => (
-                    <li key={index}>{tag.text}</li>
-                  ))}
-                </ul> */}
-              </span>
+              <span className="category-tags"></span>
             </div>
           </div>
         </Banner>
 
-      
-
-  
         <section className="container row mx-auto">
           {/* Article content  */}
           <Content className="col pt-5">

@@ -17,7 +17,7 @@ export default function Blog({ settings, blogs }) {
   return (
     <>
       <Head>
-        <title>Portfolio | Blog</title>
+        <title>{`Portfolio | Blog | Category | ${selectedCategory}`}</title>
       </Head>
       <Layout settings={settings}>
         <section className="container py-5">
@@ -66,13 +66,9 @@ export default function Blog({ settings, blogs }) {
           </Container>
           <div
             className="mt-5 d-flex justify-content-center"
-            data-aos="fade-up"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="800"
-            data-aos-delay="200"
           >
-            <Link href="/blog" className="btn-arrow px-2">
-              Show all posts
+            <Link href="/blog" className="btn-orange">
+              Show all posts <i className="bi bi-list-columns-reverse ps-1"></i>
             </Link>
           </div>
         </section>

@@ -45,7 +45,7 @@ const BackToTop = () => {
   return (
     <ButtonWrapper
       id="pageUpBtn"
-      className="btn-rainbow-round shadow d-flex align-items-center justify-content-center"
+      className="bg-orange shadow d-flex align-items-center justify-content-center"
       onClick={goUp}
       onMouseEnter={() =>
         (document.documentElement.style.scrollBehavior = "smooth")

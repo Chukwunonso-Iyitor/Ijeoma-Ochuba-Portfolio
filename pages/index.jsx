@@ -103,10 +103,10 @@ export default function Home({ home, settings, articles, blogs }) {
               <a
                 href={settings.data.resume.url}
                 target="_blank"
-                className="btn-arrow-external d-inline-block px-2"
+                className="btn-orange"
                 rel="noreferrer"
               >
-                Browse Resume
+                Browse Resume <i className="bi bi-arrow-up-right ms-1"></i>
               </a>
             </div>
           </Container>
@@ -152,7 +152,7 @@ export default function Home({ home, settings, articles, blogs }) {
               ))}
             </div>
             <div className="mt-5 d-flex justify-content-center">
-              <Link href="/projects" className="btn-rainbow">
+              <Link href="/projects" className="btn-orange">
                 View all projects <i className="bi bi-arrow-right ms-1"></i>
               </Link>
             </div>

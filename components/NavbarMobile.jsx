@@ -107,7 +107,7 @@ const NavbarMobile = ({ settings, className }) => {
                   href={settings.data.resume.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-rainbow-sm d-inline-block mx-2"
+                  className="btn-orange-sm d-inline-block mx-2"
                 >
                   Resumé
                 </a>

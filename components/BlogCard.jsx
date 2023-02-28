@@ -11,7 +11,7 @@ const Card = styled.div`
     background-size: 120%;
     background-position: center center;
     border-radius: 12px;
-    transition: 0.6s ease;
+    transition: 0.4s ease;
   }
   .divider {
     height: 1px;
@@ -24,11 +24,11 @@ const Card = styled.div`
     right: 0px;
     font-size: 20px;
     vertical-align: middle;
-    transition: 0.6s ease;
+    transition: 0.4s ease;
   }
   &:hover {
     .cover {
-      background-size: 140%;
+      background-size: 130%;
     }
     .bi-arrow-right {
       right: -10px;
@@ -101,7 +101,7 @@ const BlogCard = ({ title, image, slug, category, duration, published }) => {
                     e.preventDefault();
                     router.push(
                       "/blog/category",
-                      `/blog/category?=${category}`
+                      `/blog/category?q=${category}`
                     );
                   }}
                 >
