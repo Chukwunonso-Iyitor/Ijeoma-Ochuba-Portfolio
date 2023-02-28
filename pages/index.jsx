@@ -199,7 +199,7 @@ export default function Home({ home, settings, articles, blogs }) {
                         <BlogCard
                           title={blog.data.title}
                           slug={blog.uid}
-                          published={blog.last_publication_date}
+                          published={blog.first_publication_date}
                           image={blog.data.cover_image.url}
                           category={blog.data.category}
                           duration={blog.data.read_duration}
@@ -224,7 +224,7 @@ export const getStaticProps = async ({ previewData }) => {
   const home = await client.getSingle("homepage");
   const settings = await client.getSingle("settings");
   const articles = await client.getAllByType("article");
-  const blogs = await client.getAllByType("blog");
+  const blogs = await (await client.getAllByType("blog"));
 
   return {
     props: {

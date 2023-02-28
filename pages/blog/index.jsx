@@ -32,7 +32,7 @@ export default function Blog({ settings, blogs }) {
           </div>
           <Container className="mt-5 px-xl-5">
             <Row className="row-cols-1 row-cols-lg-2 px-xl-5 mx-xl-5">
-              {blogs.reverse().map((blog, index) => (
+              {blogs.map((blog, index) => (
                 <Col
                   md={10}
                   lg={6}
@@ -46,7 +46,7 @@ export default function Blog({ settings, blogs }) {
                   <BlogCard
                     title={blog.data.title}
                     slug={blog.uid}
-                    published={blog.last_publication_date}
+                    published={blog.first_publication_date}
                     image={blog.data.cover_image.url}
                     category={blog.data.category}
                     duration={blog.data.read_duration}
@@ -64,7 +64,7 @@ export default function Blog({ settings, blogs }) {
 export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const settings = await client.getSingle("settings");
-  const blogs = await client.getAllByType("blog");
+  const blogs = await (await client.getAllByType("blog")).reverse();
 
   return {
     props: {
