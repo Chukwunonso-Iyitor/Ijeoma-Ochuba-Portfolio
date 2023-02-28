@@ -19,6 +19,9 @@ const Card = styled.div`
     border-radius: 6px;
     vertical-align: middle;
   }
+  h3 {
+    font-size: 22px;
+  }
   .bi-arrow-right {
     position: relative;
     right: 0px;
@@ -115,7 +118,7 @@ const BlogCard = ({ title, image, slug, category, duration, published }) => {
               </h6>
             </Col>
           </Row>
-          <h4 className="h4 mb-2">{title}</h4>
+          <h3 className="h3 mb-2">{title}</h3>
           <Row className="align-items-center mb-4">
             <Col>
               <h6 className="mb-0">

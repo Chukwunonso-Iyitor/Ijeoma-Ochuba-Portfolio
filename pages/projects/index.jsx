@@ -43,7 +43,7 @@ export default function Blog({ settings, articles }) {
 
           {/* Case study cards */}
           <CaseStudiesWrapper>
-            <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto py-5">
+            <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto">
               {articles.map((article) => (
                 <div
                   className="col px-sm-4"
