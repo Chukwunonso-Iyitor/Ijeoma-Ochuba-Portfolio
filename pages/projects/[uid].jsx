@@ -104,7 +104,7 @@ export default function Article({ article, settings, related }) {
         </Banner>
 
         {/* Top Panel  */}
-        <TopBar className="py-5 bg-lightbeige">
+        <TopBar className="py-5">
           <div className="container">
             <div className="row">
               <div className="col-12 col-sm-2 mb-5">
@@ -154,9 +154,9 @@ export default function Article({ article, settings, related }) {
           </div>
         </TopBar>
 
-        {/* <div className="container px-3">
+        <div className="container px-3">
           <hr />
-        </div> */}
+        </div>
 
         <section className="container row mx-auto">
           {/* Article content  */}
@@ -165,9 +165,10 @@ export default function Article({ article, settings, related }) {
           </Content>
         </section>
 
-        <section className="py-5 bg-lightbeige">
+        <section className="py-5">
           <div className="container">
-            <div className="row justify-content-lg-end">
+            <hr />
+            <div className="row justify-content-lg-end mt-4">
               <div className="col-12">
                 <h5 className="text-grey text-uppercase ">
                   See more of my work:

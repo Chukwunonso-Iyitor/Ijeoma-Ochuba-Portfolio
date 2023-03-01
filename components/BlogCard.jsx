@@ -31,7 +31,7 @@ const Card = styled.div`
   }
   &:hover {
     .cover {
-      background-size: 130%;
+      background-size: 125%;
     }
     .bi-arrow-right {
       right: -10px;

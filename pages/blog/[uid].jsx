@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import BlogCard from "../../components/BlogCard";
 import { Row, Col, Container } from "react-bootstrap";
 import { useRouter } from "next/router";
 
@@ -22,24 +23,23 @@ const Content = styled.article`
 `;
 
 const Banner = styled.section`
-  position: relative;
-  height: 420px;
-  overflow-x: hidden;
-  background-color: #814c2728;
-  .bg-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    .cover-img {
-      height: 100%;
-      background-size: cover;
-      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+  .excerpt {
+    font-weight: 400;
+    p {
+      font-size: 20px;
     }
   }
-  .info-layer {
-    min-height: 380px;
+  h6 {
+    .divider {
+      height: 1px;
+      width: 40px;
+      border-radius: 6px;
+      vertical-align: middle;
+    }
+  }
+  .cover-img {
+    background-size: cover;
+    height: 460px;
   }
 `;
 
@@ -94,83 +94,90 @@ export default function Article({ blog, settings, related }) {
         <title>{`Portfolio | Blog | ${blog.data.title}`}</title>
       </Head>
       <Layout settings={settings}>
-        <Banner className="container-fluid">
-          <Row className="align-items-center bg-layer">
-            <Col></Col>
-            <Col
-              className="cover-img"
-              style={{
-                backgroundImage: `url('${blog.data.cover_image.url}')`,
-              }}
-            ></Col>
-          </Row>
-          <Container>
-            <Row className="align-items-center info-layer">
-              <Col>
+
+        <Banner>
+          <Container className="py-5">
+            <div className="text-center">
+              <h6 className="text-grey">
+                <span
+                  className="link-orange"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push(
+                      "/blog/category",
+                      `/blog/category?q=${blog.data.category}`
+                    );
+                  }}
+                >
+                  {blog.data.category}
+                </span>
+                <span className="divider bg-black d-inline-block mx-3"></span>
                 <span>
                   {month}{" "}
                   {prismicH.asDate(blog.first_publication_date).getDate()},{" "}
                   {prismicH.asDate(blog.first_publication_date).getFullYear()}
                 </span>
-                <span className="mx-3">
-                  <i className="bi bi-dash-lg"></i>
-                </span>
-                <span className="d-inline-block">
-                  <i className="bi bi-clock-fill me-1"></i>{" "}
-                  {blog.data.read_duration}{" "}
-                  {blog.data.read_duration > 1 ? "mins" : "min"}
-                </span>
-                <h1 className="h1 mt-2 mb-4">{blog.data.title}</h1>
-                <span className="h4" onClick={toArticle}>
-                  <i className="bi bi-arrow-down"></i>
-                </span>
-              </Col>
-              <Col></Col>
-            </Row>
+              </h6>
+              <h1 className="h1 mt-3 mb-4">{blog.data.title}</h1>
+              <div className="text-grey excerpt">
+                <PrismicRichText field={blog.data.excerpt} />
+              </div>
+            </div>
+            <div className="mt-5 px-xl-5 mx-xl-5">
+              <div
+                className="cover-img rounded-5"
+                style={{
+                  backgroundImage: `url('${blog.data.cover_image.url}')`,
+                }}
+              ></div>
+            </div>
           </Container>
         </Banner>
 
+        {/* Article content  */}
         <section id="blog-article" className="container row mx-auto">
-          {/* Article content  */}
           <Content className="col pt-5">
             <SliceZone slices={blog.data.slices} components={components} />
           </Content>
         </section>
 
-        <section className="py-5 bg-lightbeige">
-          <div className="container">
-            <div className="row justify-content-lg-end">
-              <div className="col-12">
-                <h5 className="text-grey text-uppercase ">
-                  See more of my work:
-                </h5>
+        {/* Related Content  */}
+        <section className="pb-5">
+          <Container>
+            <div className="px-xl-5 mx-xl-5">
+              <div className="px-3">
+                <hr />
+                <h4 className="text-grey text-uppercase my-5 h4">
+                  Related Posts:
+                </h4>
+              </div>
 
-                {/* Related Content  */}
+              <div className="row row-cols-1 row-cols-lg-2 mt-4">
+                {related.map((blog) => (
+                  <div
+                    className="col pb-4 ps-4 pe-4 pe-lg-5"
+                    key={blog.data.title}
+                  >
+                    <BlogCard
+                      title={blog.data.title}
+                      slug={blog.uid}
+                      published={blog.first_publication_date}
+                      image={blog.data.cover_image.url}
+                      category={blog.data.category}
+                      duration={blog.data.read_duration}
+                    />
+                  </div>
+                ))}
+              </div>
 
-                {/* <div className="row row-cols-1 row-cols-lg-2 mt-4 mb-3">
-                  {related.map((article) => (
-                    <div
-                      className="col pb-4 ps-4 pe-4 pe-lg-5"
-                      key={article.data.title}
-                    >
-                      <RelatedCaseStudyCard
-                        title={article.data.title}
-                        slug={article.uid}
-                        image={article.data.featured_image.url}
-                      />
-                    </div>
-                  ))}
-                </div> */}
-
-                {/* CTA  */}
-                <div className="mt-5 d-flex justify-content-center">
-                  <Link href={`/contact`} className="btn-orange">
-                    Hire me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
-                  </Link>
-                </div>
+              {/* CTA  */}
+              <div className="mt-3 d-flex justify-content-center">
+                <Link href={`/contact`} className="btn-orange">
+                  Hire me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
+                </Link>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* <pre>{JSON.stringify(blog, null, 2)}</pre> */}

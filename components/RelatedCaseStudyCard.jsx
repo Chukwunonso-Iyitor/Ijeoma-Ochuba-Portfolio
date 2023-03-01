@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 const RelatedCard = styled.div`
-  height: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 180px;
   transition: 0.6s ease;
   .featured-img {
     background-size: 120%;
@@ -37,14 +39,14 @@ const RelatedCaseStudyCard = ({ title, image, slug }) => {
         (document.documentElement.style.scrollBehavior = "auto")
       }
     >
-      <RelatedCard className="row">
+      <RelatedCard className="row bg-lightgrey">
         <div
-          className="col-4 py-4 featured-img"
+          className="col-5 py-4 featured-img"
           style={{
             backgroundImage: `url('${image}')`,
           }}
         ></div>
-        <div className="col bg-white d-flex align-items-center px-4">
+        <div className="col d-flex align-items-center px-4">
           <h6 className="text-black mb-0">
             {title} <i className="bi bi-arrow-right ms-2"></i>
           </h6>
