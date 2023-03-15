@@ -280,6 +280,28 @@ export type BlogDocument<Lang extends string = string> = prismicT.PrismicDocumen
 /** Content for Homepage documents */
 interface HomepageDocumentData {
     /**
+     * Name field in *Homepage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    name: prismicT.KeyTextField;
+    /**
+     * Position field in *Homepage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.position
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    position: prismicT.KeyTextField;
+    /**
      * Hero Intro field in *Homepage*
      *
      * - **Field Type**: Rich Text

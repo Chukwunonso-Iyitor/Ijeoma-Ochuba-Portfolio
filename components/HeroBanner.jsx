@@ -56,7 +56,7 @@ const HeroBanner = ({ home }) => {
               data-aos-duration="1000"
               data-aos-delay="100"
             >
-              Ijeoma Ochuba
+              {home.data.name}
             </h2>
             <h1
               className="h1 mb-4"
@@ -65,7 +65,7 @@ const HeroBanner = ({ home }) => {
               data-aos-duration="1000"
               data-aos-delay="100"
             >
-              UX Researcher &amp; <span className="text-span">Designer</span>
+              {home.data.position}
             </h1>
             <div
               className="text-grey mt-2"
