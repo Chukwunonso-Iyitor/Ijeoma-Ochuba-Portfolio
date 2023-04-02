@@ -85,7 +85,12 @@ export default function Blog({ settings, articles }) {
 
 export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
-  const articles = await client.getAllByType("article");
+  const articles = await client.getAllByType("article", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+  });
   const settings = await client.getSingle("settings");
 
   return {

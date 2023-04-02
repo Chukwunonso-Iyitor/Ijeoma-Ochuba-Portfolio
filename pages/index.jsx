@@ -59,11 +59,58 @@ export default function Home({ home, settings, articles, blogs }) {
       <Layout settings={settings}>
         <HeroBanner home={home} />
 
-        <section className="pt-5">
+        <CaseStudiesWrapper id="projects" className="pb-5">
+          <div className="container">
+            <SectionTitle
+              title="My"
+              span="Projects"
+              className="text-center"
+            ></SectionTitle>
+            <div
+              className="mt-5 text-center"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <PrismicRichText field={home.data.case_study_intro} />
+            </div>
+
+            {/* Case study cards */}
+            <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto">
+              {articles.map((article) => (
+                <div
+                  className="col px-sm-4"
+                  key={article.data.title}
+                  data-aos="fade-up"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="800"
+                  data-aos-delay="100"
+                >
+                  {article.data.display_on_homepage && (
+                    <CaseStudyCard
+                      title={article.data.title}
+                      slug={article.uid}
+                      image={article.data.featured_image.url}
+                      tags={article.data.category}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 d-flex justify-content-center">
+              <Link href="/projects" className="btn-orange">
+                View all projects <i className="bi bi-arrow-right ms-1"></i>
+              </Link>
+            </div>
+          </div>
+        </CaseStudiesWrapper>
+
+        <section className="py-5 mb-5">
           <Container>
             <SectionTitle
               title="My"
-              span="Services"
+              span="Skills"
               className="text-center"
             ></SectionTitle>
             <Services className="services mt-5">
@@ -112,55 +159,8 @@ export default function Home({ home, settings, articles, blogs }) {
           </Container>
         </section>
 
-        <CaseStudiesWrapper id="projects" className="pb-5">
-          <div className="container">
-            <SectionTitle
-              title="My"
-              span="Projects"
-              className="text-center"
-            ></SectionTitle>
-            <div
-              className="mt-5 text-center"
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="800"
-              data-aos-delay="100"
-            >
-              <PrismicRichText field={home.data.case_study_intro} />
-            </div>
-
-            {/* Case study cards */}
-            <div className="cards-wrapper row row-cols-1 row-cols-lg-2 my-sm-5 col-xl-10 mx-auto">
-              {articles.map((article) => (
-                <div
-                  className="col px-sm-4"
-                  key={article.data.title}
-                  data-aos="fade-up"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="800"
-                  data-aos-delay="100"
-                >
-                  {article.data.display_on_homepage && (
-                    <CaseStudyCard
-                      title={article.data.title}
-                      slug={article.uid}
-                      image={article.data.featured_image.url}
-                      tags={article.data.category}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-5 d-flex justify-content-center">
-              <Link href="/projects" className="btn-orange">
-                View all projects <i className="bi bi-arrow-right ms-1"></i>
-              </Link>
-            </div>
-          </div>
-        </CaseStudiesWrapper>
-
         {/* Blogs  */}
-        <section className="py-5 ">
+        {/* <section className="py-5 ">
           <Container>
             <Row>
               <Col xl={3}>
@@ -211,7 +211,7 @@ export default function Home({ home, settings, articles, blogs }) {
               </Col>
             </Row>
           </Container>
-        </section>
+        </section> */}
 
         {/* <pre>{JSON.stringify(blogs, null, 2)}</pre> */}
       </Layout>
@@ -223,8 +223,13 @@ export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const home = await client.getSingle("homepage");
   const settings = await client.getSingle("settings");
-  const articles = await client.getAllByType("article");
-  const blogs = await (await client.getAllByType("blog"));
+  const articles = await client.getAllByType("article", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+  });
+  const blogs = await await client.getAllByType("blog");
 
   return {
     props: {

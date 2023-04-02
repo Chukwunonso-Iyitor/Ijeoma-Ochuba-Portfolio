@@ -6,6 +6,7 @@ const RelatedCard = styled.div`
   border-radius: 6px;
   overflow: hidden;
   height: 180px;
+  border: 1px solid lightgrey;
   transition: 0.6s ease;
   .featured-img {
     background-size: 120%;
@@ -39,9 +40,9 @@ const RelatedCaseStudyCard = ({ title, image, slug }) => {
         (document.documentElement.style.scrollBehavior = "auto")
       }
     >
-      <RelatedCard className="row bg-lightgrey">
+      <RelatedCard className="row">
         <div
-          className="col-5 py-4 featured-img"
+          className="col-5 py-4 featured-img bg-lightgrey"
           style={{
             backgroundImage: `url('${image}')`,
           }}
