@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import Image from "next/image";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicRichText, PrismicImage } from "@prismicio/react";
 
 const Hero = styled.section`
   &.hero-banner {
@@ -24,6 +23,9 @@ const Hero = styled.section`
   }
 
   @media (max-width: 1200px) {
+    &.hero-banner{
+      height: max-content;
+    }
     .hero-image {
       width: 100%;
       height: auto;
@@ -96,22 +98,16 @@ const HeroBanner = ({ home }) => {
             </div>
           </div>
           <div className="col d-flex justify-content-center my-5 my-lg-0">
-            <Image
-              src="/images/ux-hero.svg"
-              alt="UX design models"
-              width={600}
-              height={400}
+            <PrismicImage
+              field={home.data.hero_image}
               className="hero-image d-none d-lg-block"
               data-aos="fade-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               data-aos-delay="400"
             />
-            <Image
-              src="/images/ux-hero.svg"
-              alt="UX design models"
-              width={600}
-              height={400}
+            <PrismicImage
+              field={home.data.hero_image}
               className="hero-image d-block d-lg-none"
             />
           </div>

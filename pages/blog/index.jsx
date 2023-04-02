@@ -6,7 +6,7 @@ import BlogCard from "../../components/BlogCard";
 
 import { createClient } from "../../prismicio";
 
-export default function Blog({ settings, blogs }) {
+export default function Blog({ settings, blog, blogs }) {
   return (
     <>
       <Head>
@@ -27,7 +27,7 @@ export default function Blog({ settings, blogs }) {
               data-aos-duration="800"
               data-aos-delay="100"
             >
-              Fresh Articles on UX Design, User Research and Design Thinking.
+              {blog.data.introduction}
             </h3>
           </div>
           <Container className="mt-5 px-xl-5">
@@ -63,12 +63,14 @@ export default function Blog({ settings, blogs }) {
 
 export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
+  const blog = await client.getSingle("blog_page");
   const settings = await client.getSingle("settings");
   const blogs = await (await client.getAllByType("blog")).reverse();
 
   return {
     props: {
       settings,
+      blog,
       blogs,
     },
   };

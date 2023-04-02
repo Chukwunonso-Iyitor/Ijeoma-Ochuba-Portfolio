@@ -1,0 +1,17 @@
+{
+  "id": "blog_page",
+  "label": "Blog Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "introduction": {
+        "type": "Text",
+        "config": {
+          "label": "Introduction",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

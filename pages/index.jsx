@@ -213,7 +213,7 @@ export default function Home({ home, settings, articles, blogs }) {
           </Container>
         </section> */}
 
-        {/* <pre>{JSON.stringify(blogs, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
       </Layout>
     </>
   );

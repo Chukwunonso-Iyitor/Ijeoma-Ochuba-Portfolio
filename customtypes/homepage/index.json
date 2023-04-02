@@ -28,6 +28,14 @@
           "multi": "paragraph"
         }
       },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hero Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "case_study_intro": {
         "type": "StructuredText",
         "config": {

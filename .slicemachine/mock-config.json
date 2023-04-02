@@ -38,7 +38,8 @@
       }
     },
     "navigation": {},
-    "blog": {}
+    "blog": {},
+    "blog_page": {}
   },
   "slices": {
     "TextBlock": {
