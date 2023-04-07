@@ -29,6 +29,8 @@ const Layout = ({ children, settings }) => {
       <Head>
         <meta name="description" content="Ijeoma Ochuba - Portfolio" />
         <meta name="theme-color" content="#6b737a" />
+        <meta property="og:title" content="Ijeoma Ochuba - UX Researcher" />
+        <meta property="og:image" content="/ux-folio-og.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
