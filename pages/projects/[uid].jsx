@@ -194,7 +194,7 @@ export default function Article({ article, settings, related }) {
                 {/* CTA  */}
                 <div className="mt-5 d-flex justify-content-center">
                   <Link href={`/contact`} className="btn-orange">
-                    Hire me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
+                    Contact me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
                   </Link>
                 </div>
               </div>
