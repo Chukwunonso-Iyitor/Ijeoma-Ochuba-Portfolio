@@ -7,18 +7,27 @@
   &-grey {
     color: $mygrey;
   }
+
   &-lightgrey {
     color: $mylightgrey;
   }
+
   &-black {
     color: $myblack;
   }
+
   &-orange {
     color: $myorange !important;
   }
+
+  &-darkorange {
+    color: $mydarkorange;
+  }
+
   &-script {
     font-family: "Dancing Script", cursive;
   }
+
   &-span {
     background-image: url("/images/underline.svg");
     background-position: 50% 100%;
@@ -33,32 +42,40 @@
   text-decoration: none;
   cursor: pointer;
   transition: 0.2s ease;
+
   &-orange {
     @extend .link;
     color: inherit;
+
     &:hover {
       color: $myorange;
     }
   }
 }
+
 /* Background Colour
 --------------------------------*/
 .bg {
   &-grey {
     background-color: $mygrey;
   }
+
   &-orange {
     background-color: $myorange;
   }
+
   &-darkorange {
     background-color: $mydarkorange;
   }
+
   &-midgrey {
     background-color: $mymidgrey;
   }
+
   &-lightgrey {
     background-color: $mylightgrey;
   }
+
   &-lightbeige {
     background-color: $mylightbeige;
   }

@@ -111,6 +111,28 @@ interface ArticleDocumentData {
      */
     featured_image: prismicT.ImageField<never>;
     /**
+     * Cover Color field in *Article*
+     *
+     * - **Field Type**: Color
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.cover_color
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/color
+     *
+     */
+    cover_color: prismicT.ColorField;
+    /**
+     * Excerpt field in *Article*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article.excerpt
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    excerpt: prismicT.KeyTextField;
+    /**
      * Role field in *Article*
      *
      * - **Field Type**: Rich Text

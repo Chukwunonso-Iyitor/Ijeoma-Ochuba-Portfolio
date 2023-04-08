@@ -91,8 +91,10 @@ export default function Home({ home, settings, articles, blogs }) {
                     <CaseStudyCard
                       title={article.data.title}
                       slug={article.uid}
-                      image={article.data.featured_image.url}
+                      image={article.data.featured_image}
+                      color={article.data.cover_color}
                       tags={article.data.category}
+                      excerpt={article.data.excerpt}
                     />
                   )}
                 </div>
@@ -213,7 +215,9 @@ export default function Home({ home, settings, articles, blogs }) {
           </Container>
         </section> */}
 
-        {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
+        {/* <Container>
+          <pre>{JSON.stringify(articles, null, 2)}</pre>
+        </Container> */}
       </Layout>
     </>
   );

@@ -45,6 +45,20 @@
           "thumbnails": []
         }
       },
+      "cover_color": {
+        "type": "Color",
+        "config": {
+          "label": "Cover Color",
+          "placeholder": ""
+        }
+      },
+      "excerpt": {
+        "type": "Text",
+        "config": {
+          "label": "Excerpt",
+          "placeholder": ""
+        }
+      },
       "role": {
         "type": "StructuredText",
         "config": {
