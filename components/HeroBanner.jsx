@@ -93,7 +93,7 @@ const HeroBanner = ({ home }) => {
                 Contact me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
               </Link>
               <button type="button" className="btn-arrow" onClick={projects}>
-                See Projects
+                View Projects
               </button>
             </div>
           </div>
