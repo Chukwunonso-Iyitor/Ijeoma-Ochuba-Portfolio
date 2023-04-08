@@ -9,8 +9,9 @@ const Card = styled.div`
     position: relative;
     .featured-img {
       position: absolute;
-      width: 80%;
+      width: 100%;
       height: auto;
+      object-fit: cover;
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;

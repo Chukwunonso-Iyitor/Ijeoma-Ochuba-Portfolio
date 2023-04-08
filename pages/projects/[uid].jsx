@@ -47,7 +47,7 @@ const Banner = styled.section`
   .overlay {
     width: 100%;
     height: 100%;
-    backdrop-filter: brightness(0.3) saturate(0.6);
+    backdrop-filter: brightness(0.3) saturate(0.7);
     background-image: url("/images/mesh.svg");
     background-size: contain;
     background-repeat: repeat;
@@ -87,6 +87,7 @@ export default function Article({ article, settings, related }) {
           className="bg-grey"
           style={{
             backgroundImage: `url('${article.data.featured_image.url}')`,
+            backgroundColor: article.data.cover_color,
           }}
         >
           <div className="overlay d-flex justify-content-center align-items-center text-white">
@@ -194,7 +195,8 @@ export default function Article({ article, settings, related }) {
                 {/* CTA  */}
                 <div className="mt-5 d-flex justify-content-center">
                   <Link href={`/contact`} className="btn-orange">
-                    Contact me <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
+                    Contact me{" "}
+                    <i className="bi bi-hand-thumbs-up-fill ms-1"></i>
                   </Link>
                 </div>
               </div>
@@ -202,7 +204,7 @@ export default function Article({ article, settings, related }) {
           </div>
         </section>
 
-        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
+        <pre>{JSON.stringify(article, null, 2)}</pre>
       </Layout>
     </>
   );

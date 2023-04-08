@@ -56,8 +56,10 @@ export default function Blog({ settings, articles }) {
                   <CaseStudyCard
                     title={article.data.title}
                     slug={article.uid}
-                    image={article.data.featured_image.url}
+                    image={article.data.featured_image}
+                    color={article.data.cover_color}
                     tags={article.data.category}
+                    excerpt={article.data.excerpt}
                   />
                 </div>
               ))}
