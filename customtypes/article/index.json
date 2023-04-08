@@ -71,7 +71,7 @@
       "deliverables": {
         "type": "Text",
         "config": {
-          "label": "Deliverables",
+          "label": "Team",
           "placeholder": ""
         }
       },

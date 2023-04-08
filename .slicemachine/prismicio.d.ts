@@ -144,7 +144,7 @@ interface ArticleDocumentData {
      */
     role: prismicT.RichTextField;
     /**
-     * Deliverables field in *Article*
+     * Team field in *Article*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
