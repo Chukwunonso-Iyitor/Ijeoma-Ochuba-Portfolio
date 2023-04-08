@@ -72,8 +72,8 @@ export default function Article({ article, settings, related }) {
         >
           <Container>
             <Row className="content align-items-center text-white">
-              <Col xl={8}>
-                <h1 className="h1 mb-3">{article.data.title}</h1>
+              <Col xs={12} lg={6} xl={7}>
+                <h1 className="h1 mb-3 mt-5 mt-lg-0">{article.data.title}</h1>
                 <span className="category-tags">
                   <ul>
                     {article.data.category.map((tag, index) => (

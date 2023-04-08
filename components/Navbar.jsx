@@ -46,7 +46,7 @@ const Navbar = ({ settings }) => {
         {" "}
         <div className="row justify-content-between align-items-center">
           {/* Logo  */}
-          <div className="col profile-logo ">
+          <div className="col-3 profile-logo ">
             <Link
               href="/"
               className="d-flex align-items-center text-decoration-none"
@@ -64,7 +64,7 @@ const Navbar = ({ settings }) => {
           </div>
 
           {/* Routes  */}
-          <div className="col-6">
+          <div className="col-7 col-xl-6">
             <ul className="mb-0 d-flex justify-content-center">
               {navdata.map(({ page, path }, index) => (
                 <li

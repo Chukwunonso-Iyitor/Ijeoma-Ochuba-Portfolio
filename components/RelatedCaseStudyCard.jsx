@@ -8,7 +8,7 @@ const RelatedCard = styled.div`
   height: 180px;
   transition: 0.6s ease;
   .featured-img {
-    background-size: 125%;
+    background-size: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     transition: inherit;
@@ -21,7 +21,7 @@ const RelatedCard = styled.div`
   }
   &:hover {
     .featured-img {
-      background-size: 120%;
+      background-size: 105%;
     }
     h6 {
       i {
