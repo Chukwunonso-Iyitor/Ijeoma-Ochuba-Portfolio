@@ -52,35 +52,7 @@ const Banner = styled.section`
       height: auto;
       object-fit: cover;
     }
-  }
-  /* .overlay {
-    width: 100%;
-    height: 100%;
-    backdrop-filter: brightness(0.3) saturate(0.7);
-    background-image: url("/images/mesh.svg");
-    background-size: contain;
-    background-repeat: repeat;
-    .category-tags {
-      ul {
-        padding-left: 0px;
-        li {
-          display: inline-block;
-          list-style-type: none;
-          margin-left: 0.5rem;
-          &:first-of-type {
-            margin-left: 0rem;
-            &::before {
-              content: "";
-            }
-          }
-          &::before {
-            content: "- ";
-            margin-right: 0.25rem;
-          }
-        }
-      }
-    }
-  } */
+  } 
 `;
 
 export default function Article({ article, settings, related }) {
@@ -95,7 +67,6 @@ export default function Article({ article, settings, related }) {
         <Banner
           className="bg-grey"
           style={{
-            // backgroundImage: `url('${article.data.featured_image.url}')`,
             backgroundColor: article.data.cover_color,
           }}
         >
@@ -119,18 +90,6 @@ export default function Article({ article, settings, related }) {
               </Col>
             </Row>
           </Container>
-          {/* <div className="overlay d-flex justify-content-center align-items-center text-white">
-            <div className="text-center">
-              <h1 className="h1 mb-5">{article.data.title}</h1>
-              <span className="category-tags">
-                <ul>
-                  {article.data.category.map((tag, index) => (
-                    <li key={index}>{tag.text}</li>
-                  ))}
-                </ul>
-              </span>
-            </div>
-          </div> */}
         </Banner>
 
         {/* Top Panel  */}
@@ -150,7 +109,7 @@ export default function Article({ article, settings, related }) {
               <div className="col-12 col-sm project-info">
                 {article.data.role.length > 0 && (
                   <>
-                    <h6>ROLE</h6>
+                    <h6 className="text-darkorange">ROLE</h6>
                     <div className="text-grey">
                       <PrismicRichText field={article.data.role} />
                     </div>
@@ -159,7 +118,7 @@ export default function Article({ article, settings, related }) {
 
                 {article.data.deliverables != null && (
                   <>
-                    <h6>TEAM</h6>
+                    <h6 className="text-darkorange">TEAM</h6>
                     <p className="text-grey">{article.data.deliverables}</p>
                   </>
                 )}
@@ -168,14 +127,14 @@ export default function Article({ article, settings, related }) {
               <div className="col-12 col-sm ps-lg-5 project-info">
                 {article.data.project_duration != null && (
                   <>
-                    <h6>PROJECT DURATION</h6>
+                    <h6 className="text-darkorange">PROJECT DURATION</h6>
                     <p className="text-grey">{article.data.project_duration}</p>
                   </>
                 )}
 
                 {article.data.design_tools != null && (
                   <>
-                    <h6>TOOLS</h6>
+                    <h6 className="text-darkorange">TOOLS</h6>
                     <p className="text-grey">{article.data.design_tools}</p>
                   </>
                 )}
@@ -195,10 +154,10 @@ export default function Article({ article, settings, related }) {
           </Content>
         </section>
 
-        <section className="py-5">
+        <section className="py-5 bg-lightgrey">
           <div className="container">
-            <hr />
-            <div className="row justify-content-lg-end mt-4">
+            {/* <hr /> */}
+            <div className="row justify-content-lg-end">
               <div className="col-12">
                 <h5 className="text-grey text-uppercase ">
                   See more of my work:

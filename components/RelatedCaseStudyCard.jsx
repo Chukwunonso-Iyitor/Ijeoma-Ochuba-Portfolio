@@ -6,7 +6,6 @@ const RelatedCard = styled.div`
   border-radius: 6px;
   overflow: hidden;
   height: 180px;
-  border: 1px solid lightgrey;
   transition: 0.6s ease;
   .featured-img {
     background-size: 125%;
@@ -49,7 +48,7 @@ const RelatedCaseStudyCard = ({ title, image, slug, color }) => {
             backgroundColor: color,
           }}
         ></div>
-        <div className="col d-flex align-items-center px-4">
+        <div className="col d-flex align-items-center px-4 bg-white">
           <h6 className="text-black mb-0">
             {title} <i className="bi bi-arrow-right ms-2"></i>
           </h6>
