@@ -103,7 +103,7 @@ const CaseStudyCard = ({ title, image, slug, color, tags, excerpt }) => {
         <div className="text-black mt-4">
           <h3 className="h3">{title}</h3>
           <span className="category-tags text-darkorange">
-            <ul>
+            <ul className="mb-1">
               {tags.map((tag, index) => (
                 <li key={index}>{tag.text}</li>
               ))}
@@ -111,7 +111,7 @@ const CaseStudyCard = ({ title, image, slug, color, tags, excerpt }) => {
           </span>
           <p className="excerpt">{excerpt}</p>
         </div>
-        <hr className="text-grey mb-5" />
+        <hr className="text-grey mb-4" />
       </Card>
     </Link>
   );

@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import RelatedCaseStudyCard from "../../components/RelatedCaseStudyCard";
 import { useRouter } from "next/router";
+import { PrismicNextImage } from "@prismicio/next";
+import { Container, Row, Col } from "react-bootstrap";
 
 import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
@@ -42,9 +44,16 @@ const TopBar = styled.section`
   }
 `;
 const Banner = styled.section`
-  height: 380px;
   background-size: cover;
-  .overlay {
+  .content {
+    min-height: 380px;
+    .featured-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  /* .overlay {
     width: 100%;
     height: 100%;
     backdrop-filter: brightness(0.3) saturate(0.7);
@@ -71,7 +80,7 @@ const Banner = styled.section`
         }
       }
     }
-  }
+  } */
 `;
 
 export default function Article({ article, settings, related }) {
@@ -86,11 +95,31 @@ export default function Article({ article, settings, related }) {
         <Banner
           className="bg-grey"
           style={{
-            backgroundImage: `url('${article.data.featured_image.url}')`,
+            // backgroundImage: `url('${article.data.featured_image.url}')`,
             backgroundColor: article.data.cover_color,
           }}
         >
-          <div className="overlay d-flex justify-content-center align-items-center text-white">
+          <Container>
+            <Row className="content align-items-center text-white">
+              <Col xl={8}>
+                <h1 className="h1 mb-3">{article.data.title}</h1>
+                <span className="category-tags">
+                  <ul>
+                    {article.data.category.map((tag, index) => (
+                      <li key={index}>{tag.text}</li>
+                    ))}
+                  </ul>
+                </span>
+              </Col>
+              <Col>
+                <PrismicNextImage
+                  field={article.data.featured_image}
+                  className="featured-img d-block mx-auto"
+                />
+              </Col>
+            </Row>
+          </Container>
+          {/* <div className="overlay d-flex justify-content-center align-items-center text-white">
             <div className="text-center">
               <h1 className="h1 mb-5">{article.data.title}</h1>
               <span className="category-tags">
@@ -101,7 +130,7 @@ export default function Article({ article, settings, related }) {
                 </ul>
               </span>
             </div>
-          </div>
+          </div> */}
         </Banner>
 
         {/* Top Panel  */}
@@ -187,6 +216,7 @@ export default function Article({ article, settings, related }) {
                         title={article.data.title}
                         slug={article.uid}
                         image={article.data.featured_image.url}
+                        color={article.data.cover_color}
                       />
                     </div>
                   ))}
@@ -204,7 +234,7 @@ export default function Article({ article, settings, related }) {
           </div>
         </section>
 
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(article, null, 2)}</pre> */}
       </Layout>
     </>
   );

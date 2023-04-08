@@ -9,8 +9,9 @@ const RelatedCard = styled.div`
   border: 1px solid lightgrey;
   transition: 0.6s ease;
   .featured-img {
-    background-size: 120%;
+    background-size: 125%;
     background-position: center center;
+    background-repeat: no-repeat;
     transition: inherit;
   }
   h6 {
@@ -21,7 +22,7 @@ const RelatedCard = styled.div`
   }
   &:hover {
     .featured-img {
-      background-size: 150%;
+      background-size: 120%;
     }
     h6 {
       i {
@@ -31,7 +32,7 @@ const RelatedCard = styled.div`
   }
 `;
 
-const RelatedCaseStudyCard = ({ title, image, slug }) => {
+const RelatedCaseStudyCard = ({ title, image, slug, color }) => {
   return (
     <Link
       href={`/projects/${slug}`}
@@ -45,6 +46,7 @@ const RelatedCaseStudyCard = ({ title, image, slug }) => {
           className="col-5 py-4 featured-img bg-lightgrey"
           style={{
             backgroundImage: `url('${image}')`,
+            backgroundColor: color,
           }}
         ></div>
         <div className="col d-flex align-items-center px-4">
