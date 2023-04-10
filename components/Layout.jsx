@@ -12,10 +12,10 @@ const Main = styled.main`
   min-height: 90vh;
   margin-top: 73px;
   scroll-behavior: auto;
-  @media (max-width: 991px){
+  @media (max-width: 991px) {
     margin-top: 46px;
   }
-  @media (max-height: 576px){
+  @media (max-height: 576px) {
     margin-top: 47px;
   }
 `;
@@ -27,9 +27,14 @@ const Layout = ({ children, settings }) => {
   return (
     <>
       <Head>
-        <meta name="description" content="Ijeoma Ochuba - Portfolio" />
+        <meta
+          name="description"
+          content="A goal-oriented User Experience Researcher and Accessibility Advocate,
+        uncovering user needs, communicating actionable insights that inform
+        design decisions and boost business growth."
+        />
         <meta name="theme-color" content="#6b737a" />
-        <meta property="og:title" content="Ijeoma Ochuba - UX Researcher" />
+        <meta property="og:title" content="Ijeoma Ochuba | UX Portfolio" />
         <meta property="og:image" content="/ux-folio-og.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
