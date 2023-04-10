@@ -65,7 +65,12 @@ export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const blog = await client.getSingle("blog_page");
   const settings = await client.getSingle("settings");
-  const blogs = await (await client.getAllByType("blog")).reverse();
+  const blogs = await client.getAllByType("blog", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+  });
 
   return {
     props: {
