@@ -7,15 +7,9 @@ const Card = styled.div`
   .img-layer {
     height: 420px;
     position: relative;
-    .featured-img {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%;
-    }
+    background-position: center center;
+    background-size: 90%;
+    background-repeat: no-repeat;
 
     .layer-overlay {
       background-color: #ffffffdd;
@@ -61,6 +55,13 @@ const Card = styled.div`
   }
   .excerpt {
     font-size: 14px;
+    max-height: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   &:hover {
     .img-layer {
@@ -89,11 +90,10 @@ const CaseStudyCard = ({ title, image, slug, color, tags, excerpt }) => {
         <div
           className="img-layer"
           style={{
-            // backgroundImage: `url('${image}')`,
+            backgroundImage: `url('${image.url}')`,
             backgroundColor: color,
           }}
         >
-          <PrismicNextImage field={image} className="featured-img" />
           <div className="layer-overlay d-flex justify-content-center align-items-center">
             <h6 className="overlay-text text-grey border-grey rounded-pill py-3 px-4">
               View Project
@@ -111,7 +111,7 @@ const CaseStudyCard = ({ title, image, slug, color, tags, excerpt }) => {
           </span>
           <p className="excerpt">{excerpt}</p>
         </div>
-        <hr className="text-grey mb-4" />
+        <hr className="text-grey mb-3" />
       </Card>
     </Link>
   );

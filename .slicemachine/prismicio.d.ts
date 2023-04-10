@@ -122,7 +122,7 @@ interface ArticleDocumentData {
      */
     cover_color: prismicT.ColorField;
     /**
-     * Excerpt field in *Article*
+     * Goal field in *Article*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*

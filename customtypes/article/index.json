@@ -55,7 +55,7 @@
       "excerpt": {
         "type": "Text",
         "config": {
-          "label": "Excerpt",
+          "label": "Goal",
           "placeholder": ""
         }
       },

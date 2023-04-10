@@ -52,7 +52,7 @@ const Banner = styled.section`
       height: auto;
       object-fit: cover;
     }
-  } 
+  }
 `;
 
 export default function Article({ article, settings, related }) {
@@ -149,7 +149,11 @@ export default function Article({ article, settings, related }) {
 
         <section className="container row mx-auto">
           {/* Article content  */}
-          <Content className="col pt-5">
+          <Content className="col pt-4">
+            <h2 className="text-darkorange goal">
+              <strong>Goal</strong>
+            </h2>
+            <p className="mb-5">{article.data.excerpt}</p>
             <SliceZone slices={article.data.slices} components={components} />
           </Content>
         </section>
