@@ -41,7 +41,7 @@ export default function Blog({ settings, blogs }) {
           </div>
           <Container className="mt-5 px-xl-5">
             <Row className="row-cols-1 row-cols-lg-2 px-xl-5 mx-xl-5">
-              {filtered.reverse().map((blog, index) => (
+              {filtered.map((blog, index) => (
                 <Col
                   md={10}
                   lg={6}
@@ -64,9 +64,7 @@ export default function Blog({ settings, blogs }) {
               ))}
             </Row>
           </Container>
-          <div
-            className="mt-5 d-flex justify-content-center"
-          >
+          <div className="mt-5 d-flex justify-content-center">
             <Link href="/blog" className="btn-orange">
               Show all posts <i className="bi bi-list-columns-reverse ps-1"></i>
             </Link>
@@ -80,7 +78,12 @@ export default function Blog({ settings, blogs }) {
 export const getStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const settings = await client.getSingle("settings");
-  const blogs = await client.getAllByType("blog");
+  const blogs = await client.getAllByType("blog", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+  });
 
   return {
     props: {
