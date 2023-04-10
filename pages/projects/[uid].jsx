@@ -93,7 +93,7 @@ export default function Article({ article, settings, related }) {
         </Banner>
 
         {/* Top Panel  */}
-        <TopBar className="py-5">
+        <TopBar className="pt-5 pb-4">
           <div className="container">
             <div className="row">
               <div className="col-12 col-sm-2 mb-5">
@@ -150,10 +150,14 @@ export default function Article({ article, settings, related }) {
         <section className="container row mx-auto">
           {/* Article content  */}
           <Content className="col pt-4">
-            <h2 className="text-darkorange goal">
-              <strong>Goal</strong>
-            </h2>
-            <p className="mb-5">{article.data.excerpt}</p>
+            {article.data.excerpt && (
+              <>
+                <h2 className="text-darkorange goal">
+                  <strong>Goal</strong>
+                </h2>
+                <p className="mb-5">{article.data.excerpt}</p>
+              </>
+            )}
             <SliceZone slices={article.data.slices} components={components} />
           </Content>
         </section>
