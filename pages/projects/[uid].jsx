@@ -50,6 +50,7 @@ const Banner = styled.section`
     .featured-img {
       width: 100%;
       height: auto;
+      max-height: 350px;
       object-fit: cover;
     }
   }
